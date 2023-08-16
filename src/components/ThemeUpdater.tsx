@@ -1,5 +1,7 @@
+'use client'
+
 import { FC, useEffect, useState } from "react";
-import { Button, css, MenuItem, Select, Typography } from "@mui/material";
+import { Button, MenuItem, Select, Typography } from "@mui/material";
 import { useTheme } from "next-themes";
 
 const ThemeUpdater: FC<{}> = () => {
@@ -11,13 +13,11 @@ const ThemeUpdater: FC<{}> = () => {
 
   if (!mounted)
     return (
-      <div
-      ></div>
+      <div />
     );
 
   return (
-    <div
-    >
+    <div>
       <Typography variant="h4" gutterBottom>
         Persisted{" "}
         {resolvedTheme !== theme ? `${theme} (${resolvedTheme})` : theme} mode

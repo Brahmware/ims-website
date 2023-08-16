@@ -1,25 +1,23 @@
 import { useTheme } from "next-themes";
-import { GlobalStyles } from "@mui/material";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { darkTheme, globalStyles, lightTheme } from "../../theme";
 import { FC, useEffect, useState } from "react";
+import { themeDark, themeLight } from "@theme/index";
 
 const MUIThemeProvider: FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const { resolvedTheme } = useTheme();
-  const [currentTheme, setCurrentTheme] = useState(darkTheme);
+  const [currentTheme, setCurrentTheme] = useState(themeDark);
 
   useEffect(() => {
     resolvedTheme === "light"
-      ? setCurrentTheme(lightTheme)
-      : setCurrentTheme(darkTheme);
+      ? setCurrentTheme(themeLight)
+      : setCurrentTheme(themeDark);
   }, [resolvedTheme]);
 
   return (
     <ThemeProvider theme={currentTheme}>
       <CssBaseline />
-      <GlobalStyles styles={globalStyles} />
       {children}
     </ThemeProvider>
   );

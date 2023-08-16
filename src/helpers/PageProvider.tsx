@@ -1,8 +1,8 @@
 import { CacheProvider, EmotionCache } from "@emotion/react";
+import createEmotionCache from "@utils/createEmotionCache";
 import { ThemeProvider as PreferredThemeProvider } from "next-themes";
 import Head from "next/head";
 import { FC } from "react";
-import createEmotionCache from "../../theme/createEmotionCache";
 import MUIThemeProvider from "./MuiThemeProvider";
 
 // Client-side cache, shared for the whole session of the user in the browser.
