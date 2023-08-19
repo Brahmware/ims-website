@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { EmotionCache } from "@emotion/react";
 import { AppProps } from "next/app";
-import "@/theme/global.css";
 import PageProvider from "@helpers/PageProvider";
 
 export interface MUIAppProps extends AppProps {
