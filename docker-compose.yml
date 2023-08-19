@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ims_website:latest # Naming the image
+    ports:
+      - '31415:3000'
+    networks:
+      - ims-network
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./logs:/app/logs # Mount a volume for logs
+      - ./data:/app/data # Mount a volume for persistent data
+    container_name: ims_website
+    logging: # Customize logging
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "100"
+    healthcheck: # Define healthcheck
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  ims-network:
+    driver: bridge
+
+volumes:
+  logs:
+    driver: local
+  data: # Persistent data volume
+    driver: local
