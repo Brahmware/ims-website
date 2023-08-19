@@ -5,7 +5,7 @@ import PageProvider from "@helpers/PageProvider";
 
 export interface MUIAppProps extends AppProps {
   emotionCache?: EmotionCache;
-}
+};
 
 const App: FC<MUIAppProps> = ({ Component, pageProps, emotionCache }) => (
   <PageProvider emotionCache={emotionCache}>
