@@ -1,7 +1,7 @@
-import React from 'react'
-import Search from './Search';
+import React from 'react';
 import Hamburger from './Hamburger';
 import Join from './Join';
+import Search from '@components/Search';
 
 const Toolbar = () => {
   return (
@@ -11,6 +11,6 @@ const Toolbar = () => {
       <Hamburger />
     </React.Fragment>
   )
-}
+};
 
-export default Toolbar
+export default Toolbar;

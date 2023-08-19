@@ -1,11 +1,11 @@
 import { UtilityIconProps } from '@interfaces/SVGProps';
+import svgCommonProps from '@utils/svgCommonProps';
 import React from 'react'
 
-const CopyIcon = (props: UtilityIconProps) => {
+const CopyIcon = ({ hovered, ...props }: UtilityIconProps) => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink='http://www.w3.org/1999/xlink'
+      {...svgCommonProps}
       data-name="Copy Icon"
       width="64"
       height="64"

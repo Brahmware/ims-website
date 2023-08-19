@@ -1,13 +1,13 @@
 import { IMSLogoProps } from '@interfaces/SVGProps'
+import { styled } from '@mui/material';
+import svgCommonProps from '@utils/svgCommonProps';
 import React from 'react';
-
-
 
 const IMSLogoFull = (props: IMSLogoProps) => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
+      {...svgCommonProps}
+      data-name='IMS Logo Full'
       height='3786.76'
       width='786.75'
       viewBox="0 0 3786.76 786.75"
@@ -133,6 +133,12 @@ const IMSLogoFull = (props: IMSLogoProps) => {
       </g>
     </svg>
   )
-}
+};
 
-export default IMSLogoFull
+export default styled(IMSLogoFull)(({ theme }) => ({
+  width: '100%',
+  height: '100%',
+  '& .word__mark': {
+    fill: theme.palette.text.primary,
+  },
+}));

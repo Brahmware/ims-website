@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
-import IMSLogoFull from '@icons/logo/IMSLogoFull';
 import { Card, CardProps, styled } from '@mui/material';
 import { navbar } from '@theme/constants';
 import Toolbar from './Toolbar';
 import { useNavigationMenuState } from '@helpers/NavigationMenuStateProvider';
+import LinkHome from './LinkHome';
 
 interface BarProps extends CardProps {
   component?: React.ElementType;
-  menuopen?: "true" | "false" | boolean;
+  open?: boolean;
 }
 
-const Bar = styled(Card)<BarProps>(({ theme, menuopen }) => ({
+const Bar = styled(Card)<BarProps>(({ theme, open }) => ({
   width: '100%',
   borderRadius: 0,
   position: 'sticky',
@@ -24,7 +24,7 @@ const Bar = styled(Card)<BarProps>(({ theme, menuopen }) => ({
     property: 'height',
     duration: 'shorter'
   }]),
-  height: (menuopen === 'true') ? theme.Heights.header.expanded : theme.Heights.header.default,
+  height: open ? theme.Heights.header.expanded : theme.Heights.header.default,
 }));
 
 const BarContent = styled('nav')(({ theme }) => ({
@@ -42,32 +42,19 @@ const BarContent = styled('nav')(({ theme }) => ({
 
 }));
 
-const Logo = styled('a')(({ theme }) => ({
-  height: '100%',
-  width: 'max-content',
-}));
-
-const LogoIcon = styled(IMSLogoFull)(({ theme }) => ({
-  height: '100%',
-  width: '15em',
-  padding: `${theme.Spaces.xs} ${theme.Spaces.sm}`,
-}));
-
 const Navbar: FC = () => {
   return (
     <Bar
       component='header'
       elevation={navbar.elevationHigh}
-      menuopen={useNavigationMenuState().isOpen ? 'true' : 'false'}
+      open={useNavigationMenuState().isOpen}
     >
       <BarContent className='bar-content'>
-        <Logo href="/">
-          <LogoIcon />
-        </Logo>
+        <LinkHome />
         <Toolbar />
       </BarContent>
     </Bar>
   )
-}
+};
 
-export default Navbar
+export default Navbar;

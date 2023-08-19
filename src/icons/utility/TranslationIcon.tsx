@@ -1,15 +1,16 @@
 import { UtilityIconProps } from '@interfaces/SVGProps'
+import svgCommonProps from '@utils/svgCommonProps'
 import React from 'react'
 
-const TranslationIcon = (props: UtilityIconProps) => {
+const TranslationIcon = ({ hovered, ...props }: UtilityIconProps) => {
   return (
-    <svg 
-      data-name='Translation Icon' 
-      xmlns='http://www.w3.org/2000/svg'
-      xmlnsXlink='http://www.w3.org/1999/xlink' 
-      width='30.86671' 
-      height='31.68997' 
+    <svg
+      {...svgCommonProps}
+      data-name='Translation Icon'
+      width='30.86671'
+      height='31.68997'
       viewBox='0 0 30.86671 31.68997'
+      {...props}
     >
       <defs>
         <style>

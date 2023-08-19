@@ -1,13 +1,14 @@
 import { UtilityIconProps } from '@interfaces/SVGProps'
+import svgCommonProps from '@utils/svgCommonProps'
 import React from 'react'
 
-const MoonIcon = (props: UtilityIconProps) => {
+const MoonIcon = ({ hovered, ...props }: UtilityIconProps) => {
   return (
-    <svg  
-      xmlns='http://www.w3.org/2000/svg'
-      xmlnsXlink='http://www.w3.org/1999/xlink' 
-      width='18.16863' 
-      height='18.16863' 
+    <svg
+      {...svgCommonProps}
+      data-name='Moon Icon'
+      width='18.16863'
+      height='18.16863'
       viewBox='0 0 18.16863 18.16863'
       {...props}
     >

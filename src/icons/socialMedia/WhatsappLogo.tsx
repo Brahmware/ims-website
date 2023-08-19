@@ -1,11 +1,11 @@
 import { SocialMediaIconProps } from '@interfaces/SVGProps'
+import svgCommonProps from '@utils/svgCommonProps'
 import React from 'react'
 
 const WhatsappLogo = (props: SocialMediaIconProps) => {
   return (
     <svg
-      xmlns='http://www.w3.org/2000/svg'
-      xmlnsXlink='http://www.w3.org/1999/xlink'
+      {...svgCommonProps}
       data-name='Whatsapp Logo'
       height='780.26721'
       width='776.73529'
