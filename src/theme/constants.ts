@@ -11,6 +11,8 @@ export const navbar = {
     title: 'Translate',
     videoUrl: '/media/videos/navMenu/translate.webm',
   },
-  elevationHigh: 4,
-  elevationLow: 3,
+  elevationHigh: 3,
+  elevationLow: 1,
+  elevationMedium: 2,
+  zIndex: 1200,
 };

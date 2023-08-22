@@ -17,6 +17,7 @@ export interface UtilityIconProps extends SVGProps {
   color?: string;
   size?: "small" | "medium" | "large";
   hovered?: boolean;
+  active?: boolean;
 };
 
 export interface HambugerIconProps extends UtilityIconProps {

@@ -8,6 +8,7 @@ export interface ContainedButtonProps extends ButtonProps {
 };
 
 export interface IconButtonProps extends ButtonProps {
+  target?: string;
 };
 
 export interface OutlinedButtonProps extends ButtonProps {
