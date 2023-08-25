@@ -16,8 +16,8 @@ export interface Sizes {
 const sizes: Sizes = {
   icon: {
     extraSmall: {
-      height: '0.75rem',
-      width: '0.75rem',
+      height: '0.5rem',
+      width: '0.5rem',
     },
     small: {
       height: '1rem',
@@ -28,8 +28,8 @@ const sizes: Sizes = {
       width: '1.25rem',
     },
     large: {
-      height: '2.5rem',
-      width: '2.5rem',
+      height: '1.5rem',
+      width: '1.5rem',
     },
     extraLarge: {
       height: '3rem',

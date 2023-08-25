@@ -8,6 +8,7 @@ import Contact from './Contact';
 import Copyright from './Copyright';
 import Settings from './Settings';
 import Legal from './Legal';
+import Megamenu from './Megamenu';
 
 const NavigationWrapper = styled(Card)<NavigationCardProps>(({ theme, open }) => ({
   ...theme.PageWrapperProps as any,
@@ -53,6 +54,7 @@ const NavMenu = () => {
     >
       <NavigationContent>
         <Display />
+        <Megamenu />
         <Contact />
         <Copyright />
         <Settings />

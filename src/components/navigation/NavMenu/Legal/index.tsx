@@ -1,5 +1,5 @@
+import Link from '@components/Link';
 import { styled } from '@mui/material';
-import Link from 'next/link';
 import React from 'react'
 
 const LegalSection = styled('section')(({ theme }) => ({
@@ -25,26 +25,15 @@ const LegalSection = styled('section')(({ theme }) => ({
   }
 }));
 
-const MenuItemLink = styled(Link)(({ theme }) => ({
-  color: theme.palette.text.secondary,
-  textUnderlineOffset: '0.1rem',
-  whiteSpace: 'nowrap',
-  transition: theme.Transitions.createTransition({ property: 'color' }),
-
-  '&:hover': {
-    color: theme.palette.text.primary,
-  }
-}));
-
 const Legal = () => {
   return (
     <LegalSection>
-      <MenuItemLink href="legal/visitor-agreement">
+      <Link href="legal/visitor-agreement">
         Visitor Agreement
-      </MenuItemLink>
-      <MenuItemLink href="legal/privacy-notice">
+      </Link>
+      <Link href="legal/privacy-notice">
         Privacy Notice
-      </MenuItemLink>
+      </Link>
     </LegalSection>
   )
 }

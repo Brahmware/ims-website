@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, CardProps, FormControl, Typography, styled } from '@mui/material';
+import { Card, CardProps, Typography, styled } from '@mui/material';
 import MoonIcon from '@icons/utility/MoonIcon';
 import SunIcon from '@icons/utility/SunIcon';
 import SystemIcon from '@icons/utility/SystemIcon';
@@ -53,7 +53,7 @@ const ThemeName = styled(Typography)<ThemeNameProps>(({ theme }) => ({
 
 const ThemeChanger = () => {
 
-  const { theme, resolvedTheme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   // When mounted on client, now we can show the UI
@@ -68,7 +68,6 @@ const ThemeChanger = () => {
   return (
     <ThemeChangerWrapper
       elevation={navbar.elevationLow}
-      component={FormControl}
       name='change-theme'
       aria-label='change theme'
       role='radiogroup'

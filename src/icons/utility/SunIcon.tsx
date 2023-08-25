@@ -3,7 +3,7 @@ import { UtilityIconProps } from '@interfaces/SVGProps';
 import { styled } from '@mui/material';
 import svgCommonProps from '@utils/svgCommonProps';
 
-const SunIcon = ({ hovered, ...props }: UtilityIconProps) => {
+const SunIcon = ({ hovered, active, ...props }: UtilityIconProps) => {
   return (
     <svg
       {...svgCommonProps}

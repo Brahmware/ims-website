@@ -6,6 +6,7 @@ import { styled } from '@mui/material';
 export const SystemIcon = (
   {
     hovered,
+    active,
     ...props
   }: UtilityIconProps
 ) => {

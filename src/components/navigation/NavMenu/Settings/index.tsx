@@ -12,6 +12,11 @@ const SettingsSection = styled('section')(({ theme }) => ({
   display: 'flex',
   alignItems: 'end',
   justifyContent: 'end',
+
+  [theme.breakpoints.down('md')]: {
+    gridColumn: '13 / 25',
+    gridRow: '19 / 24',
+  },
 }));
 
 const SettingsContent = styled(Box)(({ theme }) => ({

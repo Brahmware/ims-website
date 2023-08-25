@@ -10,6 +10,7 @@ import { Breakpoints, breakpoints } from './Breakpoints';
 import { Widths, widths } from './Widths';
 import { Strokes, strokes } from './Strokes';
 import sizes, { Sizes } from './Sizes';
+import shadows, { Shadows } from './Shadows';
 
 declare module '@mui/material/styles' {
 
@@ -20,6 +21,7 @@ declare module '@mui/material/styles' {
     Heights: Heights;
     Widths: Widths;
     Sizes: Sizes;
+    Shadows: Shadows;
     Strokes: Strokes;
     Transitions: Transitions;
     PageWrapperProps: PageWrapperProps;
@@ -34,6 +36,7 @@ declare module '@mui/material/styles' {
     Heights?: Heights;
     Widths?: Widths;
     Sizes?: Sizes;
+    Shadows?: Shadows;
     Strokes?: Strokes;
     Transitions?: Transitions;
     PageWrapperProps?: PageWrapperProps;
@@ -48,6 +51,7 @@ const commonThemeOptions: ThemeOptions = {
   Heights: heights,
   Widths: widths,
   Sizes: sizes,
+  Shadows: shadows,
   Strokes: strokes,
   Transitions: transitions,
   PageWrapperProps: pageWrapperProps,
@@ -64,6 +68,8 @@ const commonThemeOptions: ThemeOptions = {
         };
         ul, li {
           list-style: none;
+          margin: 0;
+          padding: 0;
         };
       `,
     },

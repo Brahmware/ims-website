@@ -40,6 +40,9 @@
       "@interfaces/*": [
         "./src/interfaces/*"
       ],
+      "@lib/*": [
+        "./src/lib/*"
+      ],
     },
     "plugins": [
       {

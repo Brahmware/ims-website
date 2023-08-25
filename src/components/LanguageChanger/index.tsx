@@ -37,6 +37,7 @@ const ButtonText = styled(Typography)(({ theme }) => ({
   fontSize: '0.875rem',
   color: theme.palette.error.contrastText,
   cursor: 'pointer',
+  whiteSpace: 'nowrap',
 }));
 
 const Locale = () => {
