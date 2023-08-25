@@ -9,6 +9,7 @@ import Copyright from './Copyright';
 import Settings from './Settings';
 import Legal from './Legal';
 import Megamenu from './Megamenu';
+import { NavHoverProvider } from '@helpers/NavHoverContext';
 
 const NavigationWrapper = styled(Card)<NavigationCardProps>(({ theme, open }) => ({
   ...theme.PageWrapperProps as any,
@@ -52,14 +53,16 @@ const NavMenu = () => {
       open={useNavigationMenuState().isOpen}
       elevation={navbar.elevationHigh}
     >
-      <NavigationContent>
-        <Display />
-        <Megamenu />
-        <Contact />
-        <Copyright />
-        <Settings />
-        <Legal />
-      </NavigationContent>
+      <NavHoverProvider>
+        <NavigationContent>
+          <Display />
+          <Megamenu />
+          <Contact />
+          <Copyright />
+          <Settings />
+          <Legal />
+        </NavigationContent>
+      </NavHoverProvider>
     </NavigationWrapper>
   )
 };

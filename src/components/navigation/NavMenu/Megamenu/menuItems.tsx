@@ -1,7 +1,7 @@
 const menuItems = [
   {
     title: 'Business',
-    videoUrl:   '/media/videos/navMenu/business.webm',
+    videoUrl: '/videos/navmenu/business.webm',
     items: [
       {
         title: 'About Us',
@@ -23,7 +23,7 @@ const menuItems = [
   },
   {
     title: 'Media Network',
-    videoUrl:   '/media/videos/navMenu/media-network.webm',
+    videoUrl: '/videos/navmenu/media-network.webm',
     items: [
       {
         title: 'Business and Brands',
@@ -45,7 +45,7 @@ const menuItems = [
   },
   {
     title: 'Education & Teaching',
-    videoUrl:   '/media/videos/navMenu/education-and-teaching.webm',
+    videoUrl: '/videos/navmenu/education-and-teaching.webm',
     items: [
       {
         title: 'Resources',
@@ -63,7 +63,7 @@ const menuItems = [
   },
   {
     title: 'Collaborators',
-    videoUrl:   '/media/videos/navMenu/collaborators.webm',
+    videoUrl: '/videos/navmenu/collaborators.webm',
     items: [
       {
         title: 'Explorers',
@@ -77,7 +77,7 @@ const menuItems = [
   },
   {
     title: 'Partners',
-    videoUrl:   '/media/videos/navMenu/partners.webm',
+    videoUrl: '/videos/navmenu/partners.webm',
     items: [
       {
         title: 'Corporate & Foundations',
@@ -91,7 +91,7 @@ const menuItems = [
   },
   {
     title: 'Commercial',
-    videoUrl:   '/media/videos/navMenu/commercial.webm',
+    videoUrl: '/videos/navmenu/commercial.webm',
     items: [
       {
         title: 'Advertise with Us',

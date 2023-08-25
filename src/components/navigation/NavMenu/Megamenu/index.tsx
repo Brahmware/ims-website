@@ -20,7 +20,11 @@ const Megamenu = () => {
     <MegamenuSection>
       {menuItems.map((item, index) => (
         <React.Fragment key={index}>
-          <NavGropus title={item.title} items={item.items} />
+          <NavGropus
+            title={item.title}
+            videoUrl={item.videoUrl}
+            items={item.items}
+          />
         </React.Fragment>
       ))}
     </MegamenuSection>

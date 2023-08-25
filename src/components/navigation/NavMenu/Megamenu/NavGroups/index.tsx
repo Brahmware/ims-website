@@ -6,6 +6,7 @@ import { UtilityIconProps } from '@interfaces/SVGProps';
 import svgCommonProps from '@utils/svgCommonProps';
 import Title from './Title';
 import { navbar } from '@theme/constants';
+import { useNavHoverContext } from '@helpers/NavHoverContext';
 
 const Navgroup = styled('ul')(({ theme }) => ({
   position: 'relative',
@@ -101,9 +102,15 @@ const Dot = styled(({ ...props }: UtilityIconProps) => {
   }
 }));
 
-const NavGroups = ({ title, items }: NavGroupsProps) => {
+const NavGroups = ({ title, videoUrl, items }: NavGroupsProps) => {
+
+  const { setCurrentUrl } = useNavHoverContext();
+
   return (
-    <Navgroup >
+    <Navgroup
+      onMouseEnter={setCurrentUrl.bind(null, videoUrl)}
+      onMouseLeave={setCurrentUrl.bind(null, '/videos/white_noise.webm')}
+    >
       <GroupCard
         className='group__card'
         elevation={navbar.elevationHigh}

@@ -1,4 +1,6 @@
+import { useNavHoverContext } from '@helpers/NavHoverContext';
 import { styled } from '@mui/material'
+import { on } from 'events';
 import Image from 'next/image';
 import React from 'react'
 
@@ -29,6 +31,9 @@ const StyledVideo = styled('video')(({ theme }) => ({
 
 
 const Display = () => {
+
+  const { currentUrl, setCurrentUrl } = useNavHoverContext();
+
   return (
     <DisplayWrapper>
       <StyledImage
@@ -44,10 +49,11 @@ const Display = () => {
         }}
       />
       <StyledVideo
-        src='/videos/sample.mp4'
+        src={currentUrl}
         autoPlay
-        loop
         muted
+        loop
+        onError={() => setCurrentUrl('/videos/white_noise.webm')}
       />
     </DisplayWrapper>
   )
