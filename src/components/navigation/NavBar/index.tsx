@@ -14,16 +14,12 @@ const Bar = styled(Card)<BarProps>(({ theme, open }) => ({
   width: '100%',
   borderRadius: 0,
   position: 'sticky',
-  padding: `0 ${theme.Spaces.sm}`,
+  padding: `0 ${theme.Spaces.md}`,
   top: '0',
   left: '0',
   right: '0',
   zIndex: navbar.zIndex,
-  boxShadow: (
-    open ?
-      theme.shadows[0] :
-      theme.shadows[navbar.elevationHigh]
-  ),
+  boxShadow: theme.shadows[navbar.elevationHigh],
   backgroundColor: theme.palette.background.default,
   transition: theme.Transitions.createTransition([
     {

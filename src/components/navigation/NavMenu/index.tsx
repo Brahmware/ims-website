@@ -52,7 +52,7 @@ const NavMenu = () => {
     <NavigationWrapper
       component='menu'
       open={useNavigationMenuState().isOpen}
-      elevation={navbar.elevationHigh}
+      elevation={5}
     >
       <NavHoverProvider>
         <NavigationContent>

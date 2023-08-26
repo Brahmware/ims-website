@@ -53,12 +53,10 @@ const GroupCard = styled(Card)(({ theme }) => ({
     property: 'transform',
     duration: 'longest'
   }),
-  boxShadow: theme.Shadows.noshadow.boxShadow,
   borderRadius: `calc(${theme.Spaces.md} - 0.125rem)`,
   padding: theme.Spaces.sm,
 
   [theme.breakpoints.down('md')]: {
-    boxShadow: theme.Shadows.noshadow.boxShadow,
     borderRadius: 0,
   },
   
