@@ -10,6 +10,7 @@ const CopyrightSection = styled('section')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'start',
+  zIndex: theme.Shadows.medium.zIndex,
 }));
 
 const CopyRightText = styled(Typography)<CopyrightTextProps>(({ theme }) => ({

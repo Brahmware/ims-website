@@ -12,7 +12,7 @@ const DisplayWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  zIndex: 1,
+  zIndex: theme.Shadows.lower.zIndex,
   transition: theme.Transitions.createTransition({
     property: 'transform',
     duration: 'longest'

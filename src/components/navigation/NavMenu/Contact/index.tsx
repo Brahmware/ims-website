@@ -12,6 +12,7 @@ const ContactSection = styled('section')(({ theme }) => ({
   alignItems: 'flex-start',
   height: '100%',
   width: '100%',
+  zIndex: theme.Shadows.medium.zIndex,
 }));
 
 const ContactTitle = styled(Typography)<ContactTitleprops>(({ theme }) => ({

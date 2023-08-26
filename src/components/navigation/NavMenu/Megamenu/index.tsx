@@ -15,7 +15,7 @@ const MegamenuSection = styled('section')(({ theme }) => ({
   justifyContent: 'start',
   alignItems: 'center',
   flexWrap: 'wrap',
-  zIndex: 3,
+  zIndex: theme.Shadows.high.zIndex,
 
   [theme.breakpoints.down('lg')]: {
     justifyContent: 'center',

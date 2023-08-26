@@ -11,7 +11,7 @@ const LegalSection = styled('section')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'end',
   fontSize: '1rem',
-  fontWeight: 500,
+  zIndex: theme.Shadows.medium.zIndex,
 
   '& a': {
     '&:first-child': {
