@@ -18,6 +18,12 @@ export const NavHoverProvider = (
     children: React.ReactNode
   }
 ) => {
-  const [currentUrl, setCurrentUrl] = React.useState('');
-  return <NavHoverContext.Provider value={{ currentUrl, setCurrentUrl }}>{children}</NavHoverContext.Provider>
+  const [currentUrl, setCurrentUrl] = React.useState('/videos/white_noise.webm');
+  return (
+    <NavHoverContext.Provider
+      value={{ currentUrl, setCurrentUrl }}
+    >
+      {children}
+    </NavHoverContext.Provider>
+  )
 };

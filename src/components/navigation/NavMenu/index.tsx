@@ -1,5 +1,5 @@
 import { useNavigationMenuState } from '@helpers/NavigationMenuStateProvider';
-import { NavigationCardProps } from '@interfaces/DisplayCardProps';
+import { NavigationCardProps } from '@interfaces/CardProps';
 import { Box, Card, styled } from '@mui/material';
 import { navbar } from '@theme/constants';
 import React from 'react';
@@ -17,12 +17,12 @@ const NavigationWrapper = styled(Card)<NavigationCardProps>(({ theme, open }) =>
   padding: 0,
   paddingBottom: 0,
   maxWidth: '100%',
-  position: 'absolute',
+  position: 'fixed',
   top: 0,
   bottom: 0,
   left: 0,
   right: 0,
-  zIndex: 100,
+  zIndex: theme.Shadows.lower.zIndex,
   borderRadius: 0,
   overflow: 'hidden',
   transition: theme.Transitions.createTransition({
@@ -50,6 +50,7 @@ const NavigationContent = styled(Box)(({ theme }) => ({
 const NavMenu = () => {
   return (
     <NavigationWrapper
+      component='menu'
       open={useNavigationMenuState().isOpen}
       elevation={navbar.elevationHigh}
     >

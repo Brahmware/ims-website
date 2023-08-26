@@ -19,7 +19,7 @@ const Navgroup = styled('ul')(({ theme }) => ({
 
   '&:hover': {
     '& .group__card': {
-      transform: `translateX(${theme.Spaces.xl})`,
+      transform: `translateX(${theme.Spaces.xxs})`,
     },
   },
 
@@ -150,7 +150,7 @@ const NavGroups = ({ title, videoUrl, items }: NavGroupsProps) => {
           <li key={index}>
             <Link href={href} >
               <Dot />
-              <Typography variant="body1" component="p">
+              <Typography variant="body2" component="p">
                 {pageName}
               </Typography>
             </Link>

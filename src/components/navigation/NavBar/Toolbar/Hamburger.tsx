@@ -8,6 +8,7 @@ const HamburgerButton = styled(IconButton)(({ theme }) => ({
   margin: 0,
   padding: 0,
   marginLeft: theme.Spaces.xs,
+  height: theme.Sizes.icon.extraLarge.height,
 }));
 
 const StyledHamburgerIcon = styled(HamburgerIcon)(({ theme }) => ({
