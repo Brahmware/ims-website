@@ -8,6 +8,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {(this.props as any).emotionStyleTags}
+          <link rel="stylesheet" href="/fonts/Gotham.css" />
         </Head>
         <body>
           <Main />

@@ -13,22 +13,28 @@ const CopyrightSection = styled('section')(({ theme }) => ({
 }));
 
 const CopyRightText = styled(Typography)<CopyrightTextProps>(({ theme }) => ({
-  color: theme.palette.text.primary,
+  color: theme.palette.text.secondary,
   margin: 0,
   whiteSpace: 'nowrap',
 }));
 
+const CopyrightYear = styled('span')(({ theme }) => ({
+  color: theme.palette.primary.main,
+  marginRight: theme.spacing(0.6),
+}));
+
 const Copyright = () => {
 
-  const thisYear = new Date().getFullYear();
+  const today = new Date();
 
   return (
     <CopyrightSection>
-      <CopyRightText 
-        component='span'
-        variant="body2"
+      <CopyRightText
+        component='h3'
+        variant='body1'
       >
-        © {thisYear} Indian Media Syndicate. All rights reserved.
+        <CopyrightYear>© {today.getFullYear()}</CopyrightYear>
+        Indian Media Syndicate. All rights reserved.
       </CopyRightText>
     </CopyrightSection>
   )

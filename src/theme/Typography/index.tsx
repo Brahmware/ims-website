@@ -10,13 +10,14 @@ export interface CustomTypographyOptions extends TypographyOptions {
   fontWeightRegular: number;
   fontWeightLight: number;
   fontWeightThin: number;
-}
+};
 
-const customTypography: CustomTypographyOptions = {
-  
-  fontFamily: ['gotham', 'sans-serif', ].join(','),
+const baseFontFamily = [
+  'gotham',
+  'sans-serif',
+].join(',');
 
-  // font weights
+const baseFontWeights = {
   fontWeightUltra: 1000,
   fontWeightBlack: 900,
   fontWeightBold: 700,
@@ -24,6 +25,15 @@ const customTypography: CustomTypographyOptions = {
   fontWeightRegular: 400,
   fontWeightLight: 300,
   fontWeightThin: 100,
+};
+
+const customTypography: CustomTypographyOptions = {
+  
+  // font family
+  fontFamily: baseFontFamily,
+
+  // font weights
+  ...baseFontWeights,
 
   // h1 - h6
   h1: {
@@ -114,7 +124,7 @@ const customTypography: CustomTypographyOptions = {
       'gotham',
       'sans-serif',
     ].join(','),
-    fontWeight: 400,
+    fontWeight: baseFontWeights.fontWeightRegular,
     fontSize: '1rem',
     lineHeight: '1.5rem',
   },
@@ -124,7 +134,7 @@ const customTypography: CustomTypographyOptions = {
       'gotham',
       'sans-serif',
     ].join(','),
-    fontWeight: 400,
+    fontWeight: baseFontWeights.fontWeightLight,
     fontSize: '0.875rem',
     lineHeight: '1.25rem',
   },
@@ -135,7 +145,8 @@ const customTypography: CustomTypographyOptions = {
       'gotham',
       'sans-serif',
     ].join(','),
-    fontWeight: 700,
+    fontWeight: baseFontWeights.fontWeightSemiBold,
+    letterSpacing: '0.05rem',
     fontSize: '0.875rem',
     lineHeight: '1.25rem',
   },

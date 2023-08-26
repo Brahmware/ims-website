@@ -11,9 +11,10 @@ import { useNavHoverContext } from '@helpers/NavHoverContext';
 const Navgroup = styled('ul')(({ theme }) => ({
   position: 'relative',
   backgroundColor: theme.palette.primary.main,
-  borderRadius: theme.Spaces.xs,
+  borderRadius: theme.Spaces.md,
+  margin: `${theme.Spaces.lg} ${theme.Spaces.lg}`,
 
-  width: '18rem',
+  minWidth: '18em',
   minHeight: '12rem',
 
   '&:hover': {
@@ -21,6 +22,23 @@ const Navgroup = styled('ul')(({ theme }) => ({
       transform: `translateX(${theme.Spaces.xl})`,
     },
   },
+
+  [theme.breakpoints.down('lg')]: {
+    minHeight: '12rem',
+  },
+
+  [theme.breakpoints.down('md')]: {
+    margin: 0,
+    width: '100%',
+    minHeight: '12rem',
+    
+    '&:hover': {
+      '& .group__card': {
+        transform: `translateX(0)`,
+      },
+    },
+  },
+
 }));
 
 const GroupCard = styled(Card)(({ theme }) => ({
@@ -36,9 +54,14 @@ const GroupCard = styled(Card)(({ theme }) => ({
     duration: 'longest'
   }),
   boxShadow: theme.Shadows.noshadow.boxShadow,
-  borderRadius: 0,
+  borderRadius: `calc(${theme.Spaces.md} - 0.125rem)`,
   padding: theme.Spaces.sm,
 
+  [theme.breakpoints.down('md')]: {
+    boxShadow: theme.Shadows.noshadow.boxShadow,
+    borderRadius: 0,
+  },
+  
   '& li': {
     width: '100%',
     margin: `${theme.Spaces.xxs} 0`,
@@ -58,18 +81,23 @@ const GroupCard = styled(Card)(({ theme }) => ({
           '@keyframes pulse': {
             '0%': {
               transform: 'scale(1)',
+              fill: theme.palette.text.secondary,
             },
             '30%': {
               transform: 'scale(0.75)',
+              fill: theme.palette.primary.main,
             },
             '70%': {
               transform: 'scale(1)',
+              fill: theme.palette.text.secondary,
             },
             '85%': {
               transform: 'scale(0.75)',
+              fill: theme.palette.primary.main,
             },
             '100%': {
               transform: 'scale(1)',
+              fill: theme.palette.text.secondary,
             },
           },
         },

@@ -1,4 +1,3 @@
-import ThemeUpdater from "@components/ThemeUpdater";
 import Navbar from "@components/navigation/NavBar";
 import NavMenu from "@components/navigation/NavMenu";
 import { NavigationMenuStateProvider } from "@helpers/NavigationMenuStateProvider";
