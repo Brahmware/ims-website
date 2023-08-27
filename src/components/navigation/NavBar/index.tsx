@@ -1,14 +1,10 @@
 import React, { FC } from 'react';
-import { Card, CardProps, styled } from '@mui/material';
+import { Card, styled } from '@mui/material';
 import { navbar } from '@theme/constants';
 import Toolbar from './Toolbar';
 import { useNavigationMenuState } from '@helpers/NavigationMenuStateProvider';
 import LinkHome from './LinkHome';
-
-interface BarProps extends CardProps {
-  component?: React.ElementType;
-  open?: boolean;
-}
+import { BarProps } from '@interfaces/CardProps';
 
 const Bar = styled(Card)<BarProps>(({ theme, open }) => ({
   width: '100%',

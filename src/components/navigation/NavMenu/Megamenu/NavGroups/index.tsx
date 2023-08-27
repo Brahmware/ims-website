@@ -31,7 +31,7 @@ const Navgroup = styled('ul')(({ theme }) => ({
     margin: 0,
     width: '100%',
     minHeight: '12rem',
-    
+
     '&:hover': {
       '& .group__card': {
         transform: `translateX(0)`,
@@ -59,18 +59,22 @@ const GroupCard = styled(Card)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     borderRadius: 0,
   },
-  
+}));
+
+const NavList = styled('div')(({ theme }) => ({
+  padding: `0 ${theme.Spaces.sm}`,
+  margin: `${theme.Spaces.sm} 0`,
+  width: '100%',
+  overflow: 'hidden',
+
   '& li': {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    listStyle: 'none',
     width: '100%',
-    margin: `${theme.Spaces.xxs} ${theme.Spaces.sm}`,
-
-    '&:first-of-type': {
-      marginTop: theme.Spaces.md,
-    },
-
-    '&:last-of-type': {
-      marginBottom: theme.Spaces.md,
-    },
+    margin: `${theme.Spaces.xxs} 0`,
 
     '& a': {
       display: 'flex',
@@ -152,16 +156,18 @@ const NavGroups = ({ title, videoUrl, items }: NavGroupsProps) => {
         <Title>
           {title}
         </Title>
-        {items.map(({ title: pageName, link: href }, index) => (
-          <li key={index}>
-            <Link href={href} >
-              <Dot />
-              <Typography variant="body2" component="p">
-                {pageName}
-              </Typography>
-            </Link>
-          </li>
-        ))}
+        <NavList>
+          {items.map(({ title: pageName, link: href }, index) => (
+            <li key={index}>
+              <Link href={href} >
+                <Dot />
+                <Typography variant="body2" component="p">
+                  {pageName}
+                </Typography>
+              </Link>
+            </li>
+          ))}
+        </NavList>
       </GroupCard>
     </Navgroup>
   )

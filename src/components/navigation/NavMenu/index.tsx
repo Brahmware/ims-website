@@ -1,7 +1,6 @@
 import { useNavigationMenuState } from '@helpers/NavigationMenuStateProvider';
 import { NavigationCardProps } from '@interfaces/CardProps';
 import { Box, Card, styled } from '@mui/material';
-import { navbar } from '@theme/constants';
 import React from 'react';
 import Display from './Display';
 import Contact from './Contact';
