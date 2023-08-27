@@ -2,15 +2,15 @@ import { ContactTextProps, ContactTitleprops } from '@interfaces/TypographyProps
 import { Snackbar, Typography, styled } from '@mui/material'
 import React, { useState } from 'react'
 import SocialSection from './SocialSection';
+import { useNavHoverContext } from '@helpers/NavHoverContext';
 
 const ContactSection = styled('section')(({ theme }) => ({
   gridColumn: '1/6',
   gridRow: '19/24',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'flex-end',
+  alignSelf: 'end',
   alignItems: 'flex-start',
-  height: '100%',
   width: '100%',
   zIndex: theme.Shadows.medium.zIndex,
 }));
@@ -54,6 +54,8 @@ const Contact = () => {
 
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
 
+  const { setCurrentUrl } = useNavHoverContext();
+
   const handleCopyToClipboard = () => {
     try {
       const isSupported = navigator.clipboard && navigator.clipboard.writeText;
@@ -73,7 +75,10 @@ const Contact = () => {
   };
 
   return (
-    <ContactSection>
+    <ContactSection
+      onMouseEnter={() => setCurrentUrl('/videos/navmenu/contact-us.webm')}
+      onMouseLeave={() => setCurrentUrl('/videos/white_noise.webm')}
+    >
       <ContactTitle component='h4' variant='h4'>CONTACT US</ContactTitle>
       <EmailString
         component='h2'

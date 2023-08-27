@@ -17,18 +17,22 @@ const DisplayWrapper = styled('div')(({ theme }) => ({
     property: 'transform',
     duration: 'longest'
   }),
-  transform: 'scale(1.25) translateX(-2rem) translateY(-2rem)',
+  transform: 'scale(1.25) translateX(-2rem) translateY(3rem)',
 
   [theme.breakpoints.down('xl')]: {
     gridColumn: '18/25',
     gridRow: '-6/-7',
-    transform: 'scale(1.5) translateX(-3rem) translateY(-4rem)',
+    transform: 'scale(1.5) translateX(-3rem) translateY(1rem)',
   },
 
   [theme.breakpoints.down('lg')]: {
     gridColumn: '17/25',
     gridRow: '-6/-7',
-    transform: 'scale(2.125) translateX(-2rem) translateY(-4rem)',
+    transform: 'scale(2.125) translateX(-2rem) translateY(1rem)',
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    transform: 'scale(2) translateX(0rem) translateY(-1rem)',
   },
 }));
 

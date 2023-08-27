@@ -7,6 +7,7 @@ import { navbar } from '@theme/constants';
 import { useTheme } from "next-themes";
 import Divider from '@components/Dividers';
 import { ThemeNameProps } from '@interfaces/TypographyProps';
+import { useNavHoverContext } from '@helpers/NavHoverContext';
 
 interface ThemeChangerWrapperProps extends CardProps {
   component?: React.ElementType;
@@ -55,6 +56,7 @@ const ThemeChanger = () => {
 
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { setCurrentUrl } = useNavHoverContext();
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), []);
@@ -71,7 +73,9 @@ const ThemeChanger = () => {
       name='change-theme'
       aria-label='change theme'
       role='radiogroup'
-      >
+      onMouseEnter={() => setCurrentUrl('/videos/navmenu/change-theme.webm')}
+      onMouseLeave={() => setCurrentUrl('/videos/white_noise.webm')}
+    >
       <MoonIcon
         active={(theme === 'dark')}
         onClick={() => handleThemeChange('dark')}

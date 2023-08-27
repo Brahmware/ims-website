@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Typography, styled } from '@mui/material';
 import TranslationIcon from '@icons/utility/TranslationIcon';
 import TranslationMenu from './TranslationMenu';
+import { useNavHoverContext } from '@helpers/NavHoverContext';
 
 const LocaleButton = styled(Button)(({ theme }) => ({
   textTransform: 'none',
@@ -43,6 +44,7 @@ const ButtonText = styled(Typography)(({ theme }) => ({
 const Locale = () => {
 
   const [localeMenuOpen, setLocaleMenuOpen] = React.useState(false);
+  const { setCurrentUrl } = useNavHoverContext();
 
   const handleLocaleButtonOnClick = () => {
     setLocaleMenuOpen(!localeMenuOpen);
@@ -55,6 +57,8 @@ const Locale = () => {
         variant="contained"
         color="error"
         onClick={handleLocaleButtonOnClick}
+        onMouseEnter={() => setCurrentUrl('/videos/navmenu/translate.webm')}
+        onMouseLeave={() => setCurrentUrl('/videos/white_noise.webm')}
       >
         <LocaleIcon />
         <ButtonText>

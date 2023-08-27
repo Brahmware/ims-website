@@ -1,4 +1,5 @@
 import Link from '@components/Link';
+import { useNavHoverContext } from '@helpers/NavHoverContext';
 import { styled } from '@mui/material';
 import React from 'react'
 
@@ -26,8 +27,14 @@ const LegalSection = styled('section')(({ theme }) => ({
 }));
 
 const Legal = () => {
+
+  const { setCurrentUrl } = useNavHoverContext();
+
   return (
-    <LegalSection>
+    <LegalSection
+      onMouseEnter={() => setCurrentUrl('/videos/navmenu/privacy-policy.webm')}
+      onMouseLeave={() => setCurrentUrl('/videos/white_noise.webm')}
+    >
       <Link href="legal/visitor-agreement">
         Visitor Agreement
       </Link>
