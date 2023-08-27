@@ -13,6 +13,7 @@ const SettingsSection = styled('section')(({ theme }) => ({
   alignItems: 'end',
   justifyContent: 'end',
   zIndex: theme.Shadows.medium.zIndex,
+  marginBottom: theme.Spaces.xs,
 
   [theme.breakpoints.down('md')]: {
     gridColumn: '13 / 25',

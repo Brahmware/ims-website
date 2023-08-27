@@ -12,6 +12,7 @@ import { Strokes, strokes } from './Strokes';
 import sizes, { Sizes } from './Sizes';
 import shadows, { Shadows } from './Shadows';
 import colors, { Colors } from './Colors';
+import { FontWeights, fontWeights } from './FontWeight';
 
 declare module '@mui/material/styles' {
 
@@ -25,6 +26,7 @@ declare module '@mui/material/styles' {
     Shadows: Shadows;
     Strokes: Strokes;
     Transitions: Transitions;
+    FontWeights: FontWeights;
     PageWrapperProps: PageWrapperProps;
     Breakpoints: Breakpoints;
     TimeDurations: Durations;
@@ -41,6 +43,7 @@ declare module '@mui/material/styles' {
     Shadows?: Shadows;
     Strokes?: Strokes;
     Transitions?: Transitions;
+    FontWeights?: FontWeights;
     PageWrapperProps?: PageWrapperProps;
     Breakpoints?: Breakpoints;
     TimeDurations?: Durations;
@@ -85,6 +88,7 @@ const commonThemeOptions: ThemeOptions = {
     },
   },
   Colors: colors,
+  FontWeights: fontWeights,
 };
 
 export const themeLight = createTheme({

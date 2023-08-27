@@ -13,7 +13,7 @@ const Title = styled(({ children, ...props }: TitleProps) => {
   );
 })(({ theme }) => ({
   margin: `${theme.Spaces.sm} 0`,
-  fontWeight: theme.typography.fontWeightBold,
+  fontWeight: theme.FontWeights.fontWeightUltra,
   color: theme.palette.text.primary,
   textTransform: 'uppercase',
   whiteSpace: 'nowrap',

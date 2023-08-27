@@ -1,39 +1,20 @@
 import { TypographyOptions } from "@mui/material/styles/createTypography";
+import { FontWeights, fontWeights } from "@theme/FontWeight";
 
-export interface CustomTypographyOptions extends TypographyOptions {
-  fontFamily: string;
-
-  fontWeightUltra: number;
-  fontWeightBlack: number;
-  fontWeightBold: number;
-  fontWeightSemiBold: number;
-  fontWeightRegular: number;
-  fontWeightLight: number;
-  fontWeightThin: number;
-};
 
 const baseFontFamily = [
   'gotham',
   'sans-serif',
 ].join(',');
 
-const baseFontWeights = {
-  fontWeightUltra: 1000,
-  fontWeightBlack: 900,
-  fontWeightBold: 700,
-  fontWeightSemiBold: 500,
-  fontWeightRegular: 400,
-  fontWeightLight: 300,
-  fontWeightThin: 100,
+export interface CustomTypographyOptions extends TypographyOptions {
+  fontFamily: string;
 };
 
 const customTypography: CustomTypographyOptions = {
   
   // font family
   fontFamily: baseFontFamily,
-
-  // font weights
-  ...baseFontWeights,
 
   // h1 - h6
   h1: {
@@ -61,7 +42,7 @@ const customTypography: CustomTypographyOptions = {
       'gotham',
       'sans-serif',
     ].join(','),
-    fontWeight: 700,
+    fontWeight: fontWeights.fontWeightBlack,
     fontSize: '2rem',
     lineHeight: '2.5rem',
   },
@@ -124,7 +105,7 @@ const customTypography: CustomTypographyOptions = {
       'gotham',
       'sans-serif',
     ].join(','),
-    fontWeight: baseFontWeights.fontWeightRegular,
+    fontWeight: fontWeights.fontWeightLight,
     fontSize: '1rem',
     lineHeight: '1.5rem',
   },
@@ -134,7 +115,7 @@ const customTypography: CustomTypographyOptions = {
       'gotham',
       'sans-serif',
     ].join(','),
-    fontWeight: baseFontWeights.fontWeightLight,
+    fontWeight: fontWeights.fontWeightLight,
     fontSize: '0.875rem',
     lineHeight: '1.25rem',
   },
@@ -145,7 +126,7 @@ const customTypography: CustomTypographyOptions = {
       'gotham',
       'sans-serif',
     ].join(','),
-    fontWeight: baseFontWeights.fontWeightSemiBold,
+    fontWeight: fontWeights.fontWeightSemiBold,
     letterSpacing: '0.05rem',
     fontSize: '0.875rem',
     lineHeight: '1.25rem',

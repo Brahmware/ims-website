@@ -1,4 +1,4 @@
-import { ContactTitleprops } from '@interfaces/TypographyProps';
+import { ContactTextProps, ContactTitleprops } from '@interfaces/TypographyProps';
 import { Snackbar, Typography, styled } from '@mui/material'
 import React, { useState } from 'react'
 import SocialSection from './SocialSection';
@@ -21,7 +21,7 @@ const ContactTitle = styled(Typography)<ContactTitleprops>(({ theme }) => ({
   whiteSpace: 'nowrap',
 }));
 
-const EmailString = styled(Typography)(({ theme }) => ({
+const EmailString = styled(Typography)<ContactTextProps>(({ theme }) => ({
   color: theme.palette.text.secondary,
   cursor: 'pointer',
   transition: theme.Transitions.createTransition({ property: 'color' }),
@@ -75,7 +75,11 @@ const Contact = () => {
   return (
     <ContactSection>
       <ContactTitle component='h4' variant='h4'>CONTACT US</ContactTitle>
-      <EmailString onClick={handleCopyToClipboard}>
+      <EmailString
+        component='h2'
+        variant='body1'
+        onClick={handleCopyToClipboard}
+      >
         namaste@indianmediasyndicate.com
       </EmailString>
       <SocialSection />

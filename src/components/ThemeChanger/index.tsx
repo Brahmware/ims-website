@@ -71,14 +71,14 @@ const ThemeChanger = () => {
       name='change-theme'
       aria-label='change theme'
       role='radiogroup'
-    >
-      <SunIcon
-        active={(theme === 'light')}
-        onClick={() => handleThemeChange('light')}
-      />
+      >
       <MoonIcon
         active={(theme === 'dark')}
         onClick={() => handleThemeChange('dark')}
+      />
+      <SunIcon
+        active={(theme === 'light')}
+        onClick={() => handleThemeChange('light')}
       />
       <SystemIcon
         active={(theme === 'system')}

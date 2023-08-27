@@ -8,6 +8,9 @@ export interface TypographyProps extends TypographyPropsMui {
 export interface ContactTitleprops extends TypographyProps {
 };
 
+export interface ContactTextProps extends TypographyProps {
+};
+
 export interface CopyrightTextProps extends TypographyProps {
 };
 
