@@ -12,9 +12,9 @@ export interface Heights {
 
 export const heights: Heights = {
   header: {
-    expanded: '6rem',
-    default: '4rem',
-    contracted: '3.5rem',
+    expanded: '5.25rem',
+    default: '4.25rem',
+    contracted: '3.25rem',
   },
   navbar: {
     hamburger: '1.5rem',

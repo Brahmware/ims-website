@@ -44,6 +44,7 @@ const NavigationContent = styled(Box)(({ theme }) => ({
   gridTemplateRows: 'repeat(24, 1fr)',
   alignItems: 'center',
   alignContent: 'center',
+  justifyContent: 'center',
 }));
 
 const NavMenu = () => {

@@ -1,9 +1,6 @@
-import { Typography, TypographyProps, styled } from '@mui/material';
 import React from 'react';
-
-interface TitleProps extends TypographyProps {
-  children: React.ReactNode;
-}
+import { TitleProps } from '@interfaces/TypographyProps';
+import { Typography, styled } from '@mui/material';
 
 const Title = styled(({ children, ...props }: TitleProps) => {
   return (

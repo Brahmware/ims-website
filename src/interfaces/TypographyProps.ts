@@ -5,6 +5,9 @@ export interface TypographyProps extends TypographyPropsMui {
   variant?: TypographyVariant;
 };
 
+export interface TitleProps extends TypographyProps {
+};
+
 export interface ContactTitleprops extends TypographyProps {
 };
 
