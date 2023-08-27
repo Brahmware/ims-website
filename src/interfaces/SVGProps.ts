@@ -10,6 +10,7 @@ export interface IMSLogoProps extends SVGProps {
 
 export interface SocialMediaIconProps extends SVGProps {
   color?: string
+  hovered?: boolean
   size?: "small" | "medium" | "large"
 };
 

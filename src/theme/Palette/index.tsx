@@ -1,31 +1,22 @@
 import { PaletteOptions } from "@mui/material";
+import { Colors, colors } from "@theme/Colors";
 
-const colors = {
-  white: '#FFFFFF',
-  black: '#2E2E2E',
-  bhasma: '#707070',
-  rakthalal: '#FF4136',
-  matmaila: '#C8C8C8',
-  slogan: '#DDDDDD',
-  kesar: '#E18F3C',
-  komola: '#db633e',
-  neelkantha: '#0074D9',
-  kolapata: '#2ECC40',
-}
+
 
 export interface CustomPaletteOptions extends PaletteOptions {
-
-}
+  colors: Colors;
+};
 
 export const customPaletteLight: CustomPaletteOptions = {
   mode: 'light',
+  colors,
   primary: {
     main: colors.kesar,
     contrastText: colors.white,
   },
   secondary: {
     main: colors.black,
-    light: colors.matmaila,
+    light: colors.slogan,
     contrastText: colors.white,
   },
   error: {
@@ -48,12 +39,14 @@ export const customPaletteLight: CustomPaletteOptions = {
 
 export const customPaletteDark: CustomPaletteOptions = {
   mode: 'dark',
+  colors,
   primary: {
     main: colors.kesar,
     contrastText: colors.white,
   },
   secondary: {
     main: colors.white,
+    light: colors.slogan,
     contrastText: colors.black,
   },
   error: {

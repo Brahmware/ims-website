@@ -1,13 +1,7 @@
+import { SocialLinkProps } from '@interfaces/LinkProps';
 import { styled } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
-
-interface SocialLinkProps {
-  href: string;
-  target?: string;
-  rel?: string;
-  children: React.ReactNode;
-};
 
 const StyledSocialLink = styled(Link)(({ theme }) => ({
   display: 'flex',

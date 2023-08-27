@@ -11,6 +11,7 @@ import { Widths, widths } from './Widths';
 import { Strokes, strokes } from './Strokes';
 import sizes, { Sizes } from './Sizes';
 import shadows, { Shadows } from './Shadows';
+import colors, { Colors } from './Colors';
 
 declare module '@mui/material/styles' {
 
@@ -27,6 +28,7 @@ declare module '@mui/material/styles' {
     PageWrapperProps: PageWrapperProps;
     Breakpoints: Breakpoints;
     TimeDurations: Durations;
+    Colors: Colors;
   }
 
   interface ThemeOptions {
@@ -42,6 +44,7 @@ declare module '@mui/material/styles' {
     PageWrapperProps?: PageWrapperProps;
     Breakpoints?: Breakpoints;
     TimeDurations?: Durations;
+    Colors?: Colors;
   }
 }
 
@@ -81,6 +84,7 @@ const commonThemeOptions: ThemeOptions = {
       },
     },
   },
+  Colors: colors,
 };
 
 export const themeLight = createTheme({

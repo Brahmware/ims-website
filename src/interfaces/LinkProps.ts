@@ -6,3 +6,6 @@ export interface LinkProps extends MuiLinkProps {
   target?: string;
   rel?: string;
 };
+
+export interface SocialLinkProps extends LinkProps {
+};

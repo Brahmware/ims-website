@@ -1,8 +1,14 @@
-import { SocialMediaIconProps } from '@interfaces/SVGProps'
-import svgCommonProps from '@utils/svgCommonProps'
-import React from 'react'
+import { SocialMediaIconProps } from '@interfaces/SVGProps';
+import { styled, useTheme } from '@mui/material';
+import svgCommonProps from '@utils/svgCommonProps';
+import React from 'react';
 
-const LinkedinLogo = (props: SocialMediaIconProps) => {
+const LinkedinLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
+
+  const theme = useTheme();
+  const [mouse, setMouse] = React.useState(false);
+
+
   return (
     <svg
       {...svgCommonProps}
@@ -10,13 +16,15 @@ const LinkedinLogo = (props: SocialMediaIconProps) => {
       width='20'
       height='20'
       viewBox='0 0 20 20'
+      onMouseEnter={() => setMouse(true)}
+      onMouseLeave={() => setMouse(false)}
       {...props}
     >
       <defs>
         <style>
           {`
             .a1b9f681-a81e-48bf-a9de-648899f4d4cb {
-              fill: #069;
+              fill: ${!mouse ? theme.palette.text.secondary : '#069'};
             }
           `}
         </style>
@@ -25,6 +33,15 @@ const LinkedinLogo = (props: SocialMediaIconProps) => {
     </svg>
 
   )
-}
+};
 
-export default LinkedinLogo
+export default styled(LinkedinLogo)(({ theme, hovered }) => ({
+  '& path': {
+    transition: theme.Transitions.createTransition([
+      {
+        property: 'fill',
+        duration: 'short'
+      }
+    ])
+  }
+}));

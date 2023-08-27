@@ -1,8 +1,13 @@
 import { SocialMediaIconProps } from '@interfaces/SVGProps'
+import { styled, useTheme } from '@mui/material';
 import svgCommonProps from '@utils/svgCommonProps'
 import React from 'react'
 
-const WhatsappLogo = (props: SocialMediaIconProps) => {
+const WhatsappLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
+
+  const theme = useTheme();
+  const [mouse, setMouse] = React.useState(false);
+
   return (
     <svg
       {...svgCommonProps}
@@ -10,13 +15,15 @@ const WhatsappLogo = (props: SocialMediaIconProps) => {
       height='780.26721'
       width='776.73529'
       viewBox="0 0 780.26721 776.73529"
+      onMouseEnter={() => setMouse(true)}
+      onMouseLeave={() => setMouse(false)}
       {...props}
     >
       <defs>
         <style>
           {`
             .cls-1 {
-            fill: #67c15e;
+            fill: ${!mouse ? theme.palette.text.secondary : '#67c15e'};
             fill-rule: evenodd;
             }
           `}
@@ -32,4 +39,13 @@ const WhatsappLogo = (props: SocialMediaIconProps) => {
   )
 }
 
-export default WhatsappLogo
+export default styled(WhatsappLogo)(({ theme, hovered }) => ({
+  '& path': {
+    transition: theme.Transitions.createTransition([
+      {
+        property: 'fill',
+        duration: 'short'
+      }
+    ])
+  }
+}));

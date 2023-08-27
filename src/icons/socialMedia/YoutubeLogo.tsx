@@ -1,22 +1,29 @@
+import { styled, useTheme } from '@mui/material';
 import { SocialMediaIconProps } from '@interfaces/SVGProps'
 import svgCommonProps from '@utils/svgCommonProps'
 import React from 'react'
 
-const YoutubeLogo = (props: SocialMediaIconProps) => {
+const YoutubeLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
+
+  const theme = useTheme();
+  const [mouse, setMouse] = React.useState(false);
+
   return (
-    <svg 
+    <svg
       {...svgCommonProps}
-      data-name='Youtube Logo' 
-      height='20' 
+      data-name='Youtube Logo'
+      height='20'
       width='20'
       viewBox='0 0 20 20'
+      onMouseEnter={() => setMouse(true)}
+      onMouseLeave={() => setMouse(false)}
       {...props}
     >
       <defs>
         <style>
           {`
             .b708bb15-0c44-4be1-aa70-cae10dda9a4e {
-              fill: #ce1312;
+              fill: ${!mouse ? theme.palette.text.secondary : '#ce1312'};
               fill-rule: evenodd;
             }
           `}
@@ -33,4 +40,13 @@ const YoutubeLogo = (props: SocialMediaIconProps) => {
   )
 }
 
-export default YoutubeLogo
+export default styled(YoutubeLogo)(({ theme, hovered }) => ({
+  '& path': {
+    transition: theme.Transitions.createTransition([
+      {
+        property: 'fill',
+        duration: 'short'
+      }
+    ])
+  }
+}));
