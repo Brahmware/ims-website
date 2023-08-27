@@ -139,6 +139,6 @@ export default styled(IMSLogoFull)(({ theme }) => ({
   width: '100%',
   height: '100%',
   '& .word__mark': {
-    fill: theme.Colors.slogan,
+    fill: theme.palette.text.primary,
   },
 }));

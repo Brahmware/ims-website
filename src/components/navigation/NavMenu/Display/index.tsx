@@ -33,13 +33,17 @@ const DisplayWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledImage = styled(Image)(({ theme }) => ({
-  zIndex: 1,
+  zIndex: theme.Shadows.lower.zIndex,
+  height: 620,
+  width: 430,
+  objectFit: 'contain',
+  objectPosition: 'center',
 }));
 
 const StyledVideo = styled('video')(({ theme }) => ({
   position: 'absolute',
   width: 380,
-  height: 320,
+  height: 324,
   objectFit: 'cover',
   zIndex: -1,
   transform: 'scale(0.6) translateX(-7rem) translateY(-2.5rem)',
@@ -56,10 +60,8 @@ const Display = () => {
         priority
         src='/images/navigation-menu-tv.png'
         alt='tv'
-        height={320}
-        width={430}
-        objectFit='contain'
-        objectPosition='center'
+        height={620 * 2}
+        width={430 * 2}
         onLoad={(e) => {
           e.currentTarget.classList.add('loaded')
         }}

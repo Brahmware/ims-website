@@ -35,6 +35,10 @@ export const customPaletteLight: CustomPaletteOptions = {
     main: colors.kolapata,
     contrastText: colors.white,
   },
+  text: {
+    primary: colors.black,
+    secondary: colors.bhasma,
+  },
 }
 
 export const customPaletteDark: CustomPaletteOptions = {
@@ -64,5 +68,9 @@ export const customPaletteDark: CustomPaletteOptions = {
   success: {
     main: colors.kolapata,
     contrastText: colors.white,
+  },
+  text: {
+    primary: colors.slogan,
+    secondary: colors.matmaila,
   },
 }
