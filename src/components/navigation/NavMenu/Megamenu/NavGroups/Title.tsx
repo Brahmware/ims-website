@@ -12,12 +12,14 @@ const Title = styled(({ children, ...props }: TitleProps) => {
     </Typography>
   );
 })(({ theme }) => ({
-  margin: `${theme.Spaces.sm} 0`,
+  padding: theme.Spaces.sm,
   fontWeight: theme.FontWeights.fontWeightUltra,
-  color: theme.palette.text.primary,
+  backgroundColor: theme.palette.text.primary,
+  color: theme.palette.secondary.contrastText,
   textTransform: 'uppercase',
   whiteSpace: 'nowrap',
   cursor: 'default',
+  width: '100%',
 }));
 
 export default Title;

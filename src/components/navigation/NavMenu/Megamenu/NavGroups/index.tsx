@@ -14,8 +14,8 @@ const Navgroup = styled('ul')(({ theme }) => ({
   borderRadius: theme.Spaces.md,
   margin: `${theme.Spaces.lg} ${theme.Spaces.lg}`,
 
-  minWidth: '18em',
-  minHeight: '12rem',
+  minWidth: '19.75em',
+  minHeight: '11.75rem',
 
   '&:hover': {
     '& .group__card': {
@@ -54,7 +54,7 @@ const GroupCard = styled(Card)(({ theme }) => ({
     duration: 'longest'
   }),
   borderRadius: `calc(${theme.Spaces.md} - 0.125rem)`,
-  padding: theme.Spaces.sm,
+  padding: 0,
 
   [theme.breakpoints.down('md')]: {
     borderRadius: 0,
@@ -62,7 +62,15 @@ const GroupCard = styled(Card)(({ theme }) => ({
   
   '& li': {
     width: '100%',
-    margin: `${theme.Spaces.xxs} 0`,
+    margin: `${theme.Spaces.xxs} ${theme.Spaces.sm}`,
+
+    '&:first-of-type': {
+      marginTop: theme.Spaces.md,
+    },
+
+    '&:last-of-type': {
+      marginBottom: theme.Spaces.md,
+    },
 
     '& a': {
       display: 'flex',
@@ -120,7 +128,7 @@ const Dot = styled(({ ...props }: UtilityIconProps) => {
 })(({ theme }) => ({
   ...theme.Sizes.icon.extraSmall,
   marginLeft: theme.Spaces.xxs,
-  marginRight: theme.Spaces.xs,
+  marginRight: `calc(${theme.Spaces.sm} + ${theme.Spaces.xxs})`,
 
   '& circle': {
     fill: theme.palette.text.primary,
