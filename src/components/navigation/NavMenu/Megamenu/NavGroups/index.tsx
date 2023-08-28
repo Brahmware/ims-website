@@ -1,173 +1,92 @@
 import React from 'react';
 import { NavGroupsProps } from '@interfaces/NavGropusProps';
-import { Card, Typography, styled } from '@mui/material';
-import Link from '@components/Link';
-import { UtilityIconProps } from '@interfaces/SVGProps';
-import svgCommonProps from '@utils/svgCommonProps';
+import { styled, useMediaQuery } from '@mui/material';
 import Title from './Title';
-import { navbar } from '@theme/constants';
 import { useNavHoverContext } from '@helpers/NavHoverContext';
+import GroupCard from './GroupCard';
+import NavList from './NavList';
 
-const Navgroup = styled('ul')(({ theme }) => ({
+
+interface NavgroupProps extends React.HTMLAttributes<HTMLUListElement> {
+  children: React.ReactNode;
+  active?: boolean;
+  show?: boolean;
+};
+
+const Navgroup = styled('ul')<NavgroupProps>(({ theme, active, show }) => ({
   position: 'relative',
   backgroundColor: theme.palette.primary.main,
   borderRadius: theme.Spaces.md,
-  margin: `${theme.Spaces.lg} ${theme.Spaces.lg}`,
-
+  margin: theme.Spaces.lg,
   minWidth: '19.75em',
-  minHeight: '11.75rem',
+  height: active ? '10.75rem' : '3rem',
 
+  [theme.Breakpoints.down('tall')]: {
+    height: show ? '10.75rem' : '3rem',
+  },
+
+  transition: theme.Transitions.createTransition([
+    {
+      property: 'height',
+      duration: 'longest'
+    },
+    {
+      property: 'border-radius',
+      duration: 'longest'
+    },
+  ]),
+  
+  '& .nav__group-card': {
+    transform: `translateX(0) ${!active ? '!important' : ''}`,
+  },
+  
   '&:hover': {
-    '& .group__card': {
+    '& .nav__group-card': {
       transform: `translateX(${theme.Spaces.xxs})`,
     },
   },
 
-  [theme.breakpoints.down('lg')]: {
-    minHeight: '12rem',
-  },
-
-  [theme.breakpoints.down('md')]: {
-    margin: 0,
+  [theme.Breakpoints.down('navGroupTablet')]: {
     width: '100%',
-    minHeight: '12rem',
+    margin: `0 ${theme.Spaces.lg}`,
 
     '&:hover': {
-      '& .group__card': {
+      '& .nav__group-card': {
         transform: `translateX(0)`,
       },
     },
   },
 
-}));
 
-const GroupCard = styled(Card)(({ theme }) => ({
-  position: 'absolute',
-  height: '100%',
-  width: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'flex-start',
-  alignItems: 'flex-start',
-  transition: theme.Transitions.createTransition({
-    property: 'transform',
-    duration: 'longest'
-  }),
-  borderRadius: `calc(${theme.Spaces.md} - 0.125rem)`,
-  padding: 0,
-
-  [theme.breakpoints.down('md')]: {
-    borderRadius: 0,
-  },
-}));
-
-const NavList = styled('div')(({ theme }) => ({
-  padding: `0 ${theme.Spaces.sm}`,
-  margin: `${theme.Spaces.sm} 0`,
-  width: '100%',
-  overflow: 'hidden',
-
-  '& li': {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    listStyle: 'none',
-    width: '100%',
-    margin: `${theme.Spaces.xxs} 0`,
-
-    '& a': {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'flex-start',
-      alignItems: 'center',
-
-      '&:hover': {
-        '& svg circle': {
-          fill: theme.palette.text.secondary,
-          transformOrigin: 'center',
-          animation: `pulse 3000ms infinite`,
-
-          '@keyframes pulse': {
-            '0%': {
-              transform: 'scale(1)',
-              fill: theme.palette.text.secondary,
-            },
-            '30%': {
-              transform: 'scale(0.75)',
-              fill: theme.palette.primary.main,
-            },
-            '70%': {
-              transform: 'scale(1)',
-              fill: theme.palette.text.secondary,
-            },
-            '85%': {
-              transform: 'scale(0.75)',
-              fill: theme.palette.primary.main,
-            },
-            '100%': {
-              transform: 'scale(1)',
-              fill: theme.palette.text.secondary,
-            },
-          },
-        },
-      },
-    },
-  }
-}));
-
-const Dot = styled(({ ...props }: UtilityIconProps) => {
-  return (
-    <svg
-      {...svgCommonProps}
-      width="8"
-      height="8"
-      viewBox="0 0 8 8"
-      fill="red"
-      {...props}
-    >
-      <circle cx="4" cy="4" r="4" fill="red" />
-    </svg>
-  )
-})(({ theme }) => ({
-  ...theme.Sizes.icon.extraSmall,
-  marginLeft: theme.Spaces.xxs,
-  marginRight: `calc(${theme.Spaces.sm} + ${theme.Spaces.xxs})`,
-
-  '& circle': {
-    fill: theme.palette.text.primary,
-    transition: theme.Transitions.createTransition({ property: 'fill' }),
-  }
 }));
 
 const NavGroups = ({ title, videoUrl, items }: NavGroupsProps) => {
 
   const { setCurrentUrl } = useNavHoverContext();
+  const matchesTablet = useMediaQuery((theme: any) => theme.Breakpoints.down('tall'));
+  const [show, setShow] = React.useState(false);
+
+  const handleMouseEnter = () => {
+    setCurrentUrl(videoUrl);
+  };
+
+  const handleMouseLeave = () => {
+    setCurrentUrl('/videos/white_noise.webm');
+  };
 
   return (
     <Navgroup
-      onMouseEnter={setCurrentUrl.bind(null, videoUrl)}
-      onMouseLeave={setCurrentUrl.bind(null, '/videos/white_noise.webm')}
+      onClick={() => setShow(!show)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      active={!matchesTablet || false}
+      show={show}
     >
-      <GroupCard
-        className='group__card'
-        elevation={navbar.elevationHigh}
-      >
+      <GroupCard >
         <Title>
           {title}
         </Title>
-        <NavList>
-          {items.map(({ title: pageName, link: href }, index) => (
-            <li key={index}>
-              <Link href={href} >
-                <Dot />
-                <Typography variant="body2" component="p">
-                  {pageName}
-                </Typography>
-              </Link>
-            </li>
-          ))}
-        </NavList>
+        <NavList items={items} />
       </GroupCard>
     </Navgroup>
   )

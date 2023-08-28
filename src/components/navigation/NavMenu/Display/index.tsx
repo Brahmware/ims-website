@@ -5,13 +5,16 @@ import React from 'react'
 
 const DisplayWrapper = styled('div')(({ theme }) => ({
   gridColumn: '19/25',
-  gridRow: '-6/-7',
+  gridRow: '1/25',
   height: '100%',
   width: '100%',
   position: 'relative',
   display: 'flex',
+
   justifyContent: 'center',
   alignItems: 'center',
+  alignContent: 'start',
+  
   zIndex: theme.Shadows.lower.zIndex,
   transition: theme.Transitions.createTransition({
     property: 'transform',
@@ -19,20 +22,25 @@ const DisplayWrapper = styled('div')(({ theme }) => ({
   }),
   transform: 'scale(1.25) translateX(-2rem) translateY(3rem)',
 
-  [theme.breakpoints.down('xl')]: {
+  [theme.Breakpoints.down('xl')]: {
     gridColumn: '18/25',
-    gridRow: '-6/-7',
     transform: 'scale(1.5) translateX(-3rem) translateY(1rem)',
   },
 
-  [theme.breakpoints.down('lg')]: {
+  [theme.Breakpoints.down('lg')]: {
     gridColumn: '17/25',
-    gridRow: '-6/-7',
     transform: 'scale(2.125) translateX(-2rem) translateY(1rem)',
   },
 
-  [theme.breakpoints.down('sm')]: {
+  [theme.Breakpoints.down('sm')]: {
     transform: 'scale(2) translateX(0rem) translateY(-1rem)',
+  },
+
+
+  // Handle height beakpoints
+  [theme.Breakpoints.down('tall')]: {
+    transform: 'scale(1.5) translateX(-3rem) translateY(1rem)',
+    gridRow: '1/25',
   },
 }));
 

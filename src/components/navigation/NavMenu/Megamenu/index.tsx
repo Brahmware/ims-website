@@ -6,19 +6,22 @@ import NavGropus from './NavGroups';
 const MegamenuSection = styled('section')(({ theme }) => ({
   gridColumn: '1 / 25',
   gridRow: '3 / 19',
-  paddingLeft: theme.spacing(2),
-  paddingRight: theme.spacing(2),
+  zIndex: theme.Shadows.high.zIndex,
   height: '100%',
   width: '100%',
+  paddingLeft: theme.spacing(2),
+  paddingRight: theme.spacing(2),
+  
   display: 'flex',
   flexDirection: 'row',
+  
   justifyContent: 'start',
   alignItems: 'center',
   flexWrap: 'wrap',
-  zIndex: theme.Shadows.high.zIndex,
+  alignContent: 'flex-start',
 
-  [theme.breakpoints.down('lg')]: {
-    justifyContent: 'center',
+  [theme.Breakpoints.down('tall')]: {
+    alignContent: 'center',
   },
 }));
 

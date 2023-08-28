@@ -1,6 +1,12 @@
+export interface GroupItemProps {
+  index?: number;
+  title: string;
+  link: string;
+};
+
 
 export interface NavGroupsProps {
   title: string;
-  items: any[];
+  items: GroupItemProps[];
   videoUrl: string;
 };
