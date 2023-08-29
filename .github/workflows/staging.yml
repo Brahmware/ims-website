@@ -45,8 +45,8 @@ jobs:
           # Calculate Docker images size in bytes
           IMAGES_SIZE=$(docker images -q --no-trunc | xargs -r docker inspect --format='{{.Size}}' | awk '{s+=$1} END {print s}')
 
-          # Convert 1GB to bytes (1 * 1024 * 1024 * 1024)
-          IMAGES_LIMIT=1073741824
+          # Convert 3GB to bytes (3 * 1024 * 1024 * 1024)
+          IMAGES_LIMIT=3073741824
 
           # Check if image size exceeds the limit and delete oldest images if necessary
           if [ "$IMAGES_SIZE" -gt "$IMAGES_LIMIT" ]; then
