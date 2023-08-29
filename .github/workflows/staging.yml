@@ -50,10 +50,11 @@ jobs:
 
           # Check if image size exceeds the limit and delete oldest images if necessary
           if [ "$IMAGES_SIZE" -gt "$IMAGES_LIMIT" ]; then
-            echo "Images size exceeded 1GB. Deleting oldest images until size is below limit..."
+            echo "Images size exceeded 3GB, i.e. $(echo "scale=2; $IMAGES_SIZE / 1024 / 1024 / 1024" | bc) GB. Deleting oldest images until size is below limit..."
             for img in $(docker images --format '{{.ID}} {{.CreatedAt}}' | sort -k2 | awk '{print $1}'); do
               docker rmi $img
               IMAGES_SIZE=$(docker images -q --no-trunc | xargs -r docker inspect --format='{{.Size}}' | awk '{s+=$1} END {print s}')
+              echo "Images size is now $IMAGES_SIZE"
               if [ "$IMAGES_SIZE" -le "$IMAGES_LIMIT" ]; then
                 break
               fi
