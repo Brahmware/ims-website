@@ -2,6 +2,7 @@ import React from 'react';
 import menuItems from './menuItems';
 import { styled } from '@mui/material';
 import NavGropus from './NavGroups';
+import { MegamenuStateProvider } from '@helpers/MegamenuStateProvider';
 
 const MegamenuSection = styled('section')(({ theme }) => ({
   gridColumn: '1 / 25',
@@ -11,10 +12,10 @@ const MegamenuSection = styled('section')(({ theme }) => ({
   width: '100%',
   paddingLeft: theme.spacing(2),
   paddingRight: theme.spacing(2),
-  
+
   display: 'flex',
   flexDirection: 'row',
-  
+
   justifyContent: 'start',
   alignItems: 'center',
   flexWrap: 'wrap',
@@ -28,15 +29,16 @@ const MegamenuSection = styled('section')(({ theme }) => ({
 const Megamenu = () => {
   return (
     <MegamenuSection>
-      {menuItems.map((item, index) => (
-        <React.Fragment key={index}>
+      <MegamenuStateProvider>
+        {menuItems.map((item, index) => (
           <NavGropus
+            index={index}
             title={item.title}
             videoUrl={item.videoUrl}
             items={item.items}
           />
-        </React.Fragment>
-      ))}
+        ))}
+      </MegamenuStateProvider>
     </MegamenuSection>
   )
 };

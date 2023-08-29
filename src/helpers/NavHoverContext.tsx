@@ -1,3 +1,4 @@
+import { MediaWhiteNoiseSrc } from "@utils/const";
 import React, { createContext, useContext } from "react";
 
 export type NavHoverContextType = {
@@ -18,7 +19,7 @@ export const NavHoverProvider = (
     children: React.ReactNode
   }
 ) => {
-  const [currentUrl, setCurrentUrl] = React.useState('/videos/white_noise.webm');
+  const [currentUrl, setCurrentUrl] = React.useState(MediaWhiteNoiseSrc);
   return (
     <NavHoverContext.Provider
       value={{ currentUrl, setCurrentUrl }}

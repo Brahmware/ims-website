@@ -3,6 +3,7 @@ import { Button, Typography, styled } from '@mui/material';
 import TranslationIcon from '@icons/utility/TranslationIcon';
 import TranslationMenu from './TranslationMenu';
 import { useNavHoverContext } from '@helpers/NavHoverContext';
+import { MediaTranslateMenuSrc, MediaWhiteNoiseSrc } from '@utils/const';
 
 const LocaleButton = styled(Button)(({ theme }) => ({
   textTransform: 'none',
@@ -57,8 +58,8 @@ const Locale = () => {
         variant="contained"
         color="error"
         onClick={handleLocaleButtonOnClick}
-        onMouseEnter={() => setCurrentUrl('/videos/navmenu/translate.webm')}
-        onMouseLeave={() => setCurrentUrl('/videos/white_noise.webm')}
+        onMouseEnter={() => setCurrentUrl(MediaTranslateMenuSrc)}
+        onMouseLeave={() => setCurrentUrl(MediaWhiteNoiseSrc)}
       >
         <LocaleIcon />
         <ButtonText>

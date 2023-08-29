@@ -8,6 +8,7 @@ import { useTheme } from "next-themes";
 import Divider from '@components/Dividers';
 import { ThemeNameProps } from '@interfaces/TypographyProps';
 import { useNavHoverContext } from '@helpers/NavHoverContext';
+import { MediaThemeChangeSrc, MediaWhiteNoiseSrc } from '@utils/const';
 
 interface ThemeChangerWrapperProps extends CardProps {
   component?: React.ElementType;
@@ -73,8 +74,8 @@ const ThemeChanger = () => {
       name='change-theme'
       aria-label='change theme'
       role='radiogroup'
-      onMouseEnter={() => setCurrentUrl('/videos/navmenu/change-theme.webm')}
-      onMouseLeave={() => setCurrentUrl('/videos/white_noise.webm')}
+      onMouseEnter={() => setCurrentUrl(MediaThemeChangeSrc)}
+      onMouseLeave={() => setCurrentUrl(MediaWhiteNoiseSrc)}
     >
       <MoonIcon
         active={(theme === 'dark')}

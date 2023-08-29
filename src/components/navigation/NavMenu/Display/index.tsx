@@ -1,5 +1,6 @@
 import { useNavHoverContext } from '@helpers/NavHoverContext';
 import { styled } from '@mui/material';
+import { MediaWhiteNoiseSrc } from '@utils/const';
 import Image from 'next/image';
 import React from 'react'
 
@@ -83,7 +84,7 @@ const Display = () => {
         autoPlay
         muted
         loop
-        onError={() => setCurrentUrl('/videos/white_noise.webm')}
+        onError={() => setCurrentUrl(MediaWhiteNoiseSrc)}
       />
     </DisplayWrapper>
   )

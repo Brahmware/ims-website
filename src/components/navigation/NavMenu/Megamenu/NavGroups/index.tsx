@@ -5,6 +5,8 @@ import Title from './Title';
 import { useNavHoverContext } from '@helpers/NavHoverContext';
 import GroupCard from './GroupCard';
 import NavList from './NavList';
+import { useMegamenuStateContext } from '@helpers/MegamenuStateProvider';
+import { MediaWhiteNoiseSrc } from '@utils/const';
 
 
 interface NavgroupProps extends React.HTMLAttributes<HTMLUListElement> {
@@ -35,11 +37,11 @@ const Navgroup = styled('ul')<NavgroupProps>(({ theme, active, show }) => ({
       duration: 'longest'
     },
   ]),
-  
+
   '& .nav__group-card': {
     transform: `translateX(0) ${!active ? '!important' : ''}`,
   },
-  
+
   '&:hover': {
     '& .nav__group-card': {
       transform: `translateX(${theme.Spaces.xxs})`,
@@ -60,10 +62,11 @@ const Navgroup = styled('ul')<NavgroupProps>(({ theme, active, show }) => ({
 
 }));
 
-const NavGroups = ({ title, videoUrl, items }: NavGroupsProps) => {
+const NavGroups = ({ index, title, videoUrl, items }: NavGroupsProps) => {
 
   const { setCurrentUrl } = useNavHoverContext();
   const matchesTablet = useMediaQuery((theme: any) => theme.Breakpoints.down('tall'));
+  const { activeMenu, setActiveMenu } = useMegamenuStateContext();
   const [show, setShow] = React.useState(false);
 
   const handleMouseEnter = () => {
@@ -71,12 +74,28 @@ const NavGroups = ({ title, videoUrl, items }: NavGroupsProps) => {
   };
 
   const handleMouseLeave = () => {
-    setCurrentUrl('/videos/white_noise.webm');
+    setCurrentUrl(MediaWhiteNoiseSrc);
   };
+
+  const handleMouseClick = (event: React.MouseEvent<HTMLUListElement>) => {
+    setActiveMenu(event.currentTarget);
+  };
+
+  const navgroupRef = React.useCallback((node: HTMLUListElement) => {
+    if (node !== null) {
+      if (activeMenu === node) {
+        setShow(true);
+      } else {
+        setShow(false);
+      }
+    }
+  }, [activeMenu]);
 
   return (
     <Navgroup
-      onClick={() => setShow(!show)}
+      key={index}
+      ref={navgroupRef}
+      onClick={handleMouseClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       active={!matchesTablet || false}

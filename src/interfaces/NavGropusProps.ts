@@ -6,6 +6,7 @@ export interface GroupItemProps {
 
 
 export interface NavGroupsProps {
+  index?: number;
   title: string;
   items: GroupItemProps[];
   videoUrl: string;
