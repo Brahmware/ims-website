@@ -24,28 +24,35 @@ jobs:
           echo "SSH Keys Setup Completed"
 
           echo "SSHing into Staging Server"
-          ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} -p ${{ secrets.PORT }} -i ~/.ssh/id_rsa <<EOF
-          
-          echo "Change Directory to ims-website"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} -p ${{ secrets.PORT }} -i ~/.ssh/id_rsa <<'EOF'
+          # Change to the project directory
           cd ~/ims-website
 
-          echo "Pulling Latest Code from Development Branch"
+          # Calculate Docker cache size in bytes
+          CACHE_SIZE=$(docker images --filter "dangling=true" -q --no-trunc | xargs -r docker inspect --format='{{.Size}}' | awk '{s+=$1} END {print s}')
+
+          # Convert 2GB to bytes (2 * 1024 * 1024 * 1024)
+          # LIMIT=2147483648
+          
+          # Convert 40MB to bytes (40 * 1024 * 1024)
+          LIMIT= 41943040
+
+          # Check if cache size exceeds the limit and prune if necessary
+          if [ "$CACHE_SIZE" -gt "$LIMIT" ]; then
+            echo "Cache size exceeded 2GB. Cleaning..."
+            docker system prune -af
+          else
+            echo "Cache size is within limit."
+          fi
+
+          # Continue with your existing deployment steps
           git pull origin development
-
-          echo "Cleaning up old Docker images"
-          docker image prune -a -f
-
-          echo "Cleaning up old log files"
-          find ~/ims-website/logs/* -mtime +7 -exec rm {} \\;
-
-          echo "Rebuilding Docker Containers"
           docker compose build
-
-          echo "Starting Docker Containers"
           docker compose up -d
-
+          
           exit
           EOF
+
           echo "Deployment and Cleanup on Staging Server Completed"
 
       - name: Gathering Email and Mail List
