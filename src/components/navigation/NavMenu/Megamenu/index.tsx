@@ -4,7 +4,12 @@ import { styled } from '@mui/material';
 import NavGropus from './NavGroups';
 import { MegamenuStateProvider } from '@helpers/MegamenuStateProvider';
 
-const MegamenuSection = styled('section')(({ theme }) => ({
+interface MegamenuSectionProps extends React.HTMLAttributes<HTMLSelectElement> {
+  children: React.ReactNode;
+  numberOfItems?: number;
+};
+
+const MegamenuSection = styled('section')<MegamenuSectionProps>(({ theme, numberOfItems }) => ({
   gridColumn: '1 / 25',
   gridRow: '3 / 19',
   zIndex: theme.Shadows.high.zIndex,
@@ -21,9 +26,6 @@ const MegamenuSection = styled('section')(({ theme }) => ({
   flexWrap: 'wrap',
   alignContent: 'flex-start',
 
-  [theme.Breakpoints.down('tall')]: {
-    alignContent: 'center',
-  },
 }));
 
 const Megamenu = () => {

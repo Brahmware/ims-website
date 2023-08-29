@@ -19,3 +19,6 @@ export interface CopyrightTextProps extends TypographyProps {
 
 export interface ThemeNameProps extends TypographyProps {
 };
+
+export interface CartBadgeProps extends TypographyProps {
+};

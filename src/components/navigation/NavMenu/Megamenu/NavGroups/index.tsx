@@ -33,6 +33,10 @@ const Navgroup = styled('ul')<NavgroupProps>(({ theme, active, show }) => ({
       duration: 'longest'
     },
     {
+      property: 'width',
+      duration: 'longest'
+    },
+    {
       property: 'border-radius',
       duration: 'longest'
     },
@@ -51,6 +55,7 @@ const Navgroup = styled('ul')<NavgroupProps>(({ theme, active, show }) => ({
   [theme.Breakpoints.down('navGroupTablet')]: {
     width: '100%',
     margin: `0 ${theme.Spaces.lg}`,
+    height: show ? '10.75rem' : '3rem',
 
     '&:hover': {
       '& .nav__group-card': {
@@ -59,6 +64,11 @@ const Navgroup = styled('ul')<NavgroupProps>(({ theme, active, show }) => ({
     },
   },
 
+  [theme.Breakpoints.down('navGroupPhablet')]: {
+    width: '100%',
+    margin: `0 ${theme.Spaces.md}`,
+    height: show ? '10.75rem' : '3rem',
+  },
 
 }));
 
@@ -78,6 +88,9 @@ const NavGroups = ({ index, title, videoUrl, items }: NavGroupsProps) => {
   };
 
   const handleMouseClick = (event: React.MouseEvent<HTMLUListElement>) => {
+    if (show) {
+      return setActiveMenu(null as unknown as HTMLUListElement);
+    };
     setActiveMenu(event.currentTarget);
   };
 
@@ -98,7 +111,7 @@ const NavGroups = ({ index, title, videoUrl, items }: NavGroupsProps) => {
       onClick={handleMouseClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      active={!matchesTablet || false}
+      active={!matchesTablet}
       show={show}
     >
       <GroupCard >

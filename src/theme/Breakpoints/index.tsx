@@ -20,20 +20,24 @@ interface Heights {
   short: number;
   medium: number;
   tall: number;
+  extraTall?: number;
 }
 
 export const heights: Heights = {
   short: 0,
   medium: 400,
-  tall: 800,
+  tall: 650,
+  extraTall: 800,
 };
 
 interface Misc {
   navGroupTablet: number;
+  navGroupPhablet: number;
 }
 
 export const misc: Misc = {
   navGroupTablet: 1190,
+  navGroupPhablet: 760,
 };
 
 export interface Breakpoints {

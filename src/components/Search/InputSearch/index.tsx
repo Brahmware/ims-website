@@ -2,8 +2,8 @@ import { styled } from '@mui/material';
 import React from 'react'
 
 const StyledInput = styled('input')(({ theme }) => ({
-  margin: '0 1rem',
-  padding: '0.5rem 1rem',
+  padding: `${theme.Spaces.sm} ${theme.Spaces.md}`,
+  paddingRight: theme.Spaces.xxl,
   borderRadius: '2rem',
   border: 'none',
   outline: 'none',

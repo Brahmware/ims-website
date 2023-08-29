@@ -28,6 +28,10 @@ const Bar = styled(Card)<BarProps>(({ theme, open }) => ({
     }
   ]),
   height: open ? theme.Heights.header.expanded : theme.Heights.header.default,
+
+  [theme.Breakpoints.down('tall')]: {
+    height: theme.Heights.header.default,
+  },
 }));
 
 const BarContent = styled('nav')(({ theme }) => ({
@@ -36,7 +40,7 @@ const BarContent = styled('nav')(({ theme }) => ({
   maxWidth: theme.breakpoints.values.xl,
   margin: '0 auto',
   display: 'grid',
-  gridTemplateColumns: 'auto 1fr auto auto auto',
+  gridTemplateColumns: 'auto 1fr auto auto auto auto',
   alignItems: 'center',
   alignContent: 'center',
   transition: theme.Transitions.createTransition({
