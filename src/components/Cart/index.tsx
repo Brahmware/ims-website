@@ -18,7 +18,7 @@ const CartIcon = styled(Icon)(({ theme }) => ({
 }));
 
 const CartIconBtn = styled(IconButton)(({ theme }) => ({
-  margin: `0 ${theme?.Spaces.xs}`,
+  margin: `0 ${theme.Spaces.xs}`,
 }));
 
 const itemsInCart = 6;

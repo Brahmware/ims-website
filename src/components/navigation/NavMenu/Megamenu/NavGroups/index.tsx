@@ -72,7 +72,7 @@ const Navgroup = styled('ul')<NavgroupProps>(({ theme, active, show }) => ({
 
 }));
 
-const NavGroups = ({ index, title, videoUrl, items }: NavGroupsProps) => {
+const NavGroups = ({ title, videoUrl, items }: NavGroupsProps) => {
 
   const { setCurrentUrl } = useNavHoverContext();
   const matchesTablet = useMediaQuery((theme: any) => theme.Breakpoints.down('tall'));
@@ -106,7 +106,6 @@ const NavGroups = ({ index, title, videoUrl, items }: NavGroupsProps) => {
 
   return (
     <Navgroup
-      key={index}
       ref={navgroupRef}
       onClick={handleMouseClick}
       onMouseEnter={handleMouseEnter}

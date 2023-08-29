@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import menuItems from './menuItems';
 import { styled } from '@mui/material';
 import NavGropus from './NavGroups';
@@ -33,12 +33,14 @@ const Megamenu = () => {
     <MegamenuSection>
       <MegamenuStateProvider>
         {menuItems.map((item, index) => (
-          <NavGropus
-            index={index}
-            title={item.title}
-            videoUrl={item.videoUrl}
-            items={item.items}
-          />
+          <Fragment key={index}>
+            <NavGropus
+              index={index}
+              title={item.title}
+              videoUrl={item.videoUrl}
+              items={item.items}
+            />
+          </Fragment>
         ))}
       </MegamenuStateProvider>
     </MegamenuSection>
