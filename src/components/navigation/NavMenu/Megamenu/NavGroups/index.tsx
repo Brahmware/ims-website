@@ -43,7 +43,7 @@ const Navgroup = styled('ul')<NavgroupProps>(({ theme, active, show }) => ({
   ]),
 
   '& .nav__group-card': {
-    transform: `translateX(0) ${!active ? '!important' : ''}`,
+    transform: `translateX(-1px) ${!active ? '!important' : ''}`,
   },
 
   '&:hover': {
@@ -59,7 +59,7 @@ const Navgroup = styled('ul')<NavgroupProps>(({ theme, active, show }) => ({
 
     '&:hover': {
       '& .nav__group-card': {
-        transform: `translateX(0)`,
+        transform: `translateX(-1px)`,
       },
     },
   },

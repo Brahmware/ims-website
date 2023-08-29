@@ -9,6 +9,7 @@ export interface ContainedButtonProps extends ButtonProps {
 
 export interface IconButtonProps extends ButtonProps {
   target?: string;
+  flippedTheme?: boolean;
 };
 
 export interface OutlinedButtonProps extends ButtonProps {

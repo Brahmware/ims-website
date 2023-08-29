@@ -17,8 +17,8 @@ const GroupCard = ({ children, ...props }: CardProps) => {
 
 export default styled(GroupCard)(({ theme }) => ({
   position: 'absolute',
-  height: '100%',
-  width: '100%',
+  height: 'calc(100% + 2px)',
+  width: 'calc(100% + 2px)',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'flex-start',

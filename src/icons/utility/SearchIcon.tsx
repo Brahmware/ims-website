@@ -8,19 +8,26 @@ const SearchIcon = ({ hovered, ...props }: UtilityIconProps) => {
     <svg
       {...svgCommonProps}
       data-name='Search Icon'
-      width='24'
-      height='24'
+      width='800'
+      height='800'
       fill='none'
-      viewBox='0 0 24 24'
+      viewBox='0 0 800 800'
       {...props}
     >
-      <path d='M17 17L21 21' stroke='#323232' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
-      <path d='M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z' stroke='#323232' strokeWidth='2' />
+      <defs>
+        {`
+          .search__icon-path {
+            fill: #323232;
+          }
+        `}
+      </defs>
+      <path className="search__icon-path" d="M725.45605,674.54492,604.64087,553.72974A302.6814,302.6814,0,0,0,152.64893,152.64893,302.68342,302.68342,0,0,0,553.72974,604.64087L674.54492,725.45605ZM366.6665,597.333c-127.18994,0-230.666-103.47656-230.666-230.66651s103.47607-230.666,230.666-230.666S597.333,239.47656,597.333,366.6665,493.85645,597.333,366.6665,597.333Z" transform="translate(-64.00049 -64.00049)"/>
     </svg>
   )
 };
 
 export default styled(SearchIcon)(({ theme }) => ({
+  transform: 'translate(2px, 1.33px)',
   '& path': {
     stroke: theme.palette.text.primary,
     strokeWidth: theme.Strokes.thin,

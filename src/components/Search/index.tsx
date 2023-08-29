@@ -14,16 +14,7 @@ const SearchWrapper = styled(Box)(({ theme }) => ({
 }));
 
 const SearchIcon = styled(Icon)(({ theme }) => ({
-  
   ...theme.Sizes.icon.small,
-  '& path': {
-    stroke: theme.palette.primary.contrastText,
-    transition: theme.Transitions.createTransition({
-      property: 'stroke',
-      duration: 'shorter',
-      easing: 'easeInOut'
-    }),
-  },
 }));
 
 const SearchIconBtn = styled(IconButton)(({ theme }) => ({
@@ -36,6 +27,7 @@ const Search = () => {
     <SearchWrapper>
       <InputSearch />
       <SearchIconBtn
+        flippedTheme
         aria-label="search"
         vocab='Search in IMS'
         onClick={() => window.alert('search button was clicked')}

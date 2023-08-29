@@ -4,13 +4,35 @@ import { ButtonProps } from '@interfaces/ButtonProps';
 
 const StyledButton = styled(MuiButton)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
-  '& svg path': {
-    stroke: theme.palette.primary.contrastText,
-    transition: theme.Transitions.createTransition({
-      property: 'stroke',
+  color: theme.palette.primary.contrastText,
+
+  transition: theme.Transitions.createTransition([
+    {
+      property: 'background-color',
       duration: 'shorter',
       easing: 'easeInOut'
-    }),
+    },
+    {
+      property: 'color',
+      duration: 'shorter',
+      easing: 'easeInOut'
+    }
+  ]),
+
+  '& svg path': {
+    stroke: theme.palette.primary.contrastText,
+    transition: theme.Transitions.createTransition([
+      {
+        property: 'stroke',
+        duration: 'shorter',
+        easing: 'easeInOut'
+      },
+      {
+        property: 'fill',
+        duration: 'shorter',
+        easing: 'easeInOut'
+      }
+    ]),
   },
 
   '&:hover': {
