@@ -30,15 +30,9 @@ jobs:
 
           # Calculate Docker cache size in bytes
           CACHE_SIZE=$(docker images --filter "dangling=true" -q --no-trunc | xargs -r docker inspect --format='{{.Size}}' | awk '{s+=$1} END {print s}')
-
-          # Calculate Docker images size in bytes
-          IMAGES_SIZE=$(docker images -q --no-trunc | xargs -r docker inspect --format='{{.Size}}' | awk '{s+=$1} END {print s}')
-
+          
           # Convert 40MB to bytes (40 * 1024 * 1024)
           CACHE_LIMIT=41943040
-
-          # Convert 1GB to bytes (1 * 1024 * 1024 * 1024)
-          IMAGES_LIMIT=1073741824
 
           # Check if cache size exceeds the limit and prune if necessary
           if [ "$CACHE_SIZE" -gt "$CACHE_LIMIT" ]; then
@@ -48,15 +42,21 @@ jobs:
             echo "Cache size is within limit."
           fi
 
-          # Check if images size exceeds the limit and delete oldest images if necessary
+          # Calculate Docker images size in bytes
+          IMAGES_SIZE=$(docker images -q --no-trunc | xargs -r docker inspect --format='{{.Size}}' | awk '{s+=$1} END {print s}')
+
+          # Convert 1GB to bytes (1 * 1024 * 1024 * 1024)
+          IMAGES_LIMIT=1073741824
+
+          # Check if image size exceeds the limit and delete oldest images if necessary
           if [ "$IMAGES_SIZE" -gt "$IMAGES_LIMIT" ]; then
-            echo "Images size exceeded 10GB. Deleting oldest images until size is below limit..."
-            docker images --format '{{.ID}} {{.Created}}' | sort -k2 | awk '{print $1}' | while read -r image_id; do
+            echo "Images size exceeded 1GB. Deleting oldest images until size is below limit..."
+            for img in $(docker images --format '{{.ID}} {{.CreatedAt}}' | sort -k2 | awk '{print $1}'); do
+              docker rmi $img
+              IMAGES_SIZE=$(docker images -q --no-trunc | xargs -r docker inspect --format='{{.Size}}' | awk '{s+=$1} END {print s}')
               if [ "$IMAGES_SIZE" -le "$IMAGES_LIMIT" ]; then
                 break
               fi
-              docker rmi -f $image_id
-              IMAGES_SIZE=$(docker images -q --no-trunc | xargs -r docker inspect --format='{{.Size}}' | awk '{s+=$1} END {print s}')
             done
           else
             echo "Images size is within limit."
