@@ -12,11 +12,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: SSH and Deploy
+      - name: SSH and Cleanup
         run: |
           echo "Setting up Git Config"
           mkdir -p ~/.ssh/
-          
+
           echo "Setting up SSH Keys"
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
@@ -32,16 +32,21 @@ jobs:
           echo "Pulling Latest Code from Development Branch"
           git pull origin development
 
-          echo "Stopping and Rebuilding Docker Containers"
-          docker compose down
-          docker compose build --no-cache
+          echo "Cleaning up old Docker images"
+          docker image prune -a -f
+
+          echo "Cleaning up old log files"
+          find ~/ims-website/logs/* -mtime +7 -exec rm {} \\;
+
+          echo "Rebuilding Docker Containers"
+          docker compose build
 
           echo "Starting Docker Containers"
           docker compose up -d
 
           exit
           EOF
-          echo "Deployment on Staging Server Completed"
+          echo "Deployment and Cleanup on Staging Server Completed"
 
       - name: Gathering Email and Mail List
         id: prepare_email
