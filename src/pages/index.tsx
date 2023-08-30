@@ -1,27 +1,21 @@
-import Navbar from "@components/navigation/NavBar";
-import NavMenu from "@components/navigation/NavMenu";
-import { NavigationMenuStateProvider } from "@helpers/NavigationMenuStateProvider";
-import { Typography } from "@mui/material";
-import type { NextPage } from "next";
 import React from "react";
+import type { NextPage } from "next";
+import MainLayout from "@layouts/MainLayout";
+import { Typography } from "@mui/material";
+import Head from "next/head";
 
 const Home: NextPage = () => {
   return (
-    <NavigationMenuStateProvider>
-      <Navbar />
-      <NavMenu />
-      <main style={{
-        height: "125vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "start",
-        alignItems: "center",
-      }}>
+    <React.Fragment>
+      <Head>
+        <title>IMS: Indian Media Syndicate</title>
+      </Head>
+      <MainLayout>
         <Typography variant="h1" component="h1" gutterBottom>
           Welcome to Home Page
         </Typography>
-      </main>
-    </NavigationMenuStateProvider>
+      </MainLayout>
+    </React.Fragment>
   );
 };
 export default Home;
