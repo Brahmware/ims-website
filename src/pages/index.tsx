@@ -1,15 +1,21 @@
 import React from "react";
+import Head from "next/head";
 import type { NextPage } from "next";
 import MainLayout from "@layouts/MainLayout";
 import { Typography } from "@mui/material";
-import Head from "next/head";
+
+const MetaData: React.FC = () => {
+  return (
+    <Head>
+      <title>IMS: Indian Media Syndicate</title>
+    </Head>
+  );
+};
 
 const Home: NextPage = () => {
   return (
     <React.Fragment>
-      <Head>
-        <title>IMS: Indian Media Syndicate</title>
-      </Head>
+      <MetaData />
       <MainLayout>
         <Typography variant="h1" component="h1" gutterBottom>
           Welcome to Home Page

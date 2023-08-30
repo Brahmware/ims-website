@@ -1,7 +1,8 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import React from "react";
+import Document, { Html, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 import createEmotionCache from "@utils/createEmotionCache";
-import { themeDark } from "@theme/index";
+import Head from "@components/Head";
 
 
 export default class MyDocument extends Document {
@@ -9,19 +10,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href="/favicon.ico" />
-          <meta name="emotion-insertion-point" content="" />
-          <meta name="theme-color" content={themeDark.palette.primary.main} />
-          <meta name="msapplication-TileColor" content={themeDark.palette.primary.main} />
-          <meta name="msapplication-TileImage" content="/favicon.ico" />
-          <meta name="msapplication-config" content="/favicon.ico" />
-          <meta name="apple-mobile-web-app-title" content="Indian Media Syndicate" />
-          <meta name="application-name" content="IMS Corp." />
-          <meta name="description" content="Corporate website of Indian Media Syndicate" />
-          <meta name="keywords" content="Indian Media Syndicate" />
-          <meta name="author" content="Brahmware" />
-          <meta name="author-website" content="https://brahmware.com" />
-          <meta name="author-email" content="hello@brahmware.com" />
           {(this.props as any).emotionStyleTags}
         </Head>
         <body>
