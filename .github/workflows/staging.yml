@@ -28,47 +28,49 @@ jobs:
           # Change to the project directory
           cd ~/ims-website
 
-          # Calculate Docker cache size in bytes
-          CACHE_SIZE=$(docker images --filter "dangling=true" -q --no-trunc | xargs -r docker inspect --format='{{.Size}}' | awk '{s+=$1} END {print s}')
-          echo "Cache size is $CACHE_SIZE"
-
-          # # Convert 40MB to bytes (40 * 1024 * 1024)
-          # CACHE_LIMIT=41943040
-
-          # # Check if cache size exceeds the limit and prune if necessary
-          # if [ "$CACHE_SIZE" -gt "$CACHE_LIMIT" ]; then
-          #   echo "Cache size exceeded 40MB. Cleaning..."
-          #   docker system prune -af
-          # else
-          #   echo "Cache size is within limit."
-          # fi
+          # Remove dangling containers
+          docker container prune -f
 
           # Calculate Docker images size in bytes
           IMAGES_SIZE=$(docker images -q --no-trunc | xargs -r docker inspect --format='{{.Size}}' | awk '{s+=$1} END {print s}')
 
-          # Convert 3GB to bytes (3 * 1024 * 1024 * 1024)
-          IMAGES_LIMIT=3073741824
+          # Convert 10GB to bytes (10 * 1024 * 1024 * 1024)
+          IMAGES_LIMIT=10737418240
 
           # Check if image size exceeds the limit and delete oldest images if necessary
           if [ "$IMAGES_SIZE" -gt "$IMAGES_LIMIT" ]; then
-            echo "Images size exceeded 3GB, i.e. $(echo "scale=2; $IMAGES_SIZE / 1024 / 1024 / 1024" | bc) GB. Deleting oldest images until size is below limit..."
-            for img in $(docker images --format '{{.ID}} {{.CreatedAt}}' | sort -k2 | awk '{print $1}'); do
+            echo "Images size exceeded 10GB. Deleting oldest images until size is below limit..."
+            for img in $(docker images --format '{{.ID}} {{.Created}}' | sort -k2 | awk '{print $1}'); do
               docker rmi $img
               IMAGES_SIZE=$(docker images -q --no-trunc | xargs -r docker inspect --format='{{.Size}}' | awk '{s+=$1} END {print s}')
-              echo "Images size is now $IMAGES_SIZE"
               if [ "$IMAGES_SIZE" -le "$IMAGES_LIMIT" ]; then
                 break
               fi
             done
           else
-            echo "Images size is within limit."
+            echo "Images size is within limit. Keeping 5 most recent images."
+            docker images --format "{{.Repository}}:{{.Tag}}\t{{.CreatedSince}}" | sort -k2 -r | awk 'NR>5 {print $1}' | xargs -I {} docker rmi {}
+          fi
+
+          # Remove dangling images
+          docker image prune -f
+
+          # Calculate Docker build cache size
+          CACHE_SIZE=$(docker system df -v | grep 'Build Cache' | awk '{print $3}' | tr -d 'G')
+
+          # Check if build cache size exceeds 5GB and prune if necessary
+          if [ "$CACHE_SIZE" -gt "5" ]; then
+            echo "Build cache size exceeded 5GB. Cleaning..."
+            docker builder prune -af
+          else
+            echo "Build cache size is within limit."
           fi
 
           # Continue with your existing deployment steps
           git pull origin development
           docker compose build
           docker compose up -d
-          
+
           exit
           EOF
 

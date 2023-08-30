@@ -1,14 +1,18 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 import createEmotionCache from "@utils/createEmotionCache";
+import { themeDark } from "@theme/index";
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
-          {(this.props as any).emotionStyleTags}
           <link rel="stylesheet" href="/fonts/Gotham.css" />
+          <meta name="emotion-insertion-point" content="" />
+          {(this.props as any).emotionStyleTags}
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="theme-color" content={themeDark.palette.primary.main} />
         </Head>
         <body>
           <Main />
