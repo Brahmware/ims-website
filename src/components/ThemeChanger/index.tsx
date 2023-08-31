@@ -1,24 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Card, CardProps, Typography, styled } from '@mui/material';
+import { Card, styled } from '@mui/material';
 import MoonIcon from '@icons/utility/MoonIcon';
+import { ThemeChangerWrapperProps } from '@interfaces/CardProps';
 import SunIcon from '@icons/utility/SunIcon';
 import SystemIcon from '@icons/utility/SystemIcon';
 import { navbar } from '@theme/constants';
 import { useTheme } from "next-themes";
-import Divider from '@components/Dividers';
-import { ThemeNameProps } from '@interfaces/TypographyProps';
 import { useNavHoverContext } from '@helpers/NavHoverContext';
 import { MediaThemeChangeSrc, MediaWhiteNoiseSrc } from '@utils/const';
 
-interface ThemeChangerWrapperProps extends CardProps {
-  component?: React.ElementType;
-  elevation?: number;
-  name?: string;
-  role?: string;
-};
 
 const ThemeChangerWrapper = styled(Card)<ThemeChangerWrapperProps>(({ theme }) => ({
-  padding: `${theme.Spaces.sm} ${theme.Spaces.md}`,
+  padding: theme.Spaces.sm,
   borderRadius: '2rem',
   display: 'flex',
   flexDirection: 'row',
@@ -27,6 +20,7 @@ const ThemeChangerWrapper = styled(Card)<ThemeChangerWrapperProps>(({ theme }) =
   boxShadow: 'unset',
 
   '& svg': {
+    cursor: 'pointer',
     margin: `0 ${theme.Spaces.xs}`,
     width: '1.5rem',
     height: '1.5rem',
@@ -39,18 +33,6 @@ const ThemeChangerWrapper = styled(Card)<ThemeChangerWrapperProps>(({ theme }) =
   '& svg:last-of-type': {
     marginRight: theme.Spaces.xxs,
   },
-}));
-
-const StyledDivider = styled(Divider)(({ theme }) => ({
-  height: '1rem',
-  margin: `0 ${theme.Spaces.sm}`,
-}));
-
-const ThemeName = styled(Typography)<ThemeNameProps>(({ theme }) => ({
-  margin: `0 ${theme.Spaces.xs}`,
-  minWidth: '3.25rem',
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
 }));
 
 const ThemeChanger = () => {
@@ -89,10 +71,6 @@ const ThemeChanger = () => {
         active={(theme === 'system')}
         onClick={() => handleThemeChange('system')}
       />
-      <StyledDivider orientation='vertical' />
-      <ThemeName variant='body2' component='span'>
-        {theme}
-      </ThemeName>
     </ThemeChangerWrapper>
   )
 }

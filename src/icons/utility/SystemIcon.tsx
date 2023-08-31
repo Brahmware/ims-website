@@ -1,7 +1,7 @@
 import React from 'react';
 import { UtilityIconProps } from '@interfaces/SVGProps';
 import svgCommonProps from '@utils/svgCommonProps';
-import { styled } from '@mui/material';
+import { styled, alpha } from '@mui/material';
 
 export const SystemIcon = (
   {
@@ -11,11 +11,11 @@ export const SystemIcon = (
   }: UtilityIconProps
 ) => {
   return (
-    <svg 
+    <svg
       {...svgCommonProps}
-      data-name='system' 
-      width='128' 
-      height='128' 
+      data-name='system'
+      width='128'
+      height='128'
       viewBox='0 0 128 128'
       {...props}
     >
@@ -26,27 +26,26 @@ export const SystemIcon = (
 };
 
 export default styled(SystemIcon)(({ theme, active }) => {
+
+  const pathCommon = {
+    transition: theme.transitions.create('fill', {
+      easing: theme.transitions.easing.easeInOut,
+      duration: theme.transitions.duration.short,
+    }),
+    fill: alpha(theme.palette.text.secondary, 0.8),
+  };
+
   if (active) {
     return {
       '& path': {
+        ...pathCommon,
         fill: theme.palette.primary.main,
-        transition: theme.transitions.create('fill', {
-          easing: theme.transitions.easing.easeInOut,
-          duration: theme.transitions.duration.short,
-        }),
       },
     }
   };
 
   return {
-    cursor: 'pointer',
-    '& path': {
-      fill: theme.palette.text.secondary,
-      transition: theme.transitions.create('fill', {
-        easing: theme.transitions.easing.easeInOut,
-        duration: theme.transitions.duration.short,
-      }),
-    },
+    '& path': { ...pathCommon },
     '&:hover path': {
       fill: theme.palette.text.primary,
     },

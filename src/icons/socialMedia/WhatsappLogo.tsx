@@ -1,7 +1,7 @@
+import React from 'react';
+import svgCommonProps from '@utils/svgCommonProps';
 import { SocialMediaIconProps } from '@interfaces/SVGProps'
-import { styled, useTheme } from '@mui/material';
-import svgCommonProps from '@utils/svgCommonProps'
-import React from 'react'
+import { styled, useTheme, alpha } from '@mui/material';
 
 const WhatsappLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
 
@@ -23,7 +23,7 @@ const WhatsappLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
         <style>
           {`
             .cls-1 {
-            fill: ${!mouse ? theme.palette.text.secondary : '#67c15e'};
+            fill: ${!mouse ? alpha(theme.palette.text.secondary, 0.8) : '#67c15e'};
             fill-rule: evenodd;
             }
           `}

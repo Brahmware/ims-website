@@ -1,7 +1,7 @@
-import { styled, useTheme } from '@mui/material';
-import { SocialMediaIconProps } from '@interfaces/SVGProps'
-import svgCommonProps from '@utils/svgCommonProps'
-import React from 'react'
+import React from 'react';
+import svgCommonProps from '@utils/svgCommonProps';
+import { SocialMediaIconProps } from '@interfaces/SVGProps';
+import { styled, useTheme, alpha } from '@mui/material';
 
 const YoutubeLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
 
@@ -23,7 +23,7 @@ const YoutubeLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
         <style>
           {`
             .b708bb15-0c44-4be1-aa70-cae10dda9a4e {
-              fill: ${!mouse ? theme.palette.text.secondary : '#ce1312'};
+              fill: ${!mouse ? alpha(theme.palette.text.secondary, 0.8) : '#ce1312'};
               fill-rule: evenodd;
             }
           `}
@@ -38,7 +38,7 @@ const YoutubeLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
       </g>
     </svg>
   )
-}
+};
 
 export default styled(YoutubeLogo)(({ theme, hovered }) => ({
   '& path': {

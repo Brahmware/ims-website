@@ -1,5 +1,5 @@
 import { SocialMediaIconProps } from '@interfaces/SVGProps';
-import { styled, useTheme } from '@mui/material';
+import { styled, useTheme, alpha } from '@mui/material';
 import svgCommonProps from '@utils/svgCommonProps';
 import React from 'react';
 
@@ -24,7 +24,7 @@ const LinkedinLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
         <style>
           {`
             .a1b9f681-a81e-48bf-a9de-648899f4d4cb {
-              fill: ${!mouse ? theme.palette.text.secondary : '#069'};
+              fill: ${!mouse ? alpha(theme.palette.text.secondary, 0.8) : '#069'};
             }
           `}
         </style>

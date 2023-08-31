@@ -1,7 +1,8 @@
 import { useTheme } from "next-themes";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import { themeDark, themeLight } from "@theme/index";
+import GlobalStyles from "@theme/global";
 
 const MUIThemeProvider: FC<{ children: React.ReactNode }> = ({
   children,
@@ -10,14 +11,15 @@ const MUIThemeProvider: FC<{ children: React.ReactNode }> = ({
   const [currentTheme, setCurrentTheme] = useState(themeDark);
 
   useEffect(() => {
-    resolvedTheme === "light"
-      ? setCurrentTheme(themeLight)
-      : setCurrentTheme(themeDark);
+    if (resolvedTheme === undefined || null) return;
+    if (resolvedTheme === "system") return;
+    if (resolvedTheme === "dark") return setCurrentTheme(themeDark);
+    return setCurrentTheme(themeLight);
   }, [resolvedTheme]);
 
   return (
     <ThemeProvider theme={currentTheme}>
-      <CssBaseline />
+      <GlobalStyles />
       {children}
     </ThemeProvider>
   );

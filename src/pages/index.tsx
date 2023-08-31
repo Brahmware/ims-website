@@ -3,6 +3,7 @@ import Head from "next/head";
 import type { NextPage } from "next";
 import MainLayout from "@layouts/MainLayout";
 import { Typography } from "@mui/material";
+import Carousel from "@components/Carousel";
 
 const MetaData: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const Home: NextPage = () => {
     <React.Fragment>
       <MetaData />
       <MainLayout>
+        <Carousel />
         <Typography variant="h1" component="h1" gutterBottom>
           Welcome to Home Page
         </Typography>
@@ -24,4 +26,5 @@ const Home: NextPage = () => {
     </React.Fragment>
   );
 };
+
 export default Home;

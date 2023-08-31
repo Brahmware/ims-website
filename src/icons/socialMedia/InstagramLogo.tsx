@@ -1,5 +1,5 @@
 import { SocialMediaIconProps } from '@interfaces/SVGProps'
-import { styled, useTheme } from '@mui/material';
+import { styled, useTheme, alpha } from '@mui/material';
 import svgCommonProps from '@utils/svgCommonProps'
 import React from 'react'
 
@@ -34,7 +34,7 @@ const InstagramLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
         <radialGradient id="bbc120e4-02d7-4a16-a6c7-c76bc25f3c8b" cx="1048.60989" cy="-1078.22901" r="77.21425" gradientTransform="matrix(0.32, 0, 0, -0.32, -332.52, -325.48)" gradientUnits="userSpaceOnUse">
           <stop
             offset="0.09"
-            stopColor={!mouse ? theme.palette.text.secondary : "#fa8f21"}
+            stopColor={!mouse ? alpha(theme.palette.text.secondary, 0.8) : "#fa8f21"}
             style={{
               transition: theme.Transitions.createTransition({
                 property: 'stop-color',
@@ -44,7 +44,7 @@ const InstagramLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
           />
           <stop
             offset="0.78"
-            stopColor={!mouse ? theme.palette.text.secondary : "#d82d7e"}
+            stopColor={!mouse ? alpha(theme.palette.text.secondary, 0.8) : "#d82d7e"}
             style={{
               transition: theme.Transitions.createTransition({
                 property: 'stop-color',
@@ -55,7 +55,7 @@ const InstagramLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
         </radialGradient>
         <radialGradient id="f09d4565-3c59-4429-a4e8-a2bd9961359c" cx="1076.62292" cy="-1080.87889" r="60.85549" gradientTransform="matrix(0.32, 0, 0, -0.32, -332.52, -325.48)" gradientUnits="userSpaceOnUse">
           <stop
-            offset="0.64" stopColor={!mouse ? theme.palette.text.secondary : "#8c3aaa"}
+            offset="0.64" stopColor={!mouse ? alpha(theme.palette.text.secondary, 0.8) : "#8c3aaa"}
             style={{
               transition: theme.Transitions.createTransition({
                 property: 'stop-color',
@@ -66,7 +66,7 @@ const InstagramLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
           />
           <stop
             offset="1"
-            stopColor={!mouse ? theme.palette.text.secondary : "#8c3aaa"}
+            stopColor={!mouse ? alpha(theme.palette.text.secondary, 0.8) : "#8c3aaa"}
             style={{
               transition: theme.Transitions.createTransition({
                 property: 'stop-color',

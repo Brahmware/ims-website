@@ -1,7 +1,7 @@
-import { SocialMediaIconProps } from '@interfaces/SVGProps';
-import { styled, useTheme } from '@mui/material';
-import svgCommonProps from '@utils/svgCommonProps';
 import React from 'react';
+import svgCommonProps from '@utils/svgCommonProps';
+import { SocialMediaIconProps } from '@interfaces/SVGProps';
+import { styled, useTheme, alpha } from '@mui/material';
 
 const FacebookLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
 
@@ -28,7 +28,7 @@ const FacebookLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
         <linearGradient id="e6036cbc-9faa-4599-a3df-a90eac83ea55" x1="-956.95337" y1="133.77482" x2="-956.95337" y2="133.29375" gradientTransform="translate(38288.13477 -5301.99759) scale(40 39.7778)" gradientUnits="userSpaceOnUse">
           <stop
             offset="0"
-            stopColor={!mouse ? theme.palette.text.secondary : "#0062e0"}
+            stopColor={!mouse ? alpha(theme.palette.text.secondary, 0.8) : "#0062e0"}
             style={{
               transition: theme.Transitions.createTransition({
                 property: 'stop-color',
@@ -38,7 +38,7 @@ const FacebookLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
           />
           <stop
             offset="1"
-            stopColor={!mouse ? theme.palette.text.secondary : "#19afff"}
+            stopColor={!mouse ? alpha(theme.palette.text.secondary, 0.8) : "#19afff"}
             style={{
               transition: theme.Transitions.createTransition({
                 property: 'stop-color',

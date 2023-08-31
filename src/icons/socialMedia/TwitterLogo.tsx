@@ -1,7 +1,7 @@
-import { SocialMediaIconProps } from '@interfaces/SVGProps';
-import { styled, useTheme } from '@mui/material';
-import svgCommonProps from '@utils/svgCommonProps';
 import React from 'react';
+import svgCommonProps from '@utils/svgCommonProps';
+import { SocialMediaIconProps } from '@interfaces/SVGProps';
+import { styled, useTheme, alpha } from '@mui/material';
 
 const TwitterLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
 
@@ -23,7 +23,7 @@ const TwitterLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
         <style>
           {`
             .b0437c38-6e11-436e-916b-388b13760f3a {
-              fill: ${!mouse ? theme.palette.text.secondary : '#00aaec'};
+              fill: ${!mouse ? alpha(theme.palette.text.secondary, 0.8) : '#00aaec'};
               fill-rule: evenodd;
             }
           `}

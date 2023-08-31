@@ -14,3 +14,9 @@ export interface NavigationCardProps extends DisplayCardProps {
 export interface BarProps extends DisplayCardProps {
   open?: boolean;
 };
+
+export interface ThemeChangerWrapperProps extends CardProps {
+  elevation?: number;
+  name?: string;
+  role?: string;
+};
