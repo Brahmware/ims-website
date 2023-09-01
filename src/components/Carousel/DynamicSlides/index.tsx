@@ -46,15 +46,17 @@ const DynamicSplide = dynamic<DynamicSplideProps>(() => import('@splidejs/react-
 
 const DynamicSlides = () => {
   return (
-    <DynamicSplide 
-    options={options}
-    onMove={(splide, newIndex) => {
-      console.log('splide', splide);
-      console.log('moved', newIndex);
-    }}
+    <DynamicSplide
+      options={options}
+      onMove={(splide, newIndex) => {
+        console.log('splide', splide);
+        console.log('moved', newIndex);
+      }}
     >
-      {carouselData.map((slideData) => (
-        <DynamicSlide active {...slideData} />
+      {carouselData.map((slideData, key) => (
+        <React.Fragment key={`slide-${key}`}>
+          <DynamicSlide active {...slideData} />
+        </React.Fragment>
       ))}
     </DynamicSplide>
   )
