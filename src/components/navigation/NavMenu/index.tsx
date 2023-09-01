@@ -21,7 +21,7 @@ const NavigationWrapper = styled(Card)<NavigationCardProps>(({ theme, open }) =>
   bottom: 0,
   left: 0,
   right: 0,
-  zIndex: theme.Shadows.lower.zIndex,
+  zIndex: theme.Shadows.low.zIndex,
   borderRadius: 0,
   overflow: 'hidden',
   transition: theme.Transitions.createTransition({

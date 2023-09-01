@@ -10,7 +10,7 @@ const StyledSplideWrapper = styled('div')(({ theme }) => ({
   },
 
   '& .splide__arrow--prev, & .splide__arrow--next': {
-    zIndex: 1,
+    zIndex: theme.Shadows.lower.zIndex,
     backgroundColor: alpha(theme.palette.background.default, 0.33),
     backdropFilter: 'blur(0.33rem)',
     fontSize: '1.25rem',
@@ -20,7 +20,6 @@ const StyledSplideWrapper = styled('div')(({ theme }) => ({
     borderRadius: '1.618rem',
     opacity: 1,
     transition: 'all 0.3s ease-in-out',
-
     '& path': {
       fill: theme.palette.text.primary,
     },
