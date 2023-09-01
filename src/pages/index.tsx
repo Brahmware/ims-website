@@ -9,6 +9,7 @@ const MetaData: React.FC = () => {
   return (
     <Head>
       <title>IMS: Indian Media Syndicate</title>
+      <meta name="viewport" content="initial-scale=1, width=device-width" />
     </Head>
   );
 };

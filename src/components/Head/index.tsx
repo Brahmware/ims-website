@@ -6,7 +6,6 @@ import { themeDark } from '@theme/index';
 const Head: React.FC<HeadProps> = (props) => (
   <NextHead {...props}>
     <meta charSet="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="emotion-insertion-point" content="" />
     <meta name="theme-color" content={themeDark.palette.primary.main} />
