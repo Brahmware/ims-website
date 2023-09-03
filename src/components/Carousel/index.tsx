@@ -1,12 +1,12 @@
 import { styled, alpha } from '@mui/material';
 import React from 'react';
-import DynamicSlides from './DynamicSlides';
+import dynamic from 'next/dynamic';
 
 const StyledSplideWrapper = styled('div')(({ theme }) => ({
   '& .splide__slide': {
     height: '100%',
     width: '100%',
-    zIndex: -1,
+    overflow: 'hidden',
   },
 
   '& .splide__arrow--prev, & .splide__arrow--next': {
@@ -29,6 +29,10 @@ const StyledSplideWrapper = styled('div')(({ theme }) => ({
     },
   },
 }));
+
+const DynamicSlides = dynamic(() => import('./DynamicSlides'), {
+  ssr: false,
+});
 
 const Carousel = () => {
 

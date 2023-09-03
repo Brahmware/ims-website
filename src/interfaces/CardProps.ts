@@ -20,3 +20,8 @@ export interface ThemeChangerWrapperProps extends CardProps {
   name?: string;
   role?: string;
 };
+
+export interface CarouselCardProps extends CardProps {
+  elevation?: number;
+  active?: boolean;
+};

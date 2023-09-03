@@ -1,12 +1,15 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
+import React, { useState } from 'react';
 import carouselData from '../carouselData';
-import DynamicSlide from './UnitSlide';
+import UnitSlide from './UnitSlide';
+import { Splide, SplideProps } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
+interface SplideEvent {
+  index: number;
+};
 
 const arrowPath = 'M15.71 3.854 13.685 5.951 28.153 19.923 13.858 34.074 15.91 36.146 32.315 19.904 15.71 3.854z';
-const options = {
+const options: SplideProps["options"] = {
   type: 'loop',
   perPage: 1,
   perMove: 1,
@@ -16,9 +19,8 @@ const options = {
   pagination: false,
   arrows: true,
   arrowPath,
-  autoplay: true,
-  pauseOnHover: true,
-  interval: 5000,
+  /* autoplay: true,
+  pauseOnHover: false, */
   gap: '1rem',
   padding: '9.5rem',
   breakpoints: {
@@ -33,33 +35,29 @@ const options = {
   },
 };
 
-interface DynamicSplideProps {
-  options?: any;
-  children?: React.ReactNode;
-  onMove?: (splide: any, newIndex: number) => void;
-};
+const DynamicSlides: React.FC = () => {
+  const [activeSlide, setActiveSlide] = useState<number>(0);
+  const [splide, setSplide] = useState<SplideEvent | null>(null);  // Initialize with null
 
-// Explicitly naming the component
-const DynamicSplide = dynamic<DynamicSplideProps>(() => import('@splidejs/react-splide').then((mod) => mod.Splide), {
-  ssr: false,
-});
-
-const DynamicSlides = () => {
   return (
-    <DynamicSplide
+    <Splide
       options={options}
-      onMove={(splide, newIndex) => {
-        console.log('splide', splide);
-        console.log('moved', newIndex);
+      onActive={(splideEvent: SplideEvent) => {
+        setActiveSlide(splideEvent.index);
+        setSplide(splideEvent);
       }}
     >
       {carouselData.map((slideData, key) => (
         <React.Fragment key={`slide-${key}`}>
-          <DynamicSlide active {...slideData} />
+          <UnitSlide
+            {...slideData}
+            active={activeSlide === key}
+            splide={splide}
+          />
         </React.Fragment>
       ))}
-    </DynamicSplide>
-  )
-}
+    </Splide>
+  );
+};
 
-export default DynamicSlides
+export default DynamicSlides;

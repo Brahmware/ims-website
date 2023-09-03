@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { CarouselData } from '../carouselData';
 import { styled } from '@mui/material';
 import { SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import CarouselDataCard from './CarouselDataCard';
 
 
@@ -13,9 +12,21 @@ const StyledImage = styled(Image)(({ theme }) => ({
   objectFit: 'cover',
 }));
 
+interface UnitSlideProps extends CarouselData {
+  active?: boolean;
+  splide?: any;
+};
 
-
-const DynamicSlide = ({ image, title, id, description, link, active }: CarouselData & { active?: boolean }) => {
+const UnitSlide: React.FC<UnitSlideProps> = ({
+  image,
+  title,
+  id,
+  description,
+  link,
+  pauseTime,
+  active,
+  splide,
+}) => {
 
   let slideTitle = title;
   let slideImage = image;
@@ -29,19 +40,21 @@ const DynamicSlide = ({ image, title, id, description, link, active }: CarouselD
   }
 
   return (
-    <SplideSlide key={slideKey}>
-      <StyledImage
-        width="1920"
-        height="1080"
-        src={image}
-        alt={title}
+    <SplideSlide 
+      key={slideKey}
+      data-splide-interval={pauseTime}
+    >
+      <StyledImage width="900" height="600" src={image} alt={title} />
+      <CarouselDataCard
+        active={active}
+        title={title}
+        description={description}
+        link={link}
+        pauseTime={pauseTime}
+        splide={splide}
       />
-      <CarouselDataCard className={active ? 'active' : ''}>
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </CarouselDataCard>
     </SplideSlide>
   );
 };
 
-export default DynamicSlide;
+export default UnitSlide;
