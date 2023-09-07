@@ -25,6 +25,7 @@ export default class MyDocument extends Document {
           <meta name="author" content="Brahmware" />
           <meta name="author-website" content="https://brahmware.com" />
           <meta name="author-email" content="hello@brahmware.com" />
+          <meta name="contact-us" content="namaste@indianmediasyndicate.com" />
           {(this.props as any).emotionStyleTags}
         </Head>
         <body>
