@@ -3,6 +3,7 @@ import carouselData from '../carouselData';
 import UnitSlide from './UnitSlide';
 import { Splide, SplideProps } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+import ProgressBar from './ProgressBar';
 
 interface SplideEvent {
   index: number;
@@ -19,11 +20,11 @@ const options: SplideProps["options"] = {
   pagination: false,
   arrows: true,
   arrowPath,
-  /* autoplay: true,
-  pauseOnHover: false, */
+  autoplay: true,
+  pauseOnHover: false,
   gap: '1rem',
   padding: '9.5rem',
-  breakpoints: {
+  /* breakpoints: {
     900: {
       perPage: 2,
       arrows: false,
@@ -32,19 +33,17 @@ const options: SplideProps["options"] = {
       perPage: 1,
       arrows: false,
     },
-  },
+  }, */
 };
 
 const DynamicSlides: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState<number>(0);
-  const [splide, setSplide] = useState<SplideEvent | null>(null);  // Initialize with null
 
   return (
     <Splide
       options={options}
       onActive={(splideEvent: SplideEvent) => {
         setActiveSlide(splideEvent.index);
-        setSplide(splideEvent);
       }}
     >
       {carouselData.map((slideData, key) => (
@@ -52,7 +51,6 @@ const DynamicSlides: React.FC = () => {
           <UnitSlide
             {...slideData}
             active={activeSlide === key}
-            splide={splide}
           />
         </React.Fragment>
       ))}

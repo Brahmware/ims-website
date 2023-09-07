@@ -14,18 +14,17 @@ const StyledImage = styled(Image)(({ theme }) => ({
 
 interface UnitSlideProps extends CarouselData {
   active?: boolean;
-  splide?: any;
 };
 
 const UnitSlide: React.FC<UnitSlideProps> = ({
   image,
+  tagline,
   title,
   id,
   description,
   link,
   pauseTime,
   active,
-  splide,
 }) => {
 
   let slideTitle = title;
@@ -47,11 +46,11 @@ const UnitSlide: React.FC<UnitSlideProps> = ({
       <StyledImage width="900" height="600" src={image} alt={title} />
       <CarouselDataCard
         active={active}
+        tagline={tagline}
         title={title}
         description={description}
         link={link}
         pauseTime={pauseTime}
-        splide={splide}
       />
     </SplideSlide>
   );

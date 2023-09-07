@@ -1,5 +1,6 @@
 export interface CarouselData {
   id: number;
+  tagline?: string;
   title: string;
   description: string;
   image: string;
@@ -10,6 +11,7 @@ export interface CarouselData {
 const carouselData : CarouselData[] = [
   {
     id: 1,
+    tagline: "Welcome to",
     title: "First Slide",
     description: "This is the first slide",
     image: "/images/home/container-1/slide-1.jpg",
@@ -18,6 +20,7 @@ const carouselData : CarouselData[] = [
   },
   {
     id: 2,
+    tagline: "Welcome to",
     title: "Second Slide",
     description: "This is the second slide",
     image: "/images/home/container-1/slide-2.jpg",
@@ -26,6 +29,7 @@ const carouselData : CarouselData[] = [
   },
   {
     id: 3,
+    tagline: "Welcome to",
     title: "Third Slide",
     description: "This is the third slide",
     image: "/images/home/container-1/slide-3.jpg",
@@ -34,6 +38,7 @@ const carouselData : CarouselData[] = [
   },
   {
     id: 4,
+    tagline: "Welcome to",
     title: "Fourth Slide",
     description: "This is the fourth slide",
     image: "/images/home/container-1/slide-4.jpg",
@@ -42,6 +47,7 @@ const carouselData : CarouselData[] = [
   },
   {
     id: 5,
+    tagline: "Welcome to",
     title: "Fifth Slide",
     description: "This is the fifth slide",
     image: "/images/home/container-1/slide-5.jpg",
@@ -50,6 +56,7 @@ const carouselData : CarouselData[] = [
   },
   {
     id: 6,
+    tagline: "Welcome to",
     title: "Sixth Slide",
     description: "This is the sixth slide",
     image: "/images/home/container-1/slide-6.jpg",

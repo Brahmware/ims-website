@@ -1,62 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import { styled } from '@mui/material';
-import { alpha } from '@mui/material/styles';
+import { styled, alpha } from '@mui/material';
+import React from 'react';
 
-// Define component props
-interface ProgressBarProps {
-  pause: boolean;
-  totalSpan?: number; // In milliseconds. Default is 5000. It is the total time for the progress bar to reach 100%
-  setProgressComplete?: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-// Define styled components
-const StyledProgressBar = styled('div')(({ theme }) => ({
+const SplideProgress = styled('div')(({ theme }) => ({
+  width: '100%',
+  height: '100%',
   position: 'absolute',
   bottom: 0,
   left: 0,
-  right: 0,
-  height: '100%',
-  backgroundColor: alpha(theme.palette.background.default, 0.25),
   zIndex: -1,
+  backgroundColor: 'transparent' + ' !important',
 }));
 
-const ProgressIndicator = styled('span')(({ theme }) => ({
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  height: '100%',
-  backgroundColor: alpha(theme.palette.background.default, 0.5),
-  zIndex: theme.zIndex.tooltip,
-  transition: 'width 50ms linear',  // Making transition smooth
+const Progress = styled('div')(({ theme }) => ({
+  height: '100%' + ' !important',
+  backgroundColor: theme.palette.background.default + ' !important',
+  transition: theme.Transitions.createTransition({
+    property: 'width',
+    duration: 'shortest',
+  }),
 }));
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ pause, totalSpan = 5000, setProgressComplete }) => {
-  const [progress, setProgress] = useState<number>(0);
-
-  useEffect(() => {
-    if (pause) {
-      return;
-    }
-
-    const interval = setInterval(() => {
-      setProgress((prevProgress) => {
-        if (prevProgress >= 100) {
-          clearInterval(interval);
-          setProgressComplete && setProgressComplete(true);
-          return 0;
-        }
-        return prevProgress + 1;
-      });
-    }, totalSpan / 100);
-    
-    return () => clearInterval(interval);
-  }, [pause, totalSpan, setProgressComplete]);
-
+const ProgressBar = () => {
   return (
-    <StyledProgressBar>
-      <ProgressIndicator style={{ width: `${progress}%` }} />
-    </StyledProgressBar>
-  );
-}
+    <SplideProgress className="splide__progress" >
+      <Progress className="splide__progress__bar" />
+    </SplideProgress>
+  )
+};
 
 export default ProgressBar;

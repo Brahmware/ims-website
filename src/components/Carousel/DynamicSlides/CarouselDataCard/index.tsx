@@ -7,6 +7,7 @@ import ProgressBar from "../ProgressBar";
 
 interface CarouselDataCardProps extends CarouselCardProps {
   link: CarouselData['link'];
+  tagline: CarouselData['tagline'];
   title: CarouselData['title'];
   description: CarouselData['description'];
   pauseTime: CarouselData['pauseTime'];
@@ -14,37 +15,17 @@ interface CarouselDataCardProps extends CarouselCardProps {
   splide?: any;
 };
 
-const CarouselDataCard: React.FC<CarouselDataCardProps> = ({ link, title, description, active, pauseTime, splide, ...props }) => {
-
-  const [pauseProgress, setPauseProgress] = React.useState(false);
-  const [progressComplete, setProgressComplete] = React.useState(false);
-
-  React.useEffect(() => {
-    if (progressComplete) {
-      splide.go('>');
-    }
-  }, [progressComplete, splide]);
+const CarouselDataCard: React.FC<CarouselDataCardProps> = ({ link, tagline, title, description, active, pauseTime, splide, ...props }) => {
 
   return (
     <Card
       {...props}
       elevation={navbar.elevationMedium}
-      onMouseEnter={() => {
-        setPauseProgress(true);
-      }}
-      onMouseLeave={() => {
-        setPauseProgress(false);
-      }}
     >
+      <h3>{tagline}</h3>
       <h1>{title}</h1>
       <p>{description}</p>
-      {active &&
-        <ProgressBar
-          pause={pauseProgress}
-          totalSpan={pauseTime}
-          setProgressComplete={setProgressComplete}
-        />
-      }
+      {active && <ProgressBar />}
     </Card>
   )
 };
@@ -58,12 +39,15 @@ export default styled(CarouselDataCard)<CarouselDataCardProps>(({ theme, active 
   width: 'max-content',
   minWidth: '25rem',
   padding: theme.Spaces.md,
-  backgroundColor: alpha(theme.palette.background.default, 0.5),
-  backdropFilter: 'blur(0.25rem)',
+  backgroundColor: alpha(theme.palette.background.default, 0.65),
+  backdropFilter: 'blur(0.125rem)',
   color: theme.palette.text.primary,
+  overflow: 'hidden',
+  zIndex: theme.Shadows.higher.zIndex,
   transition: theme.Transitions.createTransition({
     property: 'transform',
     duration: 'shortest',
   }),
   transform: active ? 'translateY(0)' : 'translateY(200%)',
+  borderRadius: '1.618rem'
 }));
