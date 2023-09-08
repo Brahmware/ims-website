@@ -11,8 +11,8 @@ const StyledIconButton = styled(IconButton)(({ theme }) => ({
 }));
 
 const StyledMoveIcon = styled(ArrowMoveIcon)(({ theme }) => ({
-  height: '1.25rem' + ' !important',
-  width: '1.25rem' + ' !important',
+  height: theme.Sizes.icon.default.height + ' !important',
+  width: theme.Sizes.icon.default.width + ' !important',
 }));
 
 const SplideButtons = () => {

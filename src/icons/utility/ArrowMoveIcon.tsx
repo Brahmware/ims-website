@@ -1,4 +1,5 @@
 import { UtilityIconProps } from '@interfaces/SVGProps';
+import { styled } from '@mui/material';
 import svgCommonProps from '@utils/svgCommonProps';
 import React from 'react';
 
@@ -17,4 +18,6 @@ const ArrowMoveIcon = ({ hovered, ...props }: UtilityIconProps) => {
   )
 };
 
-export default ArrowMoveIcon;
+export default styled(ArrowMoveIcon)(({ theme }) => ({
+  strokeWidth: '0' + ' !important',
+}));
