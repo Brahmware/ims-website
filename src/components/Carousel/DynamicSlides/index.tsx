@@ -21,10 +21,13 @@ const options: SplideProps["options"] = {
   pauseOnHover: false,
   gap: theme.Spaces.md,
   padding: theme.Spaces.mega,
+  keyboard: 'global',
+  preloadPages: 2,
+  interval: carouselData[0].pauseTime,
 
   breakpoints: {
     1024: {
-      padding: '0',
+      padding: 0,
     },
   },
 };

@@ -16,6 +16,7 @@ const UnitSlide: React.FC<UnitSlideProps> = ({
   image,
   tagline,
   title,
+  bluredImage,
   id,
   description,
   link,
@@ -40,10 +41,12 @@ const UnitSlide: React.FC<UnitSlideProps> = ({
       data-splide-interval={pauseTime}
     >
       <StyledImage
-        width="900"
-        height="600"
         src={image}
         alt={title}
+        placeholder='blur'
+        blurDataURL={bluredImage}
+        width="1920"
+        height="1080"
       />
       <CarouselDataCard
         title={title}
