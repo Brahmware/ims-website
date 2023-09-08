@@ -16,7 +16,7 @@ const options: SplideProps["options"] = {
   drag: 'free',
   snap: true,
   pagination: false,
-  autoplay: false,
+  autoplay: true,
   resetProgress: false,
   pauseOnHover: false,
   gap: theme.Spaces.md,
