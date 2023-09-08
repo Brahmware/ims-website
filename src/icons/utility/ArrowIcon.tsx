@@ -34,4 +34,4 @@ const ArrowIcon = ({ hovered, ...props }: UtilityIconProps) => {
   )
 }
 
-export default ArrowIcon
+export default ArrowIcon;

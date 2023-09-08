@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image';
-import { CarouselData } from '../../carouselData';
 import { styled } from '@mui/material';
 import { SplideSlide } from '@splidejs/react-splide';
 import CarouselDataCard from './CarouselDataCard';
@@ -53,8 +52,12 @@ const UnitSlide: React.FC<UnitSlideProps> = ({
   );
 };
 
-export default styled(UnitSlide)(() => ({
+export default styled(UnitSlide)(({ theme }) => ({
   '&.is-active.is-visible .carousel-data-card': {
     transform: 'translateY(0%)',
+
+    [theme.breakpoints.down('md')]: {
+      transform: 'translate(-50%, 0%)',
+    },
   },
 }));

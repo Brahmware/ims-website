@@ -1,5 +1,3 @@
-import { Breakpoints as MuiBreakpoints } from '@mui/material';
-
 interface Values {
   xs: number;
   sm: number;

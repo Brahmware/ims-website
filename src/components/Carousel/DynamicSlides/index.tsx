@@ -6,6 +6,7 @@ import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import ProgressBarPlaceholder from './ProgressBarPlaceholder';
 import theme from '@theme/index';
 import { SplideInstance } from '@interfaces/SplideInterface';
+import SplideButtons from './SplideButtons';
 
 const options: SplideProps["options"] = {
   type: 'loop',
@@ -15,11 +16,17 @@ const options: SplideProps["options"] = {
   drag: 'free',
   snap: true,
   pagination: false,
-  autoplay: true,
+  autoplay: false,
   resetProgress: false,
   pauseOnHover: false,
   gap: theme.Spaces.md,
-  padding: '9.5rem',
+  padding: theme.Spaces.mega,
+
+  breakpoints: {
+    1024: {
+      padding: '0',
+    },
+  },
 };
 
 
@@ -49,6 +56,7 @@ const DynamicSlides: React.FC = () => {
           </React.Fragment>
         ))}
       </SplideTrack>
+      <SplideButtons />
       <ProgressBarPlaceholder />
     </Splide>
   );

@@ -6,6 +6,7 @@ export interface Spaces {
   lg: string;
   xl: string;
   xxl: string;
+  mega: string;
 };
 
 export const spaces: Spaces = {
@@ -16,4 +17,5 @@ export const spaces: Spaces = {
   lg: '1.5rem',
   xl: '2rem',
   xxl: '2.5rem',
+  mega: '9.5rem',
 };

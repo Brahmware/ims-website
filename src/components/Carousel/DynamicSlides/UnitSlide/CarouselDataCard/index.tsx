@@ -1,5 +1,4 @@
-import { CarouselData } from "@components/Carousel/carouselData";
-import { CarouselCardProps, CarouselDataCardProps } from "@interfaces/CardProps";
+import { CarouselDataCardProps } from "@interfaces/CardProps";
 import { Card, Typography, alpha, styled } from "@mui/material";
 import { navbar } from "@theme/constants";
 import React from "react";
@@ -43,9 +42,9 @@ const CarouselDataCard: React.FC<CarouselDataCardProps> = ({
       component={link ? 'a' : 'div'}
       href={link}
     >
-      <Tagline variant="body2">{tagline}</Tagline>
+      <Tagline variant="body1">{tagline}</Tagline>
       <Title variant="h2">{title}</Title>
-      <Description variant="body1">{description}</Description>
+      <Description variant="body2">{description}</Description>
       <ProgressBar />
     </Card>
   )
@@ -59,6 +58,7 @@ export default styled(CarouselDataCard)<CarouselDataCardProps>(({ theme }) => ({
   height: 'max-content',
   width: 'max-content',
   minWidth: '25rem',
+  maxWidth: '30rem',
   padding: theme.Spaces.md,
   backgroundColor: alpha(theme.palette.background.default, 0.65),
   backdropFilter: 'blur(0.125rem)',
@@ -70,4 +70,9 @@ export default styled(CarouselDataCard)<CarouselDataCardProps>(({ theme }) => ({
     duration: 'shortest',
   }),
   transform: 'translateY(200%)',
+
+  [theme.breakpoints.down('md')]: {
+    left: '50%',
+    transform: 'translate(-50%, 200%)',
+  },
 }));
