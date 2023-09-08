@@ -6,8 +6,10 @@ import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import ProgressBarPlaceholder from './ProgressBarPlaceholder';
 import theme from '@theme/index';
 
-interface SplideEvent {
+export interface SplideEvent {
   index: number;
+  pause?: () => void;
+  play?: () => void;
 };
 
 const options: SplideProps["options"] = {
@@ -31,8 +33,8 @@ const DynamicSlides: React.FC = () => {
   return (
     <Splide
       options={options}
-      onActive={(splideEvent: SplideEvent) => {
-        setSplide(splideEvent);
+      onMounted={(splide) => {
+        setSplide(splide);
       }}
       hasTrack={false}
     >
