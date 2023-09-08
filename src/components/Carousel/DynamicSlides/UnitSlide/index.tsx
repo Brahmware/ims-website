@@ -39,7 +39,12 @@ const UnitSlide: React.FC<UnitSlideProps> = ({
       {...props}
       data-splide-interval={pauseTime}
     >
-      <StyledImage width="900" height="600" src={image} alt={title} />
+      <StyledImage
+        width="900"
+        height="600"
+        src={image}
+        alt={title}
+      />
       <CarouselDataCard
         title={title}
         tagline={tagline}

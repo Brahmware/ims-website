@@ -15,7 +15,7 @@ const carouselData : CarouselData[] = [
     title: "Discover Bharat",
     description: "This is an Indian family of informational, educational and entertainment-oriented Television, Applications and Websites offering value to how Education is developed and accessed by Global Societies.",
     image: "/images/home/container-1/slide-1.jpg",
-    pauseTime: 5000,
+    pauseTime: 30000,
     link: "/",
   },
   {
@@ -33,7 +33,7 @@ const carouselData : CarouselData[] = [
     title: "Discover Bharat",
     description: "This is an Indian family of informational, educational and entertainment-oriented Television, Applications and Websites offering value to how Education is developed and accessed by Global Societies.",
     image: "/images/home/container-1/slide-3.jpg",
-    pauseTime: 5000,
+    pauseTime: 15000,
     link: "/",
   },
   {
@@ -42,7 +42,7 @@ const carouselData : CarouselData[] = [
     title: "Discover Bharat",
     description: "This is an Indian family of informational, educational and entertainment-oriented Television, Applications and Websites offering value to how Education is developed and accessed by Global Societies.",
     image: "/images/home/container-1/slide-4.jpg",
-    pauseTime: 8000,
+    pauseTime: 10000,
     link: "/",
   },
   {
@@ -51,7 +51,7 @@ const carouselData : CarouselData[] = [
     title: "Discover Bharat",
     description: "This is an Indian family of informational, educational and entertainment-oriented Television, Applications and Websites offering value to how Education is developed and accessed by Global Societies.",
     image: "/images/home/container-1/slide-5.jpg",
-    pauseTime: 4000,
+    pauseTime: 20000,
     link: "/",
   },
   {
@@ -60,7 +60,7 @@ const carouselData : CarouselData[] = [
     title: "Discover Bharat",
     description: "This is an Indian family of informational, educational and entertainment-oriented Television, Applications and Websites offering value to how Education is developed and accessed by Global Societies.",
     image: "/images/home/container-1/slide-6.jpg",
-    pauseTime: 7000,
+    pauseTime: 8000,
     link: "/",
   },
 ];
