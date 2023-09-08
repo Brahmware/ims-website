@@ -1,9 +1,9 @@
 import { CarouselData } from "@components/Carousel/carouselData";
 import { CarouselCardProps } from "@interfaces/CardProps";
-import { Card, alpha, styled } from "@mui/material";
+import { Card, Typography, alpha, styled } from "@mui/material";
 import { navbar } from "@theme/constants";
 import React from "react";
-import ProgressBar from "../ProgressBar";
+import ProgressBar from "./ProgressBar";
 
 interface CarouselDataCardProps extends CarouselCardProps {
   link: CarouselData['link'];
@@ -11,26 +11,50 @@ interface CarouselDataCardProps extends CarouselCardProps {
   title: CarouselData['title'];
   description: CarouselData['description'];
   pauseTime: CarouselData['pauseTime'];
-  active?: boolean;
   splide?: any;
 };
 
-const CarouselDataCard: React.FC<CarouselDataCardProps> = ({ link, tagline, title, description, active, pauseTime, splide, ...props }) => {
+const Tagline = styled(Typography)(({ theme }) => ({
+  color: theme.palette.text.secondary,
+  marginBottom: theme.Spaces.xs,
+  letterSpacing: theme.spacing(0.25),
+  paddingLeft: theme.Spaces.xxs,
+}));
+
+const Title = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.Spaces.xs,
+}));
+
+const Description = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.Spaces.xs,
+  paddingLeft: theme.Spaces.xxs,
+}));
+
+const CarouselDataCard: React.FC<CarouselDataCardProps> = ({
+  link,
+  tagline,
+  title,
+  description,
+  pauseTime,
+  splide,
+  ...props
+}) => {
 
   return (
     <Card
       {...props}
       elevation={navbar.elevationMedium}
+      className={props.className + ' carousel-data-card'}
     >
-      <h3>{tagline}</h3>
-      <h1>{title}</h1>
-      <p>{description}</p>
-      {active && <ProgressBar />}
+      <Tagline variant="body2">{tagline}</Tagline>
+      <Title variant="h2">{title}</Title>
+      <Description variant="body1">{description}</Description>
+      <ProgressBar />
     </Card>
   )
 };
 
-export default styled(CarouselDataCard)<CarouselDataCardProps>(({ theme, active }) => ({
+export default styled(CarouselDataCard)<CarouselDataCardProps>(({ theme }) => ({
   position: 'absolute',
   bottom: 50,
   left: 50,
@@ -48,6 +72,5 @@ export default styled(CarouselDataCard)<CarouselDataCardProps>(({ theme, active 
     property: 'transform',
     duration: 'shortest',
   }),
-  transform: active ? 'translateY(0)' : 'translateY(200%)',
-  borderRadius: '1.618rem'
+  transform: 'translateY(200%)',
 }));

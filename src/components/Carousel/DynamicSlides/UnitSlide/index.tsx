@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import { CarouselData } from '../carouselData';
+import { CarouselData } from '../../carouselData';
 import { styled } from '@mui/material';
 import { SplideSlide } from '@splidejs/react-splide';
 import CarouselDataCard from './CarouselDataCard';
@@ -13,7 +13,7 @@ const StyledImage = styled(Image)(({ theme }) => ({
 }));
 
 interface UnitSlideProps extends CarouselData {
-  active?: boolean;
+  splide?: any;
 };
 
 const UnitSlide: React.FC<UnitSlideProps> = ({
@@ -24,7 +24,8 @@ const UnitSlide: React.FC<UnitSlideProps> = ({
   description,
   link,
   pauseTime,
-  active,
+  splide,
+  ...props
 }) => {
 
   let slideTitle = title;
@@ -39,21 +40,26 @@ const UnitSlide: React.FC<UnitSlideProps> = ({
   }
 
   return (
-    <SplideSlide 
+    <SplideSlide
       key={slideKey}
       data-splide-interval={pauseTime}
+      {...props}
     >
       <StyledImage width="900" height="600" src={image} alt={title} />
       <CarouselDataCard
-        active={active}
-        tagline={tagline}
         title={title}
+        tagline={tagline}
         description={description}
         link={link}
         pauseTime={pauseTime}
+        splide={splide}
       />
     </SplideSlide>
   );
 };
 
-export default UnitSlide;
+export default styled(UnitSlide)(() => ({
+  '&.is-active.is-visible .carousel-data-card': {
+    transform: 'translateY(0%)',
+  },
+}));

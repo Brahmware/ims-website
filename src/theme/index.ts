@@ -100,3 +100,5 @@ export const themeDark = createTheme({
   ...commonThemeOptions,
   palette: customPaletteDark,
 });
+
+export default themeLight;

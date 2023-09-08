@@ -9,23 +9,31 @@ const StyledSplideWrapper = styled('div')(({ theme }) => ({
     overflow: 'hidden',
   },
 
-  '& .splide__arrow--prev, & .splide__arrow--next': {
+  '& .splide__arrow': {
     zIndex: theme.Shadows.lower.zIndex,
+    margin: `0 ${theme.Spaces.lg}`,
     backgroundColor: alpha(theme.palette.background.default, 0.33),
     backdropFilter: 'blur(0.33rem)',
-    fontSize: '1.25rem',
-    transform: 'translateY(-7rem)',
-    height: '10rem',
-    width: '6rem',
-    borderRadius: '1.618rem',
+    height: '4rem',
+    width: '4rem',
+    borderRadius: '50%',
     opacity: 1,
-    transition: 'all 0.3s ease-in-out',
+    transition: theme.Transitions.createTransition({
+      property: 'opacity',
+      duration: 'shortest',
+    }),
+
+
     '& path': {
       fill: theme.palette.text.primary,
     },
 
     '&::before': {
       color: alpha(theme.palette.primary.main, 0.25),
+    },
+
+    '&:hover': {
+      opacity: 1,
     },
   },
 }));

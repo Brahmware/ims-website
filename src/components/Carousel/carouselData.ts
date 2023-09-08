@@ -11,8 +11,8 @@ export interface CarouselData {
 const carouselData : CarouselData[] = [
   {
     id: 1,
-    tagline: "Welcome to",
-    title: "First Slide",
+    tagline: "FOR INDIA",
+    title: "Discover Bharat",
     description: "This is the first slide",
     image: "/images/home/container-1/slide-1.jpg",
     pauseTime: 5000,
@@ -20,8 +20,8 @@ const carouselData : CarouselData[] = [
   },
   {
     id: 2,
-    tagline: "Welcome to",
-    title: "Second Slide",
+    tagline: "FOR INDIA",
+    title: "Discover Bharat",
     description: "This is the second slide",
     image: "/images/home/container-1/slide-2.jpg",
     pauseTime: 10000,
@@ -29,8 +29,8 @@ const carouselData : CarouselData[] = [
   },
   {
     id: 3,
-    tagline: "Welcome to",
-    title: "Third Slide",
+    tagline: "FOR INDIA",
+    title: "Discover Bharat",
     description: "This is the third slide",
     image: "/images/home/container-1/slide-3.jpg",
     pauseTime: 5000,
@@ -38,8 +38,8 @@ const carouselData : CarouselData[] = [
   },
   {
     id: 4,
-    tagline: "Welcome to",
-    title: "Fourth Slide",
+    tagline: "FOR INDIA",
+    title: "Discover Bharat",
     description: "This is the fourth slide",
     image: "/images/home/container-1/slide-4.jpg",
     pauseTime: 8000,
@@ -47,8 +47,8 @@ const carouselData : CarouselData[] = [
   },
   {
     id: 5,
-    tagline: "Welcome to",
-    title: "Fifth Slide",
+    tagline: "FOR INDIA",
+    title: "Discover Bharat",
     description: "This is the fifth slide",
     image: "/images/home/container-1/slide-5.jpg",
     pauseTime: 4000,
@@ -56,8 +56,8 @@ const carouselData : CarouselData[] = [
   },
   {
     id: 6,
-    tagline: "Welcome to",
-    title: "Sixth Slide",
+    tagline: "FOR INDIA",
+    title: "Discover Bharat",
     description: "This is the sixth slide",
     image: "/images/home/container-1/slide-6.jpg",
     pauseTime: 7000,
