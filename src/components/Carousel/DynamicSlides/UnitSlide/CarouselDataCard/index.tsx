@@ -1,19 +1,10 @@
 import { CarouselData } from "@components/Carousel/carouselData";
-import { CarouselCardProps } from "@interfaces/CardProps";
+import { CarouselCardProps, CarouselDataCardProps } from "@interfaces/CardProps";
 import { Card, Typography, alpha, styled } from "@mui/material";
 import { navbar } from "@theme/constants";
 import React from "react";
 import ProgressBar from "./ProgressBar";
-import { SplideInstance } from "../..";
 
-interface CarouselDataCardProps extends CarouselCardProps {
-  link: CarouselData['link'];
-  tagline: CarouselData['tagline'];
-  title: CarouselData['title'];
-  description: CarouselData['description'];
-  pauseTime: CarouselData['pauseTime'];
-  splide?: SplideInstance | null;
-};
 
 const Tagline = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.secondary,

@@ -4,7 +4,7 @@ import { CarouselData } from '../../carouselData';
 import { styled } from '@mui/material';
 import { SplideSlide } from '@splidejs/react-splide';
 import CarouselDataCard from './CarouselDataCard';
-import { SplideInstance } from '..';
+import { UnitSlideProps } from '@interfaces/SplideInterface';
 
 
 const StyledImage = styled(Image)(({ theme }) => ({
@@ -12,10 +12,6 @@ const StyledImage = styled(Image)(({ theme }) => ({
   width: '100%',
   objectFit: 'cover',
 }));
-
-interface UnitSlideProps extends CarouselData {
-  splide: SplideInstance | null;
-};
 
 const UnitSlide: React.FC<UnitSlideProps> = ({
   image,

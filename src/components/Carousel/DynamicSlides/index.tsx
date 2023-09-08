@@ -5,20 +5,7 @@ import { Splide, SplideProps, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import ProgressBarPlaceholder from './ProgressBarPlaceholder';
 import theme from '@theme/index';
-
-export interface SplideInstance {
-  index: number;
-  length: number;
-  Components: {
-    Autoplay: {
-      pause: () => void;
-      play: () => void;
-      mount: () => void;
-      isPaused: () => boolean;
-      destroy: () => void;
-    }
-  }
-};
+import { SplideInstance } from '@interfaces/SplideInterface';
 
 const options: SplideProps["options"] = {
   type: 'loop',

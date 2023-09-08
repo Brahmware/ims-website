@@ -1,4 +1,6 @@
+import { CarouselData } from '@components/Carousel/carouselData';
 import { CardProps as MuiCardProps } from '@mui/material';
+import { SplideInstance } from './SplideInterface';
 
 export interface CardProps extends MuiCardProps {
   component?: React.ElementType;
@@ -24,4 +26,13 @@ export interface ThemeChangerWrapperProps extends CardProps {
 export interface CarouselCardProps extends CardProps {
   elevation?: number;
   active?: boolean;
+};
+
+export interface CarouselDataCardProps extends CarouselCardProps {
+  link: CarouselData['link'];
+  tagline: CarouselData['tagline'];
+  title: CarouselData['title'];
+  description: CarouselData['description'];
+  pauseTime: CarouselData['pauseTime'];
+  splide?: SplideInstance | null;
 };
