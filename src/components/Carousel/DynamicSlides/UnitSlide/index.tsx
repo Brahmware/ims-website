@@ -32,7 +32,7 @@ const UnitSlide: React.FC<UnitSlideProps> = ({
     slideTitle = 'Loading...';
     slideImage = '/images/placeholder.png';
     slideId = 0;
-  }
+  };
 
   return (
     <SplideSlide
