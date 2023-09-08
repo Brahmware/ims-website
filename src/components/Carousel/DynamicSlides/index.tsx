@@ -6,10 +6,18 @@ import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import ProgressBarPlaceholder from './ProgressBarPlaceholder';
 import theme from '@theme/index';
 
-export interface SplideEvent {
+export interface SplideInstance {
   index: number;
-  pause?: () => void;
-  play?: () => void;
+  length: number;
+  Components: {
+    Autoplay: {
+      pause: () => void;
+      play: () => void;
+      mount: () => void;
+      isPaused: () => boolean;
+      destroy: () => void;
+    }
+  }
 };
 
 const options: SplideProps["options"] = {
@@ -21,6 +29,7 @@ const options: SplideProps["options"] = {
   snap: true,
   pagination: false,
   autoplay: true,
+  resetProgress: false,
   pauseOnHover: false,
   gap: theme.Spaces.md,
   padding: '9.5rem',
@@ -28,19 +37,24 @@ const options: SplideProps["options"] = {
 
 
 const DynamicSlides: React.FC = () => {
-  const [splide, setSplide] = useState<SplideEvent | null>(null);  // Initialize with null
+  const [splide, setSplide] = useState<SplideInstance | null>(null);  // Initialize with null
+  const splideRef = React.useRef<any>(null);  // Initialize with null
+
+  React.useEffect(() => {
+    if (splideRef.current) {
+      setSplide(splideRef.current.splide);
+    }
+  }, [splideRef]);
 
   return (
     <Splide
       options={options}
-      onMounted={(splide) => {
-        setSplide(splide);
-      }}
+      ref={splideRef}
       hasTrack={false}
     >
       <SplideTrack>
-        {carouselData.map((slideData, key) => (
-          <React.Fragment key={`slide-${key}`}>
+        {carouselData.map((slideData, index) => (
+          <React.Fragment key={`slide-${index}`}>
             <UnitSlide
               {...slideData}
               splide={splide}
@@ -52,5 +66,6 @@ const DynamicSlides: React.FC = () => {
     </Splide>
   );
 };
+
 
 export default DynamicSlides;

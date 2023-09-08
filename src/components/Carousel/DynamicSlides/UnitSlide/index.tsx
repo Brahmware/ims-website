@@ -4,7 +4,7 @@ import { CarouselData } from '../../carouselData';
 import { styled } from '@mui/material';
 import { SplideSlide } from '@splidejs/react-splide';
 import CarouselDataCard from './CarouselDataCard';
-import { SplideEvent } from '..';
+import { SplideInstance } from '..';
 
 
 const StyledImage = styled(Image)(({ theme }) => ({
@@ -14,7 +14,7 @@ const StyledImage = styled(Image)(({ theme }) => ({
 }));
 
 interface UnitSlideProps extends CarouselData {
-  splide?: SplideEvent | null;
+  splide: SplideInstance | null;
 };
 
 const UnitSlide: React.FC<UnitSlideProps> = ({
@@ -32,7 +32,6 @@ const UnitSlide: React.FC<UnitSlideProps> = ({
   let slideTitle = title;
   let slideImage = image;
   let slideId = id;
-  let slideKey = `slide-${id}`;
 
   if (typeof window === 'undefined') {
     slideTitle = 'Loading...';
@@ -42,9 +41,8 @@ const UnitSlide: React.FC<UnitSlideProps> = ({
 
   return (
     <SplideSlide
-      key={slideKey}
-      data-splide-interval={pauseTime}
       {...props}
+      data-splide-interval={pauseTime}
     >
       <StyledImage width="900" height="600" src={image} alt={title} />
       <CarouselDataCard

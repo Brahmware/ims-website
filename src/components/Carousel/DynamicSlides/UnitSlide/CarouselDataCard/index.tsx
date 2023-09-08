@@ -4,7 +4,7 @@ import { Card, Typography, alpha, styled } from "@mui/material";
 import { navbar } from "@theme/constants";
 import React from "react";
 import ProgressBar from "./ProgressBar";
-import { SplideEvent } from "../..";
+import { SplideInstance } from "../..";
 
 interface CarouselDataCardProps extends CarouselCardProps {
   link: CarouselData['link'];
@@ -12,7 +12,7 @@ interface CarouselDataCardProps extends CarouselCardProps {
   title: CarouselData['title'];
   description: CarouselData['description'];
   pauseTime: CarouselData['pauseTime'];
-  splide?: SplideEvent | null;
+  splide?: SplideInstance | null;
 };
 
 const Tagline = styled(Typography)(({ theme }) => ({
@@ -46,12 +46,11 @@ const CarouselDataCard: React.FC<CarouselDataCardProps> = ({
       {...props}
       elevation={navbar.elevationMedium}
       className={props.className + ' carousel-data-card'}
-      onMouseEnter={() => {
-        console.log('pause');
-      }}
-      onMouseLeave={() => {
-        console.log('play');
-      }}
+      data-splide-interval={pauseTime}
+      onMouseEnter={() => splide?.Components.Autoplay.pause()}
+      onMouseLeave={() => splide?.Components.Autoplay.play()}
+      component={link ? 'a' : 'div'}
+      href={link}
     >
       <Tagline variant="body2">{tagline}</Tagline>
       <Title variant="h2">{title}</Title>
