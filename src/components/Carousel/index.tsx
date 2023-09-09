@@ -13,6 +13,7 @@ const StyledSplideWrapper = styled('div')(({ theme }) => ({
     zIndex: theme.Shadows.lower.zIndex,
     margin: `0 ${theme.Spaces.lg}`,
     backgroundColor: alpha(theme.palette.background.default, 0.33),
+    boxShadow: theme.shadows[4],
     backdropFilter: 'blur(0.33rem)',
     height: '4rem',
     width: '4rem',

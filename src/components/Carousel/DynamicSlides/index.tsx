@@ -7,18 +7,22 @@ import ProgressBarPlaceholder from './ProgressBarPlaceholder';
 import theme from '@theme/index';
 import { SplideInstance } from '@interfaces/SplideInterface';
 import SplideButtons from './SplideButtons';
+import SplidePagination from './SplidePagination';
 
 const options: SplideProps["options"] = {
   type: 'loop',
+  speed: theme.Transitions.durations.long,
+  easing: theme.Transitions.easings.easeInOut,
   perPage: 1,
   perMove: 1,
   lazyLoad: 'nearby',
   drag: 'free',
   snap: true,
-  pagination: false,
+  pagination: true,
   autoplay: true,
   resetProgress: false,
   pauseOnHover: false,
+  pauseOnFocus: false,
   gap: theme.Spaces.md,
   padding: theme.Spaces.mega,
   keyboard: 'global',
@@ -61,6 +65,7 @@ const DynamicSlides: React.FC = () => {
       </SplideTrack>
       <SplideButtons />
       <ProgressBarPlaceholder />
+      <SplidePagination />
     </Splide>
   );
 };

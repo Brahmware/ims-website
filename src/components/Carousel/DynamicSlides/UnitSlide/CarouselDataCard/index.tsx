@@ -1,6 +1,5 @@
 import { CarouselDataCardProps } from "@interfaces/CardProps";
 import { Card, Typography, alpha, styled } from "@mui/material";
-import { navbar } from "@theme/constants";
 import React from "react";
 import ProgressBar from "./ProgressBar";
 
@@ -34,7 +33,7 @@ const CarouselDataCard: React.FC<CarouselDataCardProps> = ({
   return (
     <Card
       {...props}
-      elevation={navbar.elevationMedium}
+      elevation={0}
       className={props.className + ' carousel-data-card'}
       data-splide-interval={pauseTime}
       onMouseEnter={() => splide?.Components.Autoplay.pause()}
@@ -60,16 +59,30 @@ export default styled(CarouselDataCard)<CarouselDataCardProps>(({ theme }) => ({
   minWidth: '25rem',
   maxWidth: '30rem',
   padding: theme.Spaces.md,
-  backgroundColor: alpha(theme.palette.background.default, 0.65),
+  backgroundColor: alpha(theme.palette.background.default, 0.75),
+  boxShadow: theme.shadows[4],
   backdropFilter: 'blur(0.125rem)',
   color: theme.palette.text.primary,
   overflow: 'hidden',
   zIndex: theme.Shadows.higher.zIndex,
-  transition: theme.Transitions.createTransition({
-    property: 'transform',
-    duration: 'shortest',
-  }),
+  transition: theme.Transitions.createTransition([
+    {
+      property: 'transform',
+      duration: 'shortest',
+    }, {
+      property: 'background-color',
+      duration: 'short',
+    }
+  ]),
   transform: 'translateY(200%)',
+
+  '&:hover': {
+    backgroundColor: theme.palette.background.default,
+
+    '& .carousel-data-card__progress-bar': {
+      boxShadow: 'none' + ' !important',
+    },
+  },
 
   [theme.breakpoints.down('md')]: {
     left: '50%',

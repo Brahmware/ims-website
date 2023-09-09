@@ -1,5 +1,5 @@
 import { TypographyOptions } from "@mui/material/styles/createTypography";
-import { FontWeights, fontWeights } from "@theme/FontWeight";
+import { fontWeights } from "@theme/FontWeight";
 
 
 const baseFontFamily = [
@@ -105,7 +105,7 @@ const customTypography: CustomTypographyOptions = {
       'gotham',
       'sans-serif',
     ].join(','),
-    fontWeight: fontWeights.fontWeightLight,
+    fontWeight: fontWeights.fontWeightRegular,
     fontSize: '1rem',
     lineHeight: '1.5rem',
   },
