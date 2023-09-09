@@ -26,7 +26,7 @@ export default styled(GroupCard)(({ theme }) => ({
   padding: 0,
   transition: theme.Transitions.createTransition({
     property: 'transform',
-    duration: 'longest'
+    duration: 'long'
   }),
   borderRadius: `calc(${theme.Spaces.md} - 0.125rem)`,
   [theme.Breakpoints.down('navGroupTablet')]: {

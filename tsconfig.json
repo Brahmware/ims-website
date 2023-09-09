@@ -19,6 +19,9 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
+      "@containers/*": [
+        "./src/containers/*"
+      ],
       "@components/*": [
         "./src/components/*"
       ],

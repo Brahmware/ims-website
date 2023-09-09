@@ -15,9 +15,9 @@ export const durations: Durations = {
   short: 250,
   standard: 300,
   medium: 400,
-  long: 500,
-  longer: 600,
-  longest: 700,
+  long: 600,
+  longer: 1000,
+  longest: 1500,
 };
 
 interface Easings {

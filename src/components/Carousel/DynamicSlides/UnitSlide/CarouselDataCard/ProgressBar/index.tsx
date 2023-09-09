@@ -9,7 +9,12 @@ const ProgressBar = styled('div')(({ theme }) => ({
   height: '100%',
   zIndex: -1,
   backgroundColor: theme.palette.background.default,
-  opacity: 0.75,
+  borderBottom: `0.125rem solid ${theme.palette.primary.main}`,
+  boxShadow: theme.shadows[1],
+  transition: theme.Transitions.createTransition({
+    property: 'box-shadow',
+    duration: 'shortest',
+  }),
 }));
 
 const DynamicProgressBar = () => {
@@ -35,7 +40,7 @@ const DynamicProgressBar = () => {
     }
   }, []);
 
-  return <ProgressBar style={{ width: progressWidth }} />;
+  return <ProgressBar style={{ width: progressWidth }} className='carousel-data-card__progress-bar' />;
 };
 
 export default DynamicProgressBar;
