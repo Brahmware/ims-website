@@ -38,8 +38,8 @@ const options: SplideProps["options"] = {
 
 
 const DynamicSlides: React.FC = () => {
-  const [splide, setSplide] = useState<SplideInstance | null>(null);  // Initialize with null
-  const splideRef = React.useRef<any>(null);  // Initialize with null
+  const [splide, setSplide] = useState<SplideInstance | null>(null);
+  const splideRef = React.useRef<any>(null);
 
   React.useEffect(() => {
     if (splideRef.current) {
