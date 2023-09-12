@@ -21,7 +21,26 @@ const Home: NextPage = () => {
       <MetaData />
       <MainLayout>
         <Carousel />
-        <Koel />
+        <Koel
+          images={{
+            top: {
+              src: '/images/home/container-2/image-top.jpg',
+            },
+            bottom: {
+              src: '/images/home/container-2/image-bottom.jpg',
+            },
+          }}
+          content={{
+            title: 'ABOUT US',
+            sloganHTML: `India, Explore! <br /> Dream! Lead!`,
+            descriptionHTML: `Indian Media Syndicate endeavours to be the global leader in Exploration, Scientific Communications, Real Life Entertainment, serving enthusiastic Explorers around the world generating scientific journalism that inspires, informs, and entertains every age, at grassroots level, soaring high. <br />
+            IMS is developing its’ unique voice AI for making real-time translation possible in all Indian languages. <br />
+            This is an Indian family of informational, educational, and entertainment-oriented Television, Applications and Websites offering value to how Education is developed and accessed by the world.`,
+            button: {
+              buttonText: 'VIEW MORE'
+            }
+          }}
+        />
       </MainLayout>
     </React.Fragment>
   );

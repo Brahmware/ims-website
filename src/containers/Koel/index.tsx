@@ -1,20 +1,34 @@
 import { Box, styled } from '@mui/material';
 import React from 'react';
-import Showcase from './Showcase';
+import Showcase, { ShowcaseImage } from './Showcase';
 import Content from './Content';
 
 interface KoelProps {
   direction?: 'ltr' | 'rtl';
+  images: {
+    top: ShowcaseImage,
+    bottom: ShowcaseImage
+  };
+  content: {
+    title?: string;
+    sloganHTML?: string;
+    descriptionHTML?: string;
+    button?: {
+      buttonText: string
+    };
+  }
 };
 
 const Koel: React.FC<KoelProps> = ({
+  images,
   direction,
+  content,
   ...props
 }) => {
   return (
     <section {...props} >
-      <Showcase />
-      <Content />
+      <Showcase {...images} />
+      <Content {...content} />
     </section>
   )
 };

@@ -3,13 +3,25 @@ import React from 'react';
 import Ribbon from './Ribbon';
 import Potrait from './Potrait';
 
-interface KoelShowcaseProps extends BoxProps { };
+export type ShowcaseImage = {
+  src: string;
+  alt?: string;
+  description?: string;
+}
+interface KoelShowcaseProps extends BoxProps {
+  top: ShowcaseImage,
+  bottom: ShowcaseImage
+};
 
-const Showcase: React.FC<KoelShowcaseProps> = ({ ...props }) => {
+const Showcase: React.FC<KoelShowcaseProps> = ({
+  top,
+  bottom,
+  ...props
+}) => {
   return (
     <Box {...props}>
-        <Ribbon />
-        <Potrait />
+      <Ribbon image={bottom} />
+      <Potrait image={top} />
     </Box>
   )
 };
@@ -17,6 +29,6 @@ const Showcase: React.FC<KoelShowcaseProps> = ({ ...props }) => {
 export default styled(Showcase)(({ theme }) => ({
   width: '50%',
   display: 'grid',
-  gridTemplateColumns: 'repeat(10, 1fr)',
-  gridTemplateRows: 'repeat(10, 1fr)',
+  gridTemplateColumns: 'repeat(20, 1fr)',
+  gridTemplateRows: 'repeat(20, 1fr)',
 }));

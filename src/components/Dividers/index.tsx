@@ -7,3 +7,9 @@ const Divider = styled(MuiDivider)<DividerProps>(({ theme, size, orientation }) 
 }));
 
 export default Divider;
+
+export const ContentTitleDivider = styled(({ ...props }) => <Divider {...props} flexItem />)(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  width: theme.Spaces.mega,
+  height: '1px'
+}));

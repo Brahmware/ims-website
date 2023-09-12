@@ -72,13 +72,13 @@ const customTypography: CustomTypographyOptions = {
   body1: {
     fontFamily: baseFontFamily,
     fontWeight: 300,
-    fontSize: '1rem',
+    fontSize: '0.9rem',
     lineHeight: '1.33rem',
   },
 
   body2: {
     fontFamily: baseFontFamily,
-    fontWeight: 400,
+    fontWeight: 300,
     fontSize: '1rem',
     letterSpacing: 4.5,
     lineHeight: '1.5rem',

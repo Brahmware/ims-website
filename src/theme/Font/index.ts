@@ -3,12 +3,12 @@ import localFont from 'next/font/local';
 const gotham = localFont({
   src: [
     {
-      path: './Gotham/XLight.otf',
+      path: './Gotham/Light.otf',
       weight: '100',
       style: 'normal',
     },
     {
-      path: './Gotham/Light.otf',
+      path: './Gotham/Thin.otf',
       weight: '300',
       style: 'normal',
     },

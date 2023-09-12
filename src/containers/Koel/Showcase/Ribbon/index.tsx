@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, BoxProps, alpha, styled } from '@mui/material';
 import Image from 'next/image';
+import { ShowcaseImage } from '..';
 
 const RibbonImage = styled(Image)(({ theme }) => ({
   height: '100%',
@@ -20,15 +21,20 @@ const Filter = styled('div')(({theme}) => ({
   zIndex: -1
 }));
 
-const Ribbon: React.FC<BoxProps> = ({
+interface RibbonProps extends BoxProps {
+  image: ShowcaseImage
+}
+
+const Ribbon: React.FC<RibbonProps> = ({
+  image,
   ...props
 }) => {
   return (
     <Box {...props}>
       <Filter />
       <RibbonImage
-        src="/images/home/container-2/image-bottom.jpg"
-        alt="Ribbon"
+        src={image.src}
+        alt={image.description || 'Ribbon image Indian Media Syndicate'}
         layout="fill"
         objectFit="cover"
         quality={100}
@@ -40,7 +46,7 @@ const Ribbon: React.FC<BoxProps> = ({
 export default styled(Ribbon)(({ theme }) => ({
   height: '100%',
   width: '100%',
-  gridColumn: '1 / 5',
-  gridRow: '1 / 11',
+  gridColumn: '1 / 10',
+  gridRow: '1 / 21',
   position: 'relative',
 }));
