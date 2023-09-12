@@ -26,7 +26,7 @@ const StyledSplideWrapper = styled('div')(({ theme }) => ({
 
 
     '& path': {
-      fill: theme.palette.text.primary,
+      fill: theme.palette.text.secondary,
     },
 
     '&::before': {

@@ -37,7 +37,7 @@ export default styled(HamburgerIcon)(({ theme, open, hovered }) => {
 
   if (!open) return ({
     '& line': {
-      stroke: theme.palette.text.primary,
+      stroke: theme.palette.text.secondary,
       strokeWidth: theme.Strokes.default,
       transition: theme.Transitions.createTransition([
         { property: 'transform' },

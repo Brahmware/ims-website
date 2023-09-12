@@ -36,8 +36,8 @@ export const customPaletteLight: CustomPaletteOptions = {
     contrastText: colors.white,
   },
   text: {
-    primary: colors.black,
-    secondary: colors.bhasma,
+    primary: colors.bhasma,
+    secondary: colors.black,
   },
 }
 

@@ -24,7 +24,7 @@ export default styled(DotIcon)(({ theme }) => ({
   marginRight: `calc(${theme.Spaces.sm} + ${theme.Spaces.xxs})`,
 
   '& circle': {
-    fill: theme.palette.text.primary,
+    fill: theme.palette.text.secondary,
     transition: theme.Transitions.createTransition({ property: 'fill' }),
   }
 }));

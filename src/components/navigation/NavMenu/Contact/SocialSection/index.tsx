@@ -22,7 +22,7 @@ const Separator = styled(Divider)(({ theme }) => ({
 }));
 
 const Title = styled(Typography)(({ theme }) => ({
-  color: theme.palette.text.primary,
+  color: theme.palette.text.secondary,
   whiteSpace: 'nowrap',
 }));
 

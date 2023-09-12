@@ -13,6 +13,7 @@ import sizes, { Sizes } from './Sizes';
 import shadows, { Shadows } from './Shadows';
 import colors, { Colors } from './Colors';
 import { FontWeights, fontWeights } from './FontWeight';
+import { Filters, filters } from './Filter';
 
 declare module '@mui/material/styles' {
 
@@ -21,6 +22,7 @@ declare module '@mui/material/styles' {
     Palette: CustomPaletteOptions;
     Spaces: Spaces;
     Heights: Heights;
+    Filters: Filters;
     Widths: Widths;
     Sizes: Sizes;
     Shadows: Shadows;
@@ -38,6 +40,7 @@ declare module '@mui/material/styles' {
     Palette?: CustomPaletteOptions;
     Spaces?: Spaces;
     Heights?: Heights;
+    Filters?: Filters;
     Widths?: Widths;
     Sizes?: Sizes;
     Shadows?: Shadows;
@@ -55,6 +58,7 @@ const commonThemeOptions: ThemeOptions = {
   typography: customTypography,
   Spaces: spaces,
   Heights: heights,
+  Filters: filters,
   Widths: widths,
   Sizes: sizes,
   Shadows: shadows,

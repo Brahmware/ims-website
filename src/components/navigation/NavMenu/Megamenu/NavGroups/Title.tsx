@@ -11,7 +11,7 @@ const Title = styled(({ children, ...props }: TitleProps) => {
 })(({ theme }) => ({
   padding: theme.Spaces.sm,
   fontWeight: theme.FontWeights.fontWeightUltra,
-  backgroundColor: theme.palette.text.primary,
+  backgroundColor: theme.palette.secondary.main,
   color: theme.palette.secondary.contrastText,
   textTransform: 'uppercase',
   whiteSpace: 'nowrap',

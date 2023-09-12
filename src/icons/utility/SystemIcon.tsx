@@ -47,7 +47,7 @@ export default styled(SystemIcon)(({ theme, active }) => {
   return {
     '& path': { ...pathCommon },
     '&:hover path': {
-      fill: theme.palette.text.primary,
+      fill: theme.palette.text.secondary,
     },
   };
 });

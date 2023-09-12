@@ -22,9 +22,19 @@ export default styled(SplidePagination)(({ theme }) => ({
   borderRadius: '2rem',
   backgroundColor: alpha(theme.palette.background.default, 0.85),
   boxShadow: theme.shadows[4],
+  opacity: 0.5,
+  transition: theme.Transitions.createTransition({
+    property: 'opacity',
+    duration: 'short',
+    easing: 'easeIn'
+  }),
+
+  '&:hover': {
+    opacity: 1
+  },
   
   '& .splide__pagination__page': {
-    backgroundColor: alpha(theme.palette.text.primary, 0.75),
+    backgroundColor: alpha(theme.palette.text.secondary, 0.75),
     boxShadow: theme.shadows[6],
 
     '&.is-active': {

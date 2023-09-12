@@ -7,7 +7,7 @@ import {
 import React from 'react';
 
 const GlobalStyles = () => {
-  const { primary } = useTheme().palette;
+  const { primary, text } = useTheme().palette;
 
   return (
     <React.Fragment>
@@ -26,6 +26,9 @@ const GlobalStyles = () => {
               color: primary.main,
             },
           },
+          'h1, h2, h4, h5, h6': {
+            color: text.secondary
+          }
         }}
       />
     </React.Fragment>

@@ -9,7 +9,7 @@ const GroupItem = ({ index, ...props}: GroupItemProps) => {
     <li key={index}>
       <Link href={props.link} >
         <DotIcon />
-        <Typography variant="body2" component="p">
+        <Typography variant="body1" component="h2">
           {props.title}
         </Typography>
       </Link>
