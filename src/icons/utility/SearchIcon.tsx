@@ -29,7 +29,7 @@ const SearchIcon = ({ hovered, ...props }: UtilityIconProps) => {
 export default styled(SearchIcon)(({ theme }) => ({
   transform: 'translate(2px, 1.33px)',
   '& path': {
-    stroke: theme.palette.text.primary,
+    stroke: theme.palette.text.secondary,
     strokeWidth: theme.Strokes.thin,
   },
 }));

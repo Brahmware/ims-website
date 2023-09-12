@@ -12,8 +12,11 @@ const StyledButton = styled(ContainedButton)(({ theme }) => ({
 const Join = () => {
   return (
     <StyledButton
+      flipped
+      color='secondary'
       component={Link}
       href='/join'
+      sx={{ py: '0.5rem' }}
     >
       Join
     </StyledButton>

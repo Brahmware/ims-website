@@ -68,7 +68,7 @@ export default styled(SunIcon)(({ theme, active }) => {
     '& path': { ...pathCommon },
 
     '&:hover path': {
-      fill: theme.palette.text.primary,
+      fill: theme.palette.text.secondary,
     },
   };
 });

@@ -2,8 +2,9 @@ import React from "react";
 import Head from "next/head";
 import type { NextPage } from "next";
 import MainLayout from "@layouts/MainLayout";
-import { Typography } from "@mui/material";
 import Carousel from "@components/Carousel";
+import Koel from "@containers/Koel";
+import { Box } from "@mui/material";
 
 const MetaData: React.FC = () => {
   return (
@@ -20,9 +21,7 @@ const Home: NextPage = () => {
       <MetaData />
       <MainLayout>
         <Carousel />
-        <Typography variant="h1" component="h1" gutterBottom>
-          Welcome to Home Page
-        </Typography>
+        <Koel />
       </MainLayout>
     </React.Fragment>
   );

@@ -5,6 +5,8 @@ export interface ButtonProps extends MuiButtonProps {
 };
 
 export interface ContainedButtonProps extends ButtonProps {
+  color?: "primary" | "secondary" | "error" | "success" | "warning" | "info";
+  flipped?: boolean;
 };
 
 export interface IconButtonProps extends ButtonProps {

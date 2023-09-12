@@ -17,7 +17,7 @@ export const colors: Colors = {
   bhasma: '#707070',
   rakthalal: '#FF4136',
   matmaila: '#C8C8C8',
-  slogan: '#DDDDDD',
+  slogan: '#DDDDDF',
   kesar: '#E18F3C',
   komola: '#db633e',
   neelkantha: '#0074D9',

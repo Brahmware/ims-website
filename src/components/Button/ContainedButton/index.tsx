@@ -3,16 +3,22 @@ import { styled } from '@mui/material';
 import { ContainedButtonProps } from '@interfaces/ButtonProps';
 import Button from '..';
 
-const StyledButton = styled(Button)(({ theme }) => ({
-  padding: `${theme.Spaces.xs} ${theme.Spaces.lg}`,
-  textTransform: 'none',
-}));
-
-const ContainedButton = ({ children, ...props }: ContainedButtonProps) => {
+const ContainedButton: React.FC<ContainedButtonProps> = ({ children, color, flipped, ...props }) => {
   return (
-    <StyledButton variant='contained' {...props} >
+    <Button variant='contained' {...props} >
       {children}
-    </StyledButton>
+    </Button>
   )
 }
-export default ContainedButton
+export default styled(ContainedButton)(({ theme, color = 'primary', flipped = false }) => ({
+  padding: `${theme.Spaces.sm} ${theme.Spaces.lg}`,
+  textTransform: 'uppercase',
+  fontWeight: theme.FontWeights.fontWeightLight,
+  backgroundColor: !flipped ? theme.palette[color].main : theme.palette['primary'].main,
+  color: !flipped ? theme.palette[color].contrastText : theme.palette['primary'].contrastText,
+
+  '&:hover': {
+    backgroundColor: !flipped ? theme.palette['primary'].main : theme.palette[color].main,
+    color: !flipped ? theme.palette['primary'].contrastText : theme.palette[color].contrastText,
+  }
+}));

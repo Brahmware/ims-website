@@ -17,7 +17,7 @@ const ContactSection = styled('section')(({ theme }) => ({
 }));
 
 const ContactTitle = styled(Typography)<ContactTitleprops>(({ theme }) => ({
-  color: theme.palette.text.primary,
+  color: theme.palette.text.secondary,
   fontWeight: theme.typography.fontWeightBold,
   whiteSpace: 'nowrap',
 }));

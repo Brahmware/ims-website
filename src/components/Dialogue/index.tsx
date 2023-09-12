@@ -12,7 +12,7 @@ export const DialogueCard = styled(Dialog)(({ theme }) => ({
 export const DialogueTitle = styled(DialogTitle)(({ theme }) => ({
   fontSize: '1.5rem',
   fontWeight: theme.typography.fontWeightMedium,
-  color: theme.palette.text.primary,
+  color: theme.palette.text.secondary,
 }));
 
 export const DialogueContent = styled(DialogContent)(({ theme }) => ({

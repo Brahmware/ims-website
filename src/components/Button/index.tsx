@@ -45,7 +45,7 @@ const StyledButton = styled(MuiButton)(({ theme }) => ({
   },
 }));
 
-const Button = ({ children, ...props }: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
   return (
     <StyledButton
       disableElevation
