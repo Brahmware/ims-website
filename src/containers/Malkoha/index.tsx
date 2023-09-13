@@ -1,31 +1,33 @@
-import ContainedButton from '@components/Button/ContainedButton';
-import { ContentTitleDivider } from '@components/Dividers';
-import { Box, BoxProps, Divider, Typography, styled, useTheme } from '@mui/material';
-import Link from 'next/link';
 import React from 'react';
+import { Typography, styled, useTheme } from '@mui/material';
+import { ContentTitleDivider } from '@components/Dividers';
+import ContainedButton from '@components/Button/ContainedButton';
+import Link from 'next/link';
 
-export interface KoelShowcaseProps extends BoxProps {
-  direction?: 'ltr' | 'rtl';
-  title?: string;
-  sloganHTML?: string;
-  descriptionHTML?: string;
-  button?: {
-    buttonText: string;
-    link?: string;
-    onClick?: () => void;
-  };
+interface MalkohaProps {
+  content: {
+    title?: string;
+    sloganHTML?: string;
+    descriptionHTML?: string;
+    button?: {
+      buttonText: string;
+      link?: string;
+      onClick?: () => void;
+    };
+  }
 };
 
-const Content: React.FC<KoelShowcaseProps> = ({
-  direction,
-  title,
-  sloganHTML,
-  descriptionHTML,
-  button,
+const Malkoha: React.FC<MalkohaProps> = ({
+  content: {
+    title,
+    sloganHTML,
+    descriptionHTML,
+    button,
+  },
   ...props
 }) => {
   return (
-    <Box {...props}>
+    <section {...props}>
       <Typography
         variant="body2"
         component='h3'
@@ -37,11 +39,12 @@ const Content: React.FC<KoelShowcaseProps> = ({
         variant="h2"
         component='h2'
         dangerouslySetInnerHTML={{ __html: sloganHTML || '' }}
-      />
+        />
       <ContentTitleDivider sx={{ my: 3 }} />
       <Typography
         variant="body1"
         component='p'
+        sx={{ maxWidth: useTheme().Breakpoints.values.md }}
         dangerouslySetInnerHTML={{ __html: descriptionHTML || '' }}
       />
       {
@@ -70,46 +73,35 @@ const Content: React.FC<KoelShowcaseProps> = ({
           )
         )
       }
-    </Box>
+    </section>
   )
 };
 
-export default styled(Content)(({ theme, direction = 'ltr' }) => ({
-  height: 'max-content',
-  width: '50%',
-  margin: 'auto 0',
+export default styled(Malkoha)(({ theme }) => ({
+  height: '100%',
+  width: '100%',
+  maxWidth: theme.Breakpoints.values.xl,
+  margin: '0 auto',
+  padding: theme.Spaces.xxl + ' ' + theme.Spaces.md,
 
-  [theme.Breakpoints.down('lg')]: {
-    width: '100%',
-    gridColumn: (direction === 'ltr') ? '10 / 20' : '-10 / -20',
-    gridRow: '9 / 20',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+
+  '& > *': {
+    textAlign: 'center',
   },
 
-  [theme.Breakpoints.down('md')]: {
-    gridColumn: '2 / 20',
-    gridRow: '9 / 21',
+  '& hr': {
+    alignSelf: 'center',
   },
 
-  [theme.Breakpoints.down('xs')]: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-
-    '& > *': {
-      textAlign: 'center',
-    },
-
-    '& hr': {
-      alignSelf: 'center',
-    },
-
-    '& br': {
-      display: 'none'
-    },
-
-    '& p > br': {
-      display: 'block'
-    }
+  '& br': {
+    display: 'none'
   },
+
+  '& p > br': {
+    display: 'block'
+  }
 }));

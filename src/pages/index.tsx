@@ -5,6 +5,7 @@ import MainLayout from "@layouts/MainLayout";
 import Carousel from "@components/Carousel";
 import Koel from "@containers/Koel";
 import { Box } from "@mui/material";
+import Malkoha from "@containers/Malkoha";
 
 const MetaData: React.FC = () => {
   return (
@@ -40,6 +41,13 @@ const Home: NextPage = () => {
               buttonText: 'VIEW MORE',
               link: '/business/about-us'
             }
+          }}
+        />
+        <Malkoha 
+          content={{
+            title: 'OUR MISSION',
+            sloganHTML: `Lead the Indian Infotainment Media Revolution`,
+            descriptionHTML: `By making every Information, every Discovery, every Invention, every Human Challenge accessible to every person starting with the Indian pacific Region. We'll Disrupt conventional Indian Media System, consumption and value by providing open platform to millions of minds with their theories about existence.`,
           }}
         />
         <Koel
