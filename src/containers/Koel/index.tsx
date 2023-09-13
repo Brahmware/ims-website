@@ -1,5 +1,5 @@
-import { Box, styled } from '@mui/material';
 import React from 'react';
+import { styled } from '@mui/material';
 import Showcase, { ShowcaseImage } from './Showcase';
 import Content from './Content';
 
