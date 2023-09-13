@@ -1,4 +1,5 @@
 interface Values {
+  xxs: number;
   xs: number;
   sm: number;
   md: number;
@@ -7,7 +8,8 @@ interface Values {
 }
 
 export const values: Values = {
-  xs: 0,
+  xxs: 0,
+  xs: 420,
   sm: 600,
   md: 900,
   lg: 1200,

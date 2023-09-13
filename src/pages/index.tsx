@@ -37,7 +37,8 @@ const Home: NextPage = () => {
             IMS is developing its’ unique voice AI for making real-time translation possible in all Indian languages. <br />
             This is an Indian family of informational, educational, and entertainment-oriented Television, Applications and Websites offering value to how Education is developed and accessed by the world.`,
             button: {
-              buttonText: 'VIEW MORE'
+              buttonText: 'VIEW MORE',
+              link: '/business/about-us'
             }
           }}
         />
