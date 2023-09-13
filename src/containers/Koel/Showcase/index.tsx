@@ -31,4 +31,11 @@ export default styled(Showcase)(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: 'repeat(20, 1fr)',
   gridTemplateRows: 'repeat(20, 1fr)',
+
+  [theme.Breakpoints.down('lg')]: {
+    gridColumn: '1 / 21',
+    gridRow: '1 / 21',
+    width: '100%',
+    height: '100%',
+  }
 }));

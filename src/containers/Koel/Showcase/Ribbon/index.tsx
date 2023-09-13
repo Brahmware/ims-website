@@ -11,7 +11,7 @@ const RibbonImage = styled(Image)(({ theme }) => ({
   filter: theme.Filters.belowGlass,
 }));
 
-const Filter = styled('div')(({theme}) => ({
+const Filter = styled('div')(({ theme }) => ({
   position: 'absolute',
   height: '100%',
   width: '100%',
@@ -49,4 +49,9 @@ export default styled(Ribbon)(({ theme }) => ({
   gridColumn: '1 / 10',
   gridRow: '1 / 21',
   position: 'relative',
+
+  [theme.breakpoints.down('lg')]: {
+    gridColumn: '1 / 21',
+    gridRow: '1 / 8',
+  }
 }));

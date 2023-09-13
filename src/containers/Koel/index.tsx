@@ -14,7 +14,9 @@ interface KoelProps {
     sloganHTML?: string;
     descriptionHTML?: string;
     button?: {
-      buttonText: string
+      buttonText: string;
+      link?: string;
+      onClick?: () => void;
     };
   }
 };
@@ -44,5 +46,12 @@ export default styled(Koel)(({ theme, direction = 'ltr' }) => ({
   flexDirection: direction === 'rtl' ? 'row-reverse' : 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
-  flexWrap: 'wrap',
+
+  [theme.Breakpoints.down('lg')]: {
+    display: 'grid',
+    marginTop: theme.Spaces.sm,
+    padding: 0,
+    gridTemplateColumns: 'repeat(20, 1fr)',
+    gridTemplateRows: 'repeat(20, 1fr)',
+  },
 }));

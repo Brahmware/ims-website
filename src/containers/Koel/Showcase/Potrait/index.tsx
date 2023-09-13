@@ -38,4 +38,26 @@ export default styled(Potrait)(({ theme }) => ({
   border: `${theme.Spaces.sm} solid ${theme.palette.background.default}`,
   position: 'relative',
   overflow: 'hidden',
+
+  [theme.Breakpoints.down('lg')]: {
+    gridColumn: '2 / 9',
+    gridRow: '7 / 21',
+  },
+
+  [theme.Breakpoints.down('md')]: {
+    gridColumn: '13 / 20',
+    gridRow: '4 / 13',
+    aspectRatio: '1 / 1',
+  },
+
+  [theme.Breakpoints.down('sm')]: {
+    gridColumn: '9 / 20',
+    gridRow: '4 / 10',
+  },
+  
+  [theme.Breakpoints.down('xs')]: {
+    gridColumn: '2 / 20',
+    gridRow: '3 / 9',
+  },
+    
 }));
