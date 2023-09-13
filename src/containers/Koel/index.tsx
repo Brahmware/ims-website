@@ -23,14 +23,14 @@ interface KoelProps {
 
 const Koel: React.FC<KoelProps> = ({
   images,
-  direction,
+  direction = 'ltr',
   content,
   ...props
 }) => {
   return (
     <section {...props} >
-      <Showcase {...images} />
-      <Content {...content} />
+      <Showcase {...images} direction={direction} />
+      <Content {...content} direction={direction} />
     </section>
   )
 };
@@ -49,7 +49,6 @@ export default styled(Koel)(({ theme, direction = 'ltr' }) => ({
 
   [theme.Breakpoints.down('lg')]: {
     display: 'grid',
-    marginTop: theme.Spaces.sm,
     padding: 0,
     gridTemplateColumns: 'repeat(20, 1fr)',
     gridTemplateRows: 'repeat(20, 1fr)',

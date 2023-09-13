@@ -22,10 +22,12 @@ const Filter = styled('div')(({ theme }) => ({
 }));
 
 interface RibbonProps extends BoxProps {
+  direction?: 'ltr' | 'rtl';
   image: ShowcaseImage
 }
 
 const Ribbon: React.FC<RibbonProps> = ({
+  direction = 'ltr',
   image,
   ...props
 }) => {
@@ -43,10 +45,10 @@ const Ribbon: React.FC<RibbonProps> = ({
   )
 };
 
-export default styled(Ribbon)(({ theme }) => ({
+export default styled(Ribbon)(({ theme, direction }) => ({
   height: '100%',
   width: '100%',
-  gridColumn: '1 / 10',
+  gridColumn: (direction === 'ltr') ? '1 / 10' : '11 / 21',
   gridRow: '1 / 21',
   position: 'relative',
 

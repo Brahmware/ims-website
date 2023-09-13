@@ -8,20 +8,22 @@ export type ShowcaseImage = {
   alt?: string;
   description?: string;
 }
-interface KoelShowcaseProps extends BoxProps {
+export interface KoelShowcaseProps extends BoxProps {
+  direction?: 'ltr' | 'rtl';
   top: ShowcaseImage,
   bottom: ShowcaseImage
 };
 
 const Showcase: React.FC<KoelShowcaseProps> = ({
+  direction = 'ltr',
   top,
   bottom,
   ...props
 }) => {
   return (
     <Box {...props}>
-      <Ribbon image={bottom} />
-      <Potrait image={top} />
+      <Ribbon image={bottom} direction={direction} />
+      <Potrait image={top} direction={direction} />
     </Box>
   )
 };

@@ -10,10 +10,11 @@ const PotraitImage = styled(Image)(({ theme }) => ({
 }));
 
 interface PotraitProps extends BoxProps {
+  direction?: 'ltr' | 'rtl';
   image: ShowcaseImage
 }
 
-const Potrait: React.FC<PotraitProps> = ({ image, ...props }) => {
+const Potrait: React.FC<PotraitProps> = ({ direction, image, ...props }) => {
   return (
     <Box {...props}>
       <PotraitImage
@@ -27,7 +28,7 @@ const Potrait: React.FC<PotraitProps> = ({ image, ...props }) => {
   )
 };
 
-export default styled(Potrait)(({ theme }) => ({
+export default styled(Potrait)(({ theme, direction = 'ltr' }) => ({
   width: '100%',
   height: '100%',
   gridColumn: '6 / 17',
@@ -40,13 +41,13 @@ export default styled(Potrait)(({ theme }) => ({
   overflow: 'hidden',
 
   [theme.Breakpoints.down('lg')]: {
-    gridColumn: '2 / 9',
+    gridColumn: (direction === 'ltr') ? '2 / 9' : '-2 / -9',
     gridRow: '7 / 21',
   },
 
   [theme.Breakpoints.down('md')]: {
     gridColumn: '13 / 20',
-    gridRow: '4 / 13',
+    gridRow: '3 / 12',
     aspectRatio: '1 / 1',
   },
 
