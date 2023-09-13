@@ -4,7 +4,8 @@ import { Box, BoxProps, Divider, Typography, styled } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
 
-interface KoelShowcaseProps extends BoxProps {
+export interface KoelShowcaseProps extends BoxProps {
+  direction?: 'ltr' | 'rtl';
   title?: string;
   sloganHTML?: string;
   descriptionHTML?: string;
@@ -16,6 +17,7 @@ interface KoelShowcaseProps extends BoxProps {
 };
 
 const Content: React.FC<KoelShowcaseProps> = ({
+  direction,
   title,
   sloganHTML,
   descriptionHTML,
@@ -72,19 +74,23 @@ const Content: React.FC<KoelShowcaseProps> = ({
   )
 };
 
-export default styled(Content)(({ theme }) => ({
+export default styled(Content)(({ theme, direction = 'ltr' }) => ({
   height: 'max-content',
   width: '50%',
   margin: 'auto 0',
 
   [theme.Breakpoints.down('lg')]: {
     width: '100%',
-    gridColumn: '10 / 20',
+    gridColumn: (direction === 'ltr') ? '10 / 20' : '-10 / -20',
     gridRow: '9 / 20',
   },
 
   [theme.Breakpoints.down('md')]: {
     gridColumn: '2 / 20',
+    gridRow: '10 / 19',
+  },
+
+  [theme.Breakpoints.down('xs')]: {
     gridRow: '9 / 21',
   },
 }));

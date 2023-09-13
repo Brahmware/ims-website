@@ -42,6 +42,28 @@ const Home: NextPage = () => {
             }
           }}
         />
+        <Koel
+          direction="rtl"
+          images={{
+            top: {
+              src: '/images/home/container-4/image-top.jpg',
+            },
+            bottom: {
+              src: '/images/home/container-4/image-bottom.jpg',
+            },
+          }}
+          content={{
+            title: 'IMMERSIVE TEACHING',
+            sloganHTML: `A Strategy to <br />
+            Revolutionize Learning`,
+            descriptionHTML: `Grasping attention is easier, keeping learners engaged throughout the process and command action is a different story. We learn much faster visually, and retention is simply great if it is rewarding. In comes the array of Immersive education for new generation of India. <br />
+            Putting our best foot forward, IMS resources are used in teaching the new wave of decision-makers. Integrating with schools and teaching organizations, creating the seamless streaming of knowledge like never before.`,
+            button: {
+              buttonText: 'VIEW MORE',
+              link: '/education-and-teaching/resources'
+            }
+          }}
+        />
       </MainLayout>
     </React.Fragment>
   );
