@@ -23,8 +23,8 @@ const WhatsappLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
         <style>
           {`
             .cls-1 {
-            fill: ${!mouse ? alpha(theme.palette.text.secondary, 0.8) : '#67c15e'};
-            fill-rule: evenodd;
+              fill: ${!mouse ? alpha(theme.palette.text.secondary, 0.8) : '#67c15e'};
+              fill-rule: evenodd;
             }
           `}
         </style>

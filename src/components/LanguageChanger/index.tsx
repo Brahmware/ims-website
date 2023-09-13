@@ -38,6 +38,7 @@ const ButtonText = styled(Typography)(({ theme }) => ({
   lineHeight: 1.5,
   fontSize: '0.875rem',
   color: theme.palette.error.contrastText,
+  fontWeight: theme.typography.fontWeightRegular,
   cursor: 'pointer',
   whiteSpace: 'nowrap',
 }));

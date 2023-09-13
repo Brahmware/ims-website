@@ -2,7 +2,7 @@ import { Box, BoxProps, styled } from '@mui/material';
 import { SocialIconsProps } from '@interfaces/SocialIconsProps';
 import SocialLink from './SocialLink';
 import FacebookLogo from '@icons/socialMedia/FacebookLogo';
-import TwitterLogo from '@icons/socialMedia/TwitterLogo';
+import XLogo from '@icons/socialMedia/XLogo';
 import LinkedinLogo from '@icons/socialMedia/LinkedinLogo';
 import YoutubeLogo from '@icons/socialMedia/YoutubeLogo';
 import InstagramLogo from '@icons/socialMedia/InstagramLogo';
@@ -35,7 +35,7 @@ const Socials = ({ links, options }: SocialIconsProps) => {
   return (
     <SocialsWrapper {...options}>
       {links.facebook && <SocialLink href={links.facebook}><FacebookLogo /></SocialLink>}
-      {links.twitter && <SocialLink href={links.twitter}><TwitterLogo /></SocialLink>}
+      {links.twitter && <SocialLink href={links.twitter}><XLogo /></SocialLink>}
       {links.linkedin && <SocialLink href={links.linkedin}><LinkedinLogo /></SocialLink>}
       {links.youtube && <SocialLink href={links.youtube}><YoutubeLogo /></SocialLink>}
       {links.instagram && <SocialLink href={links.instagram}><InstagramLogo /></SocialLink>}

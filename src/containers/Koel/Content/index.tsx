@@ -1,6 +1,6 @@
 import ContainedButton from '@components/Button/ContainedButton';
 import { ContentTitleDivider } from '@components/Dividers';
-import { Box, BoxProps, Divider, Typography, styled } from '@mui/material';
+import { Box, BoxProps, Divider, Typography, styled, useTheme } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
 
@@ -92,5 +92,25 @@ export default styled(Content)(({ theme, direction = 'ltr' }) => ({
 
   [theme.Breakpoints.down('xs')]: {
     gridRow: '9 / 21',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    '& > *': {
+      textAlign: 'center',
+    },
+
+    '& hr': {
+      alignSelf: 'center',
+    },
+
+    '& br': {
+      display: 'none'
+    },
+
+    '& p > br': {
+      display: 'block'
+    }
   },
 }));
