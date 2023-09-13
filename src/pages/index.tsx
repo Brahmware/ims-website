@@ -33,8 +33,8 @@ const Home: NextPage = () => {
           content={{
             title: 'ABOUT US',
             sloganHTML: `India, Explore! <br /> Dream! Lead!`,
-            descriptionHTML: `Indian Media Syndicate endeavours to be the global leader in Exploration, Scientific Communications, Real Life Entertainment, serving enthusiastic Explorers around the world generating scientific journalism that inspires, informs, and entertains every age, at grassroots level, soaring high. <br />
-            IMS is developing its’ unique voice AI for making real-time translation possible in all Indian languages. <br />
+            descriptionHTML: `Indian Media Syndicate endeavours to be the global leader in Exploration, Scientific Communications, Real Life Entertainment, serving enthusiastic Explorers around the world generating scientific journalism that inspires, informs, and entertains every age, at grassroots level, soaring high. <br /> <br />
+            IMS is developing its’ unique voice AI for making real-time translation possible in all Indian languages. <br /> <br />
             This is an Indian family of informational, educational, and entertainment-oriented Television, Applications and Websites offering value to how Education is developed and accessed by the world.`,
             button: {
               buttonText: 'VIEW MORE',
@@ -56,7 +56,7 @@ const Home: NextPage = () => {
             title: 'IMMERSIVE TEACHING',
             sloganHTML: `A Strategy to <br />
             Revolutionize Learning`,
-            descriptionHTML: `Grasping attention is easier, keeping learners engaged throughout the process and command action is a different story. We learn much faster visually, and retention is simply great if it is rewarding. In comes the array of Immersive education for new generation of India. <br />
+            descriptionHTML: `Grasping attention is easier, keeping learners engaged throughout the process and command action is a different story. We learn much faster visually, and retention is simply great if it is rewarding. In comes the array of Immersive education for new generation of India. <br /> <br />
             Putting our best foot forward, IMS resources are used in teaching the new wave of decision-makers. Integrating with schools and teaching organizations, creating the seamless streaming of knowledge like never before.`,
             button: {
               buttonText: 'VIEW MORE',

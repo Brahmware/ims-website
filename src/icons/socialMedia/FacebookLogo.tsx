@@ -21,11 +21,11 @@ const FacebookLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
     >
       <defs>
         <style>
-          {`.ab530a55-7b8e-4d6a-957a-d196bf9814ae {
-            fill: url(#e6036cbc-9faa-4599-a3df-a90eac83ea55);
+          {`.ab530a55 {
+            fill: url(#ge6036cbc);
           }`}
         </style>
-        <linearGradient id="e6036cbc-9faa-4599-a3df-a90eac83ea55" x1="-956.95337" y1="133.77482" x2="-956.95337" y2="133.29375" gradientTransform="translate(38288.13477 -5301.99759) scale(40 39.7778)" gradientUnits="userSpaceOnUse">
+        <linearGradient id="ge6036cbc" x1="10" y1="19.13242" x2="10" y2="0.28178" gradientTransform="translate(0 0.1111) scale(1 0.99445)" gradientUnits="userSpaceOnUse">
           <stop
             offset="0"
             stopColor={!mouse ? alpha(theme.palette.text.secondary, 0.8) : "#0062e0"}
@@ -48,7 +48,7 @@ const FacebookLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
           />
         </linearGradient>
       </defs>
-      <path className="ab530a55-7b8e-4d6a-957a-d196bf9814ae" d="M8.415,19.80254v-6.984H5.93841V10.04483H8.415V7.86543A3.58924,3.58924,0,0,1,12.27844,4.002a16.198,16.198,0,0,1,2.17939.19813v2.5261H13.17c-1.18877,0-1.486.59438-1.486,1.38687v1.93174h2.62517l-.4458,2.77375H11.68408v6.984l.00051.04043A9.92283,9.92283,0,1,0,.0937,10.04483a10.0464,10.0464,0,0,0,8.321,9.81662Z" />
+      <path className="ab530a55" d="M16.77173.28571H3.22827A2.94257,2.94257,0,0,0,.28571,3.22827V16.77173a2.94257,2.94257,0,0,0,2.94256,2.94256H8.25476L8.2514,12.72H5.82288V10H8.2514V7.86285A3.5197,3.5197,0,0,1,12.04,4.07428a15.89109,15.89109,0,0,1,2.13714.19427V6.74573H12.91431c-1.16571,0-1.45716.58282-1.45716,1.36V10h2.57428l-.43713,2.72H11.45715l.0033,6.99426h5.31128a2.94257,2.94257,0,0,0,2.94256-2.94256V3.22827A2.94257,2.94257,0,0,0,16.77173.28571Z" />
     </svg>
 
   )
