@@ -4,7 +4,6 @@ import type { NextPage } from "next";
 import MainLayout from "@layouts/MainLayout";
 import Carousel from "@components/Carousel";
 import Koel from "@containers/Koel";
-import { Box } from "@mui/material";
 import Malkoha from "@containers/Malkoha";
 import Myna from "@containers/Myna";
 

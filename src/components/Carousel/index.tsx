@@ -1,6 +1,7 @@
 import { styled, alpha } from '@mui/material';
 import React from 'react';
 import dynamic from 'next/dynamic';
+import CarouselLoading from './CarouselLoading';
 
 const StyledSplideWrapper = styled('div')(({ theme }) => ({
   '& .splide__slide': {
@@ -40,6 +41,7 @@ const StyledSplideWrapper = styled('div')(({ theme }) => ({
 }));
 
 const DynamicSlides = dynamic(() => import('./DynamicSlides'), {
+  loading: () => <CarouselLoading />,
   ssr: false,
 });
 
