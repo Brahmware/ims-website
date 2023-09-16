@@ -18,23 +18,23 @@ const shadows: Shadows = {
     boxShadow: 'none',
   },
   lower: {
-    zIndex: 1,
+    zIndex: 10,
     boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
   },
   low: {
-    zIndex: 2,
+    zIndex: 20,
     boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.05)',
   },
   medium: {
-    zIndex: 3,
+    zIndex: 30,
     boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 0.05)',
   },
   high: {
-    zIndex: 4,
+    zIndex: 40,
     boxShadow: '0 4px 16px 0 rgba(0, 0, 0, 0.05)',
   },
   higher: {
-    zIndex: 5,
+    zIndex: 50,
     boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.05)',
   },
 };

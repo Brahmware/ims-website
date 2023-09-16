@@ -89,8 +89,8 @@ export default styled(Content)(({ theme, direction = 'ltr' }) => ({
     gridColumn: '2 / 20',
     gridRow: '9 / 21',
   },
-
-  [theme.Breakpoints.down('xs')]: {
+  
+  '@media (max-width: 555px)': {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',

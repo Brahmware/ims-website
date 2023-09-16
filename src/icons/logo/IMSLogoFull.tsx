@@ -138,7 +138,12 @@ const IMSLogoFull = (props: IMSLogoProps) => {
 export default styled(IMSLogoFull)(({ theme }) => ({
   width: '100%',
   height: '100%',
+  transform: 'translateY(-1.5px)',
   '& .word__mark': {
     fill: theme.palette.text.secondary,
   },
+
+  [theme.breakpoints.down('md')]: {
+    display: 'none',
+  }
 }));

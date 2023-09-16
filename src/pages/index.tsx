@@ -6,6 +6,7 @@ import Carousel from "@components/Carousel";
 import Koel from "@containers/Koel";
 import { Box } from "@mui/material";
 import Malkoha from "@containers/Malkoha";
+import Myna from "@containers/Myna";
 
 const MetaData: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
       <MainLayout>
         <Carousel />
         <Koel
+          updown="up"
           images={{
             top: {
               src: '/images/home/container-2/image-top.jpg',
@@ -44,13 +46,46 @@ const Home: NextPage = () => {
           }}
         />
         <Malkoha 
+          updown="down"
           content={{
             title: 'OUR MISSION',
             sloganHTML: `Lead the Indian Infotainment Media Revolution`,
             descriptionHTML: `By making every Information, every Discovery, every Invention, every Human Challenge accessible to every person starting with the Indian pacific Region. We'll Disrupt conventional Indian Media System, consumption and value by providing open platform to millions of minds with their theories about existence.`,
           }}
         />
+        {/* <Myna 
+          content={[
+            {
+              stat: '2.3Billion',
+              context: 'Serviceable Audience',
+              descriptionHTML: `Pan Asia Media creation & distribution.`,
+              button: {
+                buttonText: 'VIEW MORE',
+                link: '/business/audience'
+              }
+            },
+            {
+              stat: '20+',
+              context: 'Languages',
+              descriptionHTML: `In audio channels for all media labels. All Indic languages covered.`,
+              button: {
+                buttonText: 'VIEW MORE',
+                link: '/business/audience'
+              }
+            },
+            {
+              stat: '100+',
+              context: 'Production Houses',
+              descriptionHTML: `In Syndicate partnership, crafting the dream.`,
+              button: {
+                buttonText: 'VIEW MORE',
+                link: '/business/audience'
+              }
+            },
+          ]}
+        /> */}
         <Koel
+          updown="down"
           direction="rtl"
           images={{
             top: {

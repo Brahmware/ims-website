@@ -2,6 +2,7 @@ import { Box, BoxProps, styled } from '@mui/material';
 import React from 'react';
 import Ribbon from './Ribbon';
 import Potrait from './Potrait';
+import { updown } from '..';
 
 export type ShowcaseImage = {
   src: string;
@@ -9,12 +10,14 @@ export type ShowcaseImage = {
   description?: string;
 }
 export interface KoelShowcaseProps extends BoxProps {
+  updown?: updown;
   direction?: 'ltr' | 'rtl';
   top: ShowcaseImage,
   bottom: ShowcaseImage
 };
 
 const Showcase: React.FC<KoelShowcaseProps> = ({
+  updown,
   direction = 'ltr',
   top,
   bottom,
@@ -23,7 +26,7 @@ const Showcase: React.FC<KoelShowcaseProps> = ({
   return (
     <Box {...props}>
       <Ribbon image={bottom} direction={direction} />
-      <Potrait image={top} direction={direction} />
+      <Potrait image={top} direction={direction} updown={updown} />
     </Box>
   )
 };

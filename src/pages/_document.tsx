@@ -12,6 +12,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
+          <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
           <link rel="icon" href="/favicon.ico" />
           <meta name="emotion-insertion-point" content="" />
           <meta name="theme-color" content={themeDark.palette.primary.main} />

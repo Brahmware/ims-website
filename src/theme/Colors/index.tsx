@@ -13,10 +13,10 @@ export interface Colors {
 
 export const colors: Colors = {
   white: '#FFFFFF',
-  black: '#2E2E2E',
-  bhasma: '#707070',
+  matmaila: '#f5f5f5',
+  black: '#1c1c1c',
+  bhasma: '#252525',
   rakthalal: '#FF4136',
-  matmaila: '#C8C8C8',
   slogan: '#DDDDDF',
   kesar: '#E18F3C',
   komola: '#db633e',
