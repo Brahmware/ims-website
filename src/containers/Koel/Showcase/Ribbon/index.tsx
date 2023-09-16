@@ -7,7 +7,7 @@ const RibbonImage = styled(Image)(({ theme }) => ({
   height: '100%',
   width: '100%',
   objectFit: 'cover',
-  zIndex: -2,
+  zIndex: 1,
   filter: theme.Filters.belowGlass,
 }));
 

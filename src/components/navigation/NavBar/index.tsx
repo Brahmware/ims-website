@@ -3,8 +3,9 @@ import { Card, styled } from '@mui/material';
 import { navbar } from '@theme/constants';
 import Toolbar from './Toolbar';
 import { useNavigationMenuState } from '@helpers/NavigationMenuStateProvider';
-import LinkHome from './LinkHome';
 import { BarProps } from '@interfaces/CardProps';
+import ShowLive from './ShowLive';
+import LinkHome from './LinkHome';
 
 const Bar = styled(Card)<BarProps>(({ theme, open }) => ({
   width: '100%',
@@ -40,7 +41,15 @@ const BarContent = styled('nav')(({ theme }) => ({
   maxWidth: theme.breakpoints.values.xl,
   margin: '0 auto',
   display: 'grid',
-  gridTemplateColumns: 'auto 1fr auto auto auto auto',
+  gridTemplateColumns: `
+    auto 
+    auto 
+    minmax(3.015rem, 1fr) 
+    auto 
+    auto 
+    auto 
+    auto
+  `,
   alignItems: 'center',
   alignContent: 'center',
   transition: theme.Transitions.createTransition({
@@ -58,6 +67,7 @@ const Navbar: FC = () => {
     >
       <BarContent className='bar-content'>
         <LinkHome />
+        <ShowLive />
         <Toolbar />
       </BarContent>
     </Bar>

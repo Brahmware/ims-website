@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, BoxProps, styled } from '@mui/material';
 import Image from 'next/image';
 import { ShowcaseImage } from '..';
+import { updown } from '@containers/Koel';
 
 const PotraitImage = styled(Image)(({ theme }) => ({
   height: '100%',
@@ -10,11 +11,12 @@ const PotraitImage = styled(Image)(({ theme }) => ({
 }));
 
 interface PotraitProps extends BoxProps {
+  updown?: updown;
   direction?: 'ltr' | 'rtl';
   image: ShowcaseImage
 }
 
-const Potrait: React.FC<PotraitProps> = ({ direction, image, ...props }) => {
+const Potrait: React.FC<PotraitProps> = ({ direction, image, updown, ...props }) => {
   return (
     <Box {...props}>
       <PotraitImage
@@ -28,17 +30,19 @@ const Potrait: React.FC<PotraitProps> = ({ direction, image, ...props }) => {
   )
 };
 
-export default styled(Potrait)(({ theme, direction = 'ltr' }) => ({
+export default styled(Potrait)(({ theme, direction = 'ltr', updown }) => ({
   width: '100%',
   height: '100%',
   gridColumn: '6 / 17',
   gridRow: '4 / 18',
   aspectRatio: '1 / 1.33',
-  backgroundColor: theme.palette.background.default,
+  backgroundColor: updown === 'up' ? theme.palette.background.default : theme.palette.background.paper,
+
   borderRadius: '1.6rem',
-  border: `${theme.Spaces.sm} solid ${theme.palette.background.default}`,
+  border: `${theme.Spaces.sm} solid ${updown === 'up' ? theme.palette.background.default : theme.palette.background.paper}`,
   position: 'relative',
   overflow: 'hidden',
+  zIndex: 2,
 
   [theme.Breakpoints.down('lg')]: {
     gridColumn: (direction === 'ltr') ? '2 / 9' : '-2 / -9',
@@ -47,7 +51,7 @@ export default styled(Potrait)(({ theme, direction = 'ltr' }) => ({
 
   [theme.Breakpoints.down('md')]: {
     gridColumn: '13 / 20',
-    gridRow: '3 / 12',
+    gridRow: '3 / 11',
     aspectRatio: '1 / 1',
   },
 
@@ -55,10 +59,20 @@ export default styled(Potrait)(({ theme, direction = 'ltr' }) => ({
     gridColumn: '9 / 20',
     gridRow: '4 / 10',
   },
-  
+
+  '@media (max-width: 555px)': {
+    gridColumn: '2 / 20',
+    gridRow: '3 / 10',
+  },
+
+  '@media (max-width: 480px)': {
+    gridColumn: '2 / 20',
+    gridRow: '2 / 9',
+  },
+
   [theme.Breakpoints.down('xs')]: {
     gridColumn: '2 / 20',
     gridRow: '3 / 9',
   },
-    
+
 }));

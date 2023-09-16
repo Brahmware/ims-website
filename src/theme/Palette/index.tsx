@@ -19,6 +19,12 @@ export const customPaletteLight: CustomPaletteOptions = {
     light: colors.slogan,
     contrastText: colors.white,
   },
+
+  background: {
+    default: colors.white,
+    paper: colors.matmaila,
+  },
+
   error: {
     main: colors.rakthalal,
     contrastText: colors.white,
@@ -52,6 +58,10 @@ export const customPaletteDark: CustomPaletteOptions = {
     main: colors.white,
     light: colors.slogan,
     contrastText: colors.black,
+  },
+  background: {
+    default: colors.black,
+    paper: colors.bhasma,
   },
   error: {
     main: colors.rakthalal,

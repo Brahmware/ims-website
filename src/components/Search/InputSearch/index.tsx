@@ -25,6 +25,23 @@ const StyledInput = styled('input')(({ theme }) => ({
   '&:focus': {
     width: '33rem',
   },
+
+  [theme.Breakpoints.down('md')]: {
+    width: '15rem',
+  },
+
+  '@media (max-width: 610px)': {
+    width: '12rem',
+  },
+
+  '@media (max-width: 562px)': {
+    padding: theme.Spaces.sm,
+    width: '6.125rem',
+  },
+
+  '@media (max-width: 465px)': {
+    display: 'none',
+  }
 }));
 
 const InputSearch = () => {

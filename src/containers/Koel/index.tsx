@@ -3,7 +3,10 @@ import { styled } from '@mui/material';
 import Showcase, { ShowcaseImage } from './Showcase';
 import Content from './Content';
 
+export type updown = 'up' | 'down';
+
 interface KoelProps {
+  updown?: updown;
   direction?: 'ltr' | 'rtl';
   images: {
     top: ShowcaseImage,
@@ -21,17 +24,31 @@ interface KoelProps {
   }
 };
 
+interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+  updown?: updown;
+};
+
+const Section = styled('section')<SectionProps>(({ theme, updown }) => ({
+  height: 'max-content',
+  width: '100%',
+  backgroundColor: updown === 'up' ? theme.palette.background.default : theme.palette.background.paper,
+}));
+
 const Koel: React.FC<KoelProps> = ({
+  updown = 'up',
   images,
   direction = 'ltr',
   content,
   ...props
 }) => {
   return (
-    <section {...props} >
-      <Showcase {...images} direction={direction} />
-      <Content {...content} direction={direction} />
-    </section>
+    <Section updown={updown} >
+      <div {...props} >
+        <Showcase {...images} direction={direction} updown={updown}/>
+        <Content {...content} direction={direction} />
+      </div>
+    </Section>
   )
 };
 

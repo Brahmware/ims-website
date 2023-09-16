@@ -11,6 +11,14 @@ const SearchWrapper = styled(Box)(({ theme }) => ({
   position: 'relative',
   alignItems: 'center',
   justifyContent: 'end',
+  
+  '@media (max-width: 562px)': {
+    margin: `0 ${theme.Spaces.xs}`,
+  },
+
+  '@media (max-width: 465px)': {
+    margin: `0 ${theme.Spaces.xxs}`,
+  },
 }));
 
 const SearchIcon = styled(Icon)(({ theme }) => ({
