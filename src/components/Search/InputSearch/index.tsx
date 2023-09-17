@@ -1,4 +1,4 @@
-import { styled } from '@mui/material';
+import { styled, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react'
 
 const StyledInput = styled('input')(({ theme }) => ({
@@ -45,8 +45,15 @@ const StyledInput = styled('input')(({ theme }) => ({
 }));
 
 const InputSearch = () => {
+
+  const medium = useTheme().breakpoints.down('md');
+  const showContractedText = useMediaQuery(medium);
+
   return (
-    <StyledInput type="text" placeholder="Search in IMS" />
+    <StyledInput
+      type="text"
+      placeholder={`Search in ${showContractedText ? 'IMS' : 'Indian Media Syndicate'} `}
+    />
   )
 }
 
