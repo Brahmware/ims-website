@@ -39,7 +39,7 @@ const StyledInput = styled('input')(({ theme }) => ({
     width: '6.125rem',
   },
 
-  '@media (max-width: 465px)': {
+  '@media (max-width: 438px)': {
     display: 'none',
   }
 }));

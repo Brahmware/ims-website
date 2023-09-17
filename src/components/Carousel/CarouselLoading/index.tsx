@@ -31,7 +31,11 @@ const CarouselLoading: React.FC<BoxProps> = ({ ...props }) => {
           marginRight: '1rem'
         }}
       />
-      <Skeleton variant="rectangular" height="100%" width="100%" />
+      <Skeleton
+        variant="rectangular"
+        height="100%"
+        width="100%"
+      />
       <Skeleton
         className="carousel-loading-right"
         variant="rectangular"
@@ -44,13 +48,24 @@ const CarouselLoading: React.FC<BoxProps> = ({ ...props }) => {
       />
       <DataCard>
         <Typography variant="body2" >
-          <Skeleton variant="text" height="100%" width="8rem" />
+          <Skeleton
+            variant="text"
+            animation="wave"
+            height="100%"
+            width="8rem"
+          />
         </Typography>
         <Typography variant="h2" mb='0.5rem'>
-          <Skeleton variant="text" height="100%" width="100%" />
+          <Skeleton
+            variant="text"
+            animation="wave"
+            height="100%"
+            width="100%"
+          />
         </Typography>
         <Skeleton
           variant="rectangular"
+          animation="wave"
           height="4rem"
           width="100%"
           sx={{ borderRadius: '0.5rem' }}

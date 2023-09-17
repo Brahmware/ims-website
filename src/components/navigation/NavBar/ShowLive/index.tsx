@@ -1,6 +1,7 @@
 import ContainedButton from '@components/Button/ContainedButton';
+import FilmCameraIcon from '@icons/utility/FilmCameraIcon';
 import { ContainedButtonProps } from '@interfaces/ButtonProps';
-import { styled } from '@mui/material'
+import { styled, useMediaQuery, useTheme } from '@mui/material'
 import React from 'react'
 
 
@@ -26,7 +27,7 @@ const Flare = styled('div')(({ theme }) => ({
   position: 'absolute',
   zIndex: 1,
   animation: 'pulse 2s infinite',
-  
+
   '@keyframes pulse': {
     '0%': {
       transform: 'scale(1)',
@@ -40,25 +41,43 @@ const Flare = styled('div')(({ theme }) => ({
 }));
 
 const AliveComponent = () => {
+
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const loadingTimeout = setTimeout(() => {
+      setLoading(false);
+    }, 200);
+
+    return () => clearTimeout(loadingTimeout);
+  }, []);
+
   return (
     <AliveIcon>
-      <Flare />
-      <Flare sx={{ animationDelay: '1s' }} />
+      {!loading &&
+        <>
+          <Flare />
+          <Flare sx={{ animationDelay: '1s' }} />
+        </>
+      }
     </AliveIcon>
   )
 };
 
 const ShowLive: React.FC<ContainedButtonProps> = ({ ...props }) => {
+
+  const showCamera = useMediaQuery('(max-width: 470px)');
+
   return (
     <ContainedButton
       {...props}
       color='error'
     >
-      Live
+      {showCamera ? <FilmCameraIcon /> : 'Live'}
       <AliveComponent />
     </ContainedButton>
   )
-}
+};
 
 export default styled(ShowLive)(({ theme }) => ({
   margin: '0 ' + theme.Spaces.sm,
@@ -67,6 +86,12 @@ export default styled(ShowLive)(({ theme }) => ({
   paddingBottom: theme.Spaces.xs,
   letterSpacing: '0.1em',
   minWidth: '100px',
+  
+  '@media (max-width: 470px)': {
+    minWidth: '70px',
+    paddingLeft: theme.Spaces.xs,
+    paddingRight: theme.Spaces.sm,
+  },
 
   '&:hover': {
     backgroundColor: theme.palette.secondary.main,
@@ -74,6 +99,12 @@ export default styled(ShowLive)(({ theme }) => ({
 
     '& > div': {
       backgroundColor: theme.palette.error.main,
+    },
+
+    '& svg': {
+      '& path': {
+        fill: theme.palette.secondary.contrastText,
+      },
     },
   },
 }));
