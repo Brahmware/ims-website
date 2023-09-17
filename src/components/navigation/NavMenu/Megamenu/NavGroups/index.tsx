@@ -25,20 +25,21 @@ const Navgroup = styled('ul')<NavgroupProps>(({ theme, active, show }) => ({
 
   [theme.Breakpoints.down('tall')]: {
     height: show ? '10.75rem' : '3rem',
+    justifyContent: 'center',
   },
 
   transition: theme.Transitions.createTransition([
     {
       property: 'height',
-      duration: 'longest'
+      duration: 'medium'
     },
     {
       property: 'width',
-      duration: 'longest'
+      duration: 'medium'
     },
     {
       property: 'border-radius',
-      duration: 'longest'
+      duration: 'medium'
     },
   ]),
 

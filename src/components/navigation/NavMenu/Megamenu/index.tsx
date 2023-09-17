@@ -26,6 +26,24 @@ const MegamenuSection = styled('section')<MegamenuSectionProps>(({ theme, number
   flexWrap: 'wrap',
   alignContent: 'flex-start',
 
+  '@media (max-height: 840px)': {
+    gridRow: '1 / 19',
+  },
+
+  '@media (max-width: 1190px)': {
+    gridColumn: '1 / 15',
+  },
+
+  '@media (max-width: 680px)': {
+    gridColumn: '1 / 25',
+    paddingLeft: 0,
+    paddingRight: 0,
+
+    '& > ul': {
+      marginLeft: 0,
+      marginRight: 0,
+    }
+  },
 }));
 
 const Megamenu = () => {

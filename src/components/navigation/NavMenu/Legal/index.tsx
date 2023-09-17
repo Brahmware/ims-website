@@ -1,6 +1,6 @@
 import Link from '@components/Link';
 import { useNavHoverContext } from '@helpers/NavHoverContext';
-import { styled } from '@mui/material';
+import { alpha, styled } from '@mui/material';
 import { MediaPrivacyPolicySrc, MediaWhiteNoiseSrc } from '@utils/const';
 import React from 'react'
 
@@ -15,6 +15,10 @@ const LegalSection = styled('section')(({ theme }) => ({
   fontSize: '1rem',
   zIndex: theme.Shadows.medium.zIndex,
 
+  '& *': {
+    textShadow: `${alpha(theme.Colors.black, 0.25)} 1px 0 10px`,
+  },
+
   '& a': {
     '&:first-child': {
       marginRight: theme.Spaces.xs,
@@ -24,7 +28,13 @@ const LegalSection = styled('section')(({ theme }) => ({
       marginRight: 0,
       marginLeft: theme.Spaces.xs,
     }
-  }
+  },
+
+  '@media (max-width: 736px)': {
+    gridColumn: '1 / 25',
+    gridRow: '24 / 25',
+    justifyContent: 'start',
+  },
 }));
 
 const Legal = () => {

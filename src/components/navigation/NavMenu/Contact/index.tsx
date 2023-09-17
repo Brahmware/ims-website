@@ -1,5 +1,5 @@
 import { ContactTextProps, ContactTitleprops } from '@interfaces/TypographyProps';
-import { Snackbar, Typography, styled } from '@mui/material'
+import { Snackbar, Typography, alpha, styled } from '@mui/material'
 import React, { useState } from 'react'
 import SocialSection from './SocialSection';
 import { useNavHoverContext } from '@helpers/NavHoverContext';
@@ -14,6 +14,22 @@ const ContactSection = styled('section')(({ theme }) => ({
   alignItems: 'flex-start',
   width: '100%',
   zIndex: theme.Shadows.medium.zIndex,
+
+  '& *': {
+    textShadow: `${alpha(theme.Colors.black, 0.25)} 1px 0 10px`,
+  },
+
+  '@media (max-width: 820px)': {
+    gridColumn: '1 / 25',
+    gridRow: '10 / 23',
+    justifyContent: 'start',
+  },
+
+  '@media (max-width: 440px)': {
+    gridColumn: '1 / 25',
+    gridRow: ' 19 / 21',
+    justifyContent: 'start',
+  }
 }));
 
 const ContactTitle = styled(Typography)<ContactTitleprops>(({ theme }) => ({

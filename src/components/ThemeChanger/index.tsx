@@ -17,7 +17,7 @@ const ThemeChangerWrapper = styled(Card)<ThemeChangerWrapperProps>(({ theme }) =
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-  boxShadow: 'unset',
+  boxShadow: theme.shadows[3],
 
   '& svg': {
     cursor: 'pointer',
@@ -33,6 +33,53 @@ const ThemeChangerWrapper = styled(Card)<ThemeChangerWrapperProps>(({ theme }) =
   '& svg:last-of-type': {
     marginRight: theme.Spaces.xxs,
   },
+
+  '@media (max-width: 820px)': {
+    flexDirection: 'column',
+
+    '& svg': {
+      margin: `${theme.Spaces.xs} 0`,
+    },
+
+    '& svg:first-of-type': {
+      marginTop: theme.Spaces.xxs,
+      marginLeft: 0,
+    },
+
+    '& svg:last-of-type': {
+      marginBottom: theme.Spaces.xxs,
+      marginRight: 0,
+    },
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    marginBottom: theme.Spaces.xs,
+  },
+
+  '@media (max-width: 440px)': {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    boxShadow: 'none',
+    marginTop: 0,
+    marginBottom: 0,
+    marginRight: theme.Spaces.sm,
+    height: '2.5rem',
+    
+    '& svg': {
+      margin: `0 ${theme.Spaces.xs}`,
+    },
+
+    '& svg:first-of-type': {
+      marginTop: 0,
+      marginLeft: theme.Spaces.xxs,
+    },
+
+    '& svg:last-of-type': {
+      marginBottom: 0,
+      marginRight: theme.Spaces.xxs,
+    },
+  }
 }));
 
 const ThemeChanger = () => {
