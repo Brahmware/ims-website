@@ -73,8 +73,14 @@ const ShowLive: React.FC<ContainedButtonProps> = ({ ...props }) => {
       {...props}
       color='error'
     >
-      {showCamera ? <FilmCameraIcon /> : 'Live'}
-      <AliveComponent />
+      {
+        showCamera ?
+          <FilmCameraIcon /> :
+          <>
+            Live
+            <AliveComponent />
+          </>
+      }
     </ContainedButton>
   )
 };
@@ -86,11 +92,10 @@ export default styled(ShowLive)(({ theme }) => ({
   paddingBottom: theme.Spaces.xs,
   letterSpacing: '0.1em',
   minWidth: '100px',
-  
+
   '@media (max-width: 470px)': {
-    minWidth: '70px',
-    paddingLeft: theme.Spaces.xs,
-    paddingRight: theme.Spaces.sm,
+    minWidth: 'unset',
+    padding: theme.Spaces.xs,
   },
 
   '&:hover': {
