@@ -27,7 +27,7 @@ export default styled(FilmCameraIcon)(({ theme }) => ({
   },
   height: '1rem',
   width: '1rem',
-  transform: 'scale(1.5)',
+  transform: 'scale(1.33)',
 
   '& .right-roll, & .left-roll': {
     transformOrigin: 'center',
