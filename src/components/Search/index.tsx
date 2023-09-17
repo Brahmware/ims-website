@@ -16,7 +16,7 @@ const SearchWrapper = styled(Box)<BoxProps>(({ theme }) => ({
     margin: `0 ${theme.Spaces.xs}`,
   },
 
-  '@media (max-width: 438px)': {
+  '@media (max-width: 397px)': {
     margin: `0 ${theme.Spaces.xxs}`,
   },
 }));
@@ -29,7 +29,7 @@ const SearchIconBtn = styled(IconButton)(({ theme }) => ({
   position: 'absolute',
   marginRight: theme.Spaces.xxs,
 
-  '@media (max-width: 438px)': {
+  '@media (max-width: 397px)': {
     '&:hover': {
       backgroundColor: theme.palette.secondary.main,
 
