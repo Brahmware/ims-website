@@ -19,20 +19,64 @@ const SettingsSection = styled('section')(({ theme }) => ({
     gridColumn: '13 / 25',
     gridRow: '19 / 24',
   },
+
+  '@media (max-width: 736px)': {
+    gridColumn: '1 / 25',
+    gridRow: '24 / 26',
+  },
+
+  '@media (max-width: 440px)': {
+    gridColumn: '1 / 25',
+    gridRow: '22 / 23',
+    justifyContent: 'start',
+  }
 }));
 
 const SettingsContent = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+
+  '@media (max-width: 820px)': {
+    alignItems: 'flex-end',
+  },
+
+  '@media (max-width: 600px)': {
+    flexDirection: 'column-reverse',
+    justifyContent: 'center',
+  },
+
+  '@media (max-width: 440px)': {
+    flexDirection: 'row-reverse',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    '& > *': {
+      marginTop: 0,
+      boxShadow: 'none',
+    },
+  }
+}));
+
+const StyledDivider = styled(Divider)(({ theme }) => ({
+  boxShadow: theme.shadows[4],
+
+  '@media (max-width: 660px)': {
+    marginBottom: theme.Spaces.xs,
+  },
+  
+  '@media (max-width: 600px)': {
+    display: 'none',
+  },
 }));
 
 const Settings = () => {
+
   return (
     <SettingsSection>
       <SettingsContent>
         <LanguageChanger />
-        <Divider orientation="vertical" />
+        <StyledDivider orientation="vertical" />
         <ThemeChanger />
       </SettingsContent>
     </SettingsSection>

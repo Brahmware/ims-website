@@ -26,7 +26,7 @@ interface Heights {
 export const heights: Heights = {
   short: 0,
   medium: 400,
-  tall: 650,
+  tall: 710,
   extraTall: 800,
 };
 

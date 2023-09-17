@@ -22,9 +22,6 @@ const XLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
       <defs>
         <style>
           {`
-            .x_com {
-              fill: ${!mouse ? alpha(theme.palette.background.default, 0.8) : '#fff'};
-            }
             .x_square {
               fill: ${!mouse ? alpha(theme.palette.text.secondary, 0.8) : '#000'};
             }
@@ -32,15 +29,15 @@ const XLogo = ({ hovered, ...props }: SocialMediaIconProps) => {
         </style>
       </defs>
       <g>
-        <path className='x_square' d="M16.80345,19.71429H3.19655A2.91089,2.91089,0,0,1,.28571,16.80345V3.19655A2.91089,2.91089,0,0,1,3.19655.28571h13.6069a2.9108,2.9108,0,0,1,2.91084,2.91075v13.607A2.911,2.911,0,0,1,16.80345,19.71429Z" />
-        <path className="x_com" d="M3.88141,4.06221l4.92555,6.586L3.8503,16.00278H4.9658l4.33949-4.688,3.50619,4.688h3.79619L11.40494,9.04644l4.61357-4.98423H14.903L10.90645,8.37988,7.6773,4.06221Zm1.64052.82166H7.266L14.96714,15.181h-1.744Z" />
+        <polygon className="x_square" points="5.522 4.884 13.223 15.181 14.967 15.181 7.266 4.884 5.522 4.884" />
+        <path className="x_square" d="M16.80347.28571H3.19653A2.9109,2.9109,0,0,0,.28571,3.19653V16.80347a2.9109,2.9109,0,0,0,2.91082,2.91082H16.80347a2.91105,2.91105,0,0,0,2.91082-2.91082V3.19647A2.91081,2.91081,0,0,0,16.80347.28571Zm-3.992,15.7171L9.3053,11.31476,4.96582,16.00281H3.85028L8.807,10.64819l-4.92554-6.586h3.7959l3.22912,4.31769L14.903,4.06219h1.11547L11.405,9.04645l5.2027,6.95636Z" />
       </g>
     </svg>
   )
 };
 
-export default styled(XLogo)(({ theme, hovered }) => ({
-  '& path, & circle': {
+export default styled(XLogo)(({ theme }) => ({
+  '& path, & polygon': {
     transition: theme.Transitions.createTransition([
       {
         property: 'fill',
