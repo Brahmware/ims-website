@@ -1,8 +1,11 @@
 import React from 'react';
-import { Typography, styled, useTheme } from '@mui/material';
+import { styled, useTheme } from '@mui/material';
 import { ContentTitleDivider } from '@components/Dividers';
 import ContainedButton from '@components/Button/ContainedButton';
 import Link from 'next/link';
+import TitleText from '@components/Texts/TitleText';
+import SloganText from '@components/Texts/SloganText';
+import BodyText from '@components/Texts/BodyText';
 
 type updown = 'up' | 'down';
 interface MalkohaProps {
@@ -45,22 +48,10 @@ const Malkoha: React.FC<MalkohaProps> = ({
   return (
     <Section updown={updown}>
       <div {...props} >
-        <Typography
-          variant="body2"
-          component='h3'
-          sx={{ my: 2 }}
-        >
-          {title}
-        </Typography>
-        <Typography
-          variant="h2"
-          component='h2'
-          dangerouslySetInnerHTML={{ __html: sloganHTML || '' }}
-        />
+        <SloganText> {title} </SloganText>
+        <TitleText dangerouslySetInnerHTML={{ __html: sloganHTML || '' }} />
         <ContentTitleDivider sx={{ my: 3 }} />
-        <Typography
-          variant="body1"
-          component='p'
+        <BodyText
           sx={{ maxWidth: useTheme().Breakpoints.values.md }}
           dangerouslySetInnerHTML={{ __html: descriptionHTML || '' }}
         />
