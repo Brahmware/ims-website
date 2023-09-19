@@ -72,16 +72,17 @@ const customTypography: CustomTypographyOptions = {
   body1: {
     fontFamily: baseFontFamily,
     fontWeight: 300,
-    fontSize: '0.9rem',
+    fontSize: '0.95rem',
     lineHeight: '1.33rem',
   },
 
   body2: {
     fontFamily: baseFontFamily,
     fontWeight: 300,
-    fontSize: '1rem',
+    fontSize: '1.125rem',
     letterSpacing: 4.5,
     lineHeight: '1.5rem',
+    wordSpacing: 5,
   },
 
   button: {

@@ -1,11 +1,13 @@
-import ContainedButton from '@components/Button/ContainedButton';
-import { ContentTitleDivider } from '@components/Dividers';
-import { Typography, styled } from '@mui/material';
-import Link from 'next/link';
 import React from 'react';
+import { ContentTitleDivider } from '@components/Dividers';
+import { Typography, alpha, styled } from '@mui/material';
+import MynaButton from './MynaButton';
+import TitleText from '@components/Texts/TitleText';
+import BodyText from '@components/Texts/BodyText';
+import HighlightedBodyText from '@components/Texts/HighlightedBodyText';
 
 type updown = 'up' | 'down';
-type ContentType = {
+export type ContentType = {
   stat?: string;
   context?: string;
   descriptionHTML?: string;
@@ -40,18 +42,22 @@ const ListItem = styled('li')(({ theme }) => ({
   width: 'max-content',
   maxWidth: theme.Breakpoints.values.xs,
   height: '100%',
+  minHeight: '15em',
   padding: theme.Spaces.sm,
-  
+
   '& h2': {
     textAlign: 'center',
   },
   '& p': {
     textAlign: 'center',
   },
-  '& button': {
-    alignSelf: 'center',
-    justifySelf: 'end',
-  }
+
+  '@media (max-width: 1150px)': {
+    minHeight: '18em',
+    width: theme.Breakpoints.values.md,
+    padding: theme.Spaces.xl,
+  },
+
 }));
 
 const Myna: React.FC<MynaProps> = ({
@@ -64,50 +70,17 @@ const Myna: React.FC<MynaProps> = ({
       <ul {...props}>
         {typeof content === 'object' && content.map((item, index) => (
           <ListItem key={index}>
-            <Typography
-              variant='h2'
-              component='h2'
-            >
+            <TitleText sx={{ textAlign: 'center' }}>
               {item.stat}
-            </Typography>
+            </TitleText>
             <ContentTitleDivider sx={{ my: 1 }} />
-            <Typography
-              variant='body1'
-              component='p'
-              sx={{ my: 0.5 }}
-            >
+            <HighlightedBodyText sx={{ textAlign: 'center', my: 0.5 }}>
               {item.context}
-            </Typography>
-            <Typography
-              variant='body1'
-              component='p'
-              sx={{ my: 0.5 }}
+            </HighlightedBodyText>
+            <BodyText sx={{ my: 0.5 }}
               dangerouslySetInnerHTML={{ __html: item.descriptionHTML || '' }}
             />
-            {
-              item.button && (
-                item.button.link ? (
-                  <ContainedButton
-                    color="secondary"
-                    aria-label='view more about us'
-                    vocab='view more about us'
-                    component={Link}
-                    href={item.button.link}
-                  >
-                    {item.button.buttonText}
-                  </ContainedButton>
-                ) : (
-                  <ContainedButton
-                    color="secondary"
-                    aria-label='view more about us'
-                    vocab='view more about us'
-                    onClick={item.button.onClick}
-                  >
-                    {item.button.buttonText}
-                  </ContainedButton>
-                )
-              )
-            }
+            <MynaButton button={item.button} />
           </ListItem>
         ))}
       </ul>
@@ -123,8 +96,13 @@ export default styled(Myna)(({ theme }) => ({
   padding: theme.Spaces.xxl + ' ' + theme.Spaces.md,
   display: 'flex',
   justifyContent: 'space-between',
-  
+
   '& hr': {
     alignSelf: 'center',
+  },
+
+  '@media (max-width: 1150px)': {
+    flexWrap: 'wrap',
+    justifyContent: 'center',
   },
 }));

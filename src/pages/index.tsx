@@ -52,7 +52,7 @@ const Home: NextPage = () => {
             descriptionHTML: `By making every Information, every Discovery, every Invention, every Human Challenge accessible to every person starting with the Indian pacific Region. We'll Disrupt conventional Indian Media System, consumption and value by providing open platform to millions of minds with their theories about existence.`,
           }}
         />
-        {/* <Myna 
+        <Myna 
           content={[
             {
               stat: '2.3Billion',
@@ -82,7 +82,7 @@ const Home: NextPage = () => {
               }
             },
           ]}
-        /> */}
+        />
         <Koel
           updown="down"
           direction="rtl"

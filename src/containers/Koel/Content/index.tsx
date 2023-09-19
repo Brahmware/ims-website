@@ -1,8 +1,11 @@
+import React from 'react';
 import ContainedButton from '@components/Button/ContainedButton';
 import { ContentTitleDivider } from '@components/Dividers';
-import { Box, BoxProps, Divider, Typography, styled, useTheme } from '@mui/material';
+import BodyText from '@components/Texts/BodyText';
+import SloganText from '@components/Texts/SloganText';
+import TitleText from '@components/Texts/TitleText';
+import { Box, BoxProps, styled } from '@mui/material';
 import Link from 'next/link';
-import React from 'react';
 
 export interface KoelShowcaseProps extends BoxProps {
   direction?: 'ltr' | 'rtl';
@@ -26,22 +29,10 @@ const Content: React.FC<KoelShowcaseProps> = ({
 }) => {
   return (
     <Box {...props}>
-      <Typography
-        variant="body2"
-        component='h3'
-        sx={{ my: 2 }}
-      >
-        {title}
-      </Typography>
-      <Typography
-        variant="h2"
-        component='h2'
-        dangerouslySetInnerHTML={{ __html: sloganHTML || '' }}
-      />
+      <SloganText> {title} </SloganText>
+      <TitleText dangerouslySetInnerHTML={{ __html: sloganHTML || '' }} />
       <ContentTitleDivider sx={{ my: 3 }} />
-      <Typography
-        variant="body1"
-        component='p'
+      <BodyText
         dangerouslySetInnerHTML={{ __html: descriptionHTML || '' }}
       />
       {
@@ -89,7 +80,7 @@ export default styled(Content)(({ theme, direction = 'ltr' }) => ({
     gridColumn: '2 / 20',
     gridRow: '9 / 21',
   },
-  
+
   '@media (max-width: 555px)': {
     display: 'flex',
     flexDirection: 'column',
