@@ -21,7 +21,9 @@ const Home: NextPage = () => {
     <React.Fragment>
       <MetaData />
       <MainLayout>
+
         <Carousel />
+
         <Koel
           updown="up"
           images={{
@@ -44,7 +46,8 @@ const Home: NextPage = () => {
             }
           }}
         />
-        <Malkoha 
+
+        <Malkoha
           updown="down"
           content={{
             title: 'OUR MISSION',
@@ -52,7 +55,9 @@ const Home: NextPage = () => {
             descriptionHTML: `By making every Information, every Discovery, every Invention, every Human Challenge accessible to every person starting with the Indian pacific Region. We'll Disrupt conventional Indian Media System, consumption and value by providing open platform to millions of minds with their theories about existence.`,
           }}
         />
-        <Myna 
+
+        <Myna
+          updown="up"
           content={[
             {
               stat: '2.3Billion',
@@ -83,8 +88,18 @@ const Home: NextPage = () => {
             },
           ]}
         />
-        <Koel
+
+        <Malkoha
           updown="down"
+          content={{
+            title: 'CORE VISION',
+            sloganHTML: `Break all Communication Barriers in Broadcast`,
+            descriptionHTML: `By achieving real-time universal connection in a decentralized multi-linguistic Human society with technology at our disposal.`,
+          }}
+        />
+
+        <Koel
+          updown="up"
           direction="rtl"
           images={{
             top: {
@@ -103,6 +118,29 @@ const Home: NextPage = () => {
             button: {
               buttonText: 'VIEW MORE',
               link: '/education-and-teaching/resources'
+            }
+          }}
+        />
+
+        {/* todo: needs to add Our Networks & Brands section */}
+        
+        <Koel
+          updown="up"
+          images={{
+            top: {
+              src: '/images/home/container-6/image-top.jpg',
+            },
+            bottom: {
+              src: '/images/home/container-6/image-bottom.jpg',
+            },
+          }}
+          content={{
+            title: 'EXPLORERS',
+            sloganHTML: `Impactful programs <Br /> for a global community <br /> of Changemakers`,
+            descriptionHTML: `We fund a worldwide network of Explorers who investigate, evaluate theories, revolutionize, take imagination to new heights, and push the limitations of traditional thinking in ways that fundamentally change humanity.`,
+            button: {
+              buttonText: 'VIEW MORE',
+              link: '/collaborators/explorers'
             }
           }}
         />
