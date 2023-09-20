@@ -1,5 +1,6 @@
 import { styled } from '@mui/material';
 import React from 'react';
+import HoneyguideLoading from './HoneyguideLoading';
 
 type updown = 'up' | 'down';
 
@@ -13,7 +14,7 @@ interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
 };
 
 const Section = styled('section')<SectionProps>(({ theme, updown }) => ({
-  height: 'max-content',
+  height: '15rem',
   width: '100%',
   backgroundColor: updown === 'up' ? theme.palette.background.default : theme.palette.background.paper,
 }));
@@ -24,7 +25,7 @@ const Honeyguide: React.FC<HoneyguideProps> = ({
 }) => {
   return (
     <Section updown={updown} {...props}>
-      <h1>Honeyguide</h1>
+      <HoneyguideLoading />
     </Section>
   )
 };

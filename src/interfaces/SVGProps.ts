@@ -24,3 +24,10 @@ export interface UtilityIconProps extends SVGProps {
 export interface HambugerIconProps extends UtilityIconProps {
   open?: boolean;
 };
+
+export interface OurNetworkIconProps extends UtilityIconProps {
+  color?: string;
+  size?: "small" | "medium" | "large";
+  hovered?: boolean;
+  active?: boolean;
+};
