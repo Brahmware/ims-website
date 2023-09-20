@@ -2,6 +2,7 @@ import ContainedButton from '@components/Button/ContainedButton';
 import FilmCameraIcon from '@icons/utility/FilmCameraIcon';
 import { ContainedButtonProps } from '@interfaces/ButtonProps';
 import { styled, useMediaQuery, useTheme } from '@mui/material'
+import Link from 'next/link';
 import React from 'react'
 
 
@@ -72,6 +73,8 @@ const ShowLive: React.FC<ContainedButtonProps> = ({ ...props }) => {
     <ContainedButton
       {...props}
       color='error'
+      component={Link}
+      href='https://live.indianmediasyndicate.com'
     >
       {
         showCamera ?
