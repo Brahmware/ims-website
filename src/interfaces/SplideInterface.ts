@@ -10,7 +10,14 @@ export interface SplideInstance {
       mount: () => void;
       isPaused: () => boolean;
       destroy: () => void;
-    }
+    },
+    AutoScroll: {
+      pause: () => void;
+      play: () => void;
+      mount: () => void;
+      isPaused: () => boolean;
+      destroy: () => void;
+    },
   }
 };
 

@@ -1,6 +1,7 @@
 import { styled } from '@mui/material';
 import React from 'react';
 import HoneyguideLoading from './HoneyguideLoading';
+import dynamic from 'next/dynamic';
 
 type updown = 'up' | 'down';
 
@@ -14,18 +15,27 @@ interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
 };
 
 const Section = styled('section')<SectionProps>(({ theme, updown }) => ({
-  height: '15rem',
   width: '100%',
+  height: '15rem',
   backgroundColor: updown === 'up' ? theme.palette.background.default : theme.palette.background.paper,
+  overflow: 'hidden',
 }));
+
+const DynamicHoneyframes = dynamic(() => import('./DynamicHoneyframes'), {
+  loading: () => <HoneyguideLoading />,
+  ssr: false,
+});
 
 const Honeyguide: React.FC<HoneyguideProps> = ({
   updown = 'up',
   ...props
 }) => {
   return (
-    <Section updown={updown} {...props}>
-      <HoneyguideLoading />
+    <Section
+      updown={updown}
+      {...props}
+    >
+      <DynamicHoneyframes />
     </Section>
   )
 };

@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import carouselData from '../carouselData';
 import UnitSlide from './UnitSlide';
-import { Splide, SplideProps, SplideTrack } from '@splidejs/react-splide';
+import { Options, Splide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import ProgressBarPlaceholder from './ProgressBarPlaceholder';
 import theme from '@theme/index';
 import { SplideInstance } from '@interfaces/SplideInterface';
 import SplideButtons from './SplideButtons';
 import SplidePagination from './SplidePagination';
+import Observer from '@components/Observer';
 
-const options: SplideProps["options"] = {
+const options: Options = {
   type: 'loop',
   speed: theme.Transitions.durations.long,
   easing: theme.Transitions.easings.easeInOut,
@@ -48,27 +49,31 @@ const DynamicSlides: React.FC = () => {
   }, [splideRef]);
 
   return (
-    <Splide
-      options={options}
-      ref={splideRef}
-      hasTrack={false}
+    <Observer
+      onIntersect={() => splide?.Components.Autoplay.play()}
+      onNoIntersect={() => splide?.Components.Autoplay.pause()}
     >
-      <SplideTrack>
-        {carouselData.map((slideData, index) => (
-          <React.Fragment key={`slide-${index}`}>
-            <UnitSlide
-              {...slideData}
-              splide={splide}
-            />
-          </React.Fragment>
-        ))}
-      </SplideTrack>
-      <SplideButtons />
-      <ProgressBarPlaceholder />
-      <SplidePagination />
-    </Splide>
+      <Splide
+        options={options}
+        ref={splideRef}
+        hasTrack={false}
+      >
+        <SplideTrack>
+          {carouselData.map((slideData, index) => (
+            <React.Fragment key={`slide-${index}`}>
+              <UnitSlide
+                {...slideData}
+                splide={splide}
+              />
+            </React.Fragment>
+          ))}
+        </SplideTrack>
+        <SplideButtons />
+        <ProgressBarPlaceholder />
+        <SplidePagination />
+      </Splide>
+    </Observer>
   );
 };
-
 
 export default DynamicSlides;

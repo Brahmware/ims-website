@@ -8,16 +8,7 @@ import Link from 'next/link';
 import React from 'react';
 
 const StyledLink = styled(Link)(({ theme }) => ({
-  textDecoration: 'none',
-  color: theme.palette.text.secondary,
-  transition: theme.Transitions.createTransition({
-    property: 'color',
-    duration: 'shortest',
-  }),
-
-  '&:hover': {
-    color: theme.palette.primary.main,
-  },
+  margin: '0 ' + theme.Spaces.hecto,
 }));
 
 const HoneyguideLoading: React.FC<BoxProps> = ({
@@ -48,7 +39,6 @@ export default styled(HoneyguideLoading)(({ theme }) => ({
   width: '100%',
   height: '100%',
   display: 'flex',
-  justifyContent: 'space-between',
+  justifyContent: 'center',
   alignItems: 'center',
-  padding: '0 ' + theme.Spaces.md,
 }));

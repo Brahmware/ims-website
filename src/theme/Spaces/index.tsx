@@ -6,7 +6,11 @@ export interface Spaces {
   lg: string;
   xl: string;
   xxl: string;
+  
+  hecto: string;
+  kilo: string;
   mega: string;
+  giga: string;
 };
 
 export const spaces: Spaces = {
@@ -17,5 +21,9 @@ export const spaces: Spaces = {
   lg: '1.5rem',
   xl: '2rem',
   xxl: '2.5rem',
+  
+  hecto: '4rem',
+  kilo: '6.25rem',
   mega: '9.5rem',
+  giga: '12rem',
 };
