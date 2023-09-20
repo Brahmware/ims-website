@@ -6,6 +6,7 @@ import Carousel from "@components/Carousel";
 import Koel from "@containers/Koel";
 import Malkoha from "@containers/Malkoha";
 import Myna from "@containers/Myna";
+import Honeyguide from "@containers/Honeyguide";
 
 const MetaData: React.FC = () => {
   return (
@@ -123,7 +124,9 @@ const Home: NextPage = () => {
         />
 
         {/* todo: needs to add Our Networks & Brands section */}
-        
+        <Honeyguide 
+          updown="down"
+        />
         <Koel
           updown="up"
           images={{
