@@ -1,6 +1,6 @@
 import React from 'react';
 import { ContentTitleDivider } from '@components/Dividers';
-import { Typography, alpha, styled } from '@mui/material';
+import { styled } from '@mui/material';
 import MynaButton from './MynaButton';
 import TitleText from '@components/Texts/TitleText';
 import BodyText from '@components/Texts/BodyText';
