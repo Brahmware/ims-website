@@ -48,7 +48,7 @@ const Ribbon: React.FC<RibbonProps> = ({
 export default styled(Ribbon)(({ theme, direction }) => ({
   height: '100%',
   width: '100%',
-  gridColumn: (direction === 'ltr') ? '1 / 10' : '11 / 21',
+  gridColumn: (direction === 'ltr') ? '1 / 10' : '-10 / -1',
   gridRow: '1 / 21',
   position: 'relative',
 
