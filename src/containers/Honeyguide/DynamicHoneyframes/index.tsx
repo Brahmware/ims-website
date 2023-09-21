@@ -10,6 +10,8 @@ import Link from 'next/link';
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import { SplideInstance } from '@interfaces/SplideInterface';
 import Observer from '@components/Observer';
+import { ContentType } from '..';
+import OurNetwork from '@icons/ourNetwork';
 
 
 const StyledLink = styled(Link)(({ theme }) => ({
@@ -37,6 +39,19 @@ const StyledSplidetrack = styled(SplideTrack)(({ theme }) => ({
     justifyContent: 'center',
     alignItems: 'center',
     padding: '0 ' + theme.Spaces.hecto,
+    transition: theme.Transitions.createTransition({
+      property: 'filter',
+      duration: 'medium',
+      easing: 'easeIn',
+    }),
+
+    [theme.Breakpoints.down('sm')]: {
+      padding: '0 ' + theme.Spaces.xxl,
+    },
+
+    [theme.Breakpoints.down('xs')]: {
+      padding: '0 ' + theme.Spaces.xl,
+    },
   },
 }));
 
@@ -59,9 +74,10 @@ const options: Options = {
 
 interface DynamicHoneyframesProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
+  dynamicContent?: ContentType[];
 };
 
-const DynamicHoneyframes: React.FC<DynamicHoneyframesProps> = ({ ...props }) => {
+const DynamicHoneyframes: React.FC<DynamicHoneyframesProps> = ({ dynamicContent, ...props }) => {
 
   const [splide, setSplide] = React.useState<SplideInstance | null>(null);
   const splideRef = React.useRef<any>(null);
@@ -85,31 +101,25 @@ const DynamicHoneyframes: React.FC<DynamicHoneyframesProps> = ({ ...props }) => 
         extensions={{ AutoScroll }}
       >
         <StyledSplidetrack>
-          <SplideSlide style={{ height: '100%' }}>
-            <StyledLink href='https://imslife.indianmediasyndicate.com'>
-              <IMSLife />
-            </StyledLink>
-          </SplideSlide>
-          <SplideSlide>
-            <StyledLink href='https://imscience.indianmediasyndicate.com'>
-              <IMScience />
-            </StyledLink>
-          </SplideSlide>
-          <SplideSlide>
-            <StyledLink href='https://worldtv.indianmediasyndicate.com'>
-              <WorldTv />
-            </StyledLink>
-          </SplideSlide>
-          <SplideSlide>
-            <StyledLink href='https://popnews.indianmediasyndicate.com'>
-              <PopNews />
-            </StyledLink>
-          </SplideSlide>
-          <SplideSlide>
-            <StyledLink href='https://imshistory.indianmediasyndicate.com'>
-              <IMSHistory />
-            </StyledLink>
-          </SplideSlide>
+          {
+            dynamicContent?.map((content, index) => {
+
+              const IconComponent = OurNetwork[content.id || 'IMSLife'];
+              return (
+                <SplideSlide
+                  key={index}
+                  style={{ height: '100%' }}
+                >
+                  <StyledLink
+                    href={content.link || '/'}
+                    aria-label={content.title || ''}
+                  >
+                    <IconComponent />
+                  </StyledLink>
+                </SplideSlide>
+              )
+            })
+          }
         </StyledSplidetrack>
       </Splide>
     </Observer>

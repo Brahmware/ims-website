@@ -4,9 +4,15 @@ import HoneyguideLoading from './HoneyguideLoading';
 import dynamic from 'next/dynamic';
 
 type updown = 'up' | 'down';
+export type ContentType = {
+  id?: string;
+  title?: string;
+  link?: string;
+};
 
 interface HoneyguideProps {
   updown?: updown;
+  content?: ContentType[];
 };
 
 interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -21,21 +27,26 @@ const Section = styled('section')<SectionProps>(({ theme, updown }) => ({
   overflow: 'hidden',
 }));
 
-const DynamicHoneyframes = dynamic(() => import('./DynamicHoneyframes'), {
-  loading: () => <HoneyguideLoading />,
-  ssr: false,
-});
 
 const Honeyguide: React.FC<HoneyguideProps> = ({
   updown = 'up',
+  content,
   ...props
 }) => {
+
+  const DynamicHoneyframes = dynamic(() => import('./DynamicHoneyframes'), {
+    loading: () => (
+      <HoneyguideLoading loadingContent={content} />
+    ),
+    ssr: false,
+  });
+
   return (
     <Section
       updown={updown}
       {...props}
     >
-      <DynamicHoneyframes />
+      <DynamicHoneyframes dynamicContent={content} />
     </Section>
   )
 };

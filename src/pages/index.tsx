@@ -122,10 +122,35 @@ const Home: NextPage = () => {
             }
           }}
         />
-
-        {/* todo: needs to add Our Networks & Brands section */}
         <Honeyguide 
           updown="down"
+          content={[
+            {
+              id: 'IMSLife',
+              title: 'IMS Life',
+              link: 'https://imslife.indianmediasyndicate.com'
+            },
+            {
+              id: 'IMScience',
+              title: 'IMScience',
+              link: 'https://imscience.indianmediasyndicate.com'
+            },
+            {
+              id: 'WorldTv',
+              title: 'World TV',
+              link: 'https://worldtv.indianmediasyndicate.com'
+            },
+            {
+              id: 'PopNews',
+              title: 'PopNews',
+              link: 'https://popnews.indianmediasyndicate.com'
+            },
+            {
+              id: 'IMSHistory',
+              title: 'IMS History',
+              link: 'https://imshistory.indianmediasyndicate.com'
+            }
+          ]}
         />
         <Koel
           updown="up"
