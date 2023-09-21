@@ -7,6 +7,7 @@ import Koel from "@containers/Koel";
 import Malkoha from "@containers/Malkoha";
 import Myna from "@containers/Myna";
 import Honeyguide from "@containers/Honeyguide";
+import Woodpaker from "@containers/Woodpecker";
 
 const MetaData: React.FC = () => {
   return (
@@ -122,7 +123,7 @@ const Home: NextPage = () => {
             }
           }}
         />
-        <Honeyguide 
+        <Honeyguide
           updown="down"
           content={[
             {
@@ -171,6 +172,53 @@ const Home: NextPage = () => {
               link: '/collaborators/explorers'
             }
           }}
+        />
+        <Woodpaker
+          updown="down"
+          heading={{
+            title: 'OUR SYMBOL',
+            sloganHTML: `Never Seen Before Pricing`,
+          }}
+          packages={[
+            {
+              id: 'daily',
+              name: 'Daily',
+              price: '₹ 1',
+              tag: 'Most Popular',
+              features: [
+                'Upto <b>6 User Profiles</b>',
+                '<b>Full Access</b> to IMS Network',
+                '<b>HD</b> Streaming',
+                '<b>Corporate Discount</b> Available',
+                '<b>1</b> Screen'
+              ],
+            },
+            {
+              id: 'monthly',
+              name: 'Monthly',
+              price: '₹ 20',
+              features: [
+                'Upto <b>6 User Profiles</b>',
+                '<b>Full Access</b> to IMS Network',
+                '<b>FHD</b> Streaming',
+                '<b>Corporate Discount</b> Available',
+                '<b>2</b> Screens'
+              ],
+            },
+            {
+              id: 'yearly',
+              name: 'Yearly',
+              price: '₹ 250',
+              tag: 'Value Pack',
+              features: [
+                'Upto <b>6 User Profiles</b>',
+                '<b>Full Access</b> to IMS Network',
+                '<b>4K+HDR</b> Streaming',
+                '<b>Student Discount</b> Available',
+                '<b>4</b> Screens'
+              ],
+            },
+          ]}
         />
       </MainLayout>
     </React.Fragment>
