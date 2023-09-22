@@ -32,6 +32,7 @@ const Packages: React.FC<PackagesProps> = ({
 export default styled(Packages)(({ theme }) => ({
   width: '100%',
   paddingTop: theme.Spaces.lg,
+  paddingBottom: theme.Spaces.xl,
   display: 'flex',
   justifyContent: 'space-around',
 
@@ -39,5 +40,6 @@ export default styled(Packages)(({ theme }) => ({
     flexWrap: 'wrap',
     justifyContent: 'center',
     paddingTop: 0,
+    paddingBottom: theme.Spaces.sm,
   },
 }));

@@ -8,18 +8,24 @@ import SloganText from '@components/Texts/SloganText';
 import BodyText from '@components/Texts/BodyText';
 
 type updown = 'up' | 'down';
-interface MalkohaProps {
+
+type Heading = {
+  title?: string;
+  slogan?: string;
+  description?: string;
+};
+
+type Button = {
+  buttonText?: string;
+  link?: string;
+  onClick?: () => void;
+};
+
+export interface MalkohaProps {
   updown?: updown;
-  content: {
-    title?: string;
-    sloganHTML?: string;
-    descriptionHTML?: string;
-    button?: {
-      buttonText: string;
-      link?: string;
-      onClick?: () => void;
-    };
-  }
+  children?: React.ReactNode;
+  heading: Heading;
+  button?: Button;
 };
 
 interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -37,24 +43,31 @@ const Section = styled('section')<SectionProps>(({ theme, updown }) => ({
 
 const Malkoha: React.FC<MalkohaProps> = ({
   updown = 'up',
-  content: {
+  heading: {
     title,
-    sloganHTML,
-    descriptionHTML,
-    button,
+    slogan: sloganHTML,
+    description: descriptionHTML,
   },
+  button,
   ...props
 }) => {
+
+  const mediumWidth = useTheme().Breakpoints.values.md;
   return (
     <Section updown={updown}>
       <div {...props} >
         <SloganText> {title} </SloganText>
         <TitleText dangerouslySetInnerHTML={{ __html: sloganHTML || '' }} />
         <ContentTitleDivider sx={{ my: 3 }} />
-        <BodyText
-          sx={{ maxWidth: useTheme().Breakpoints.values.md }}
-          dangerouslySetInnerHTML={{ __html: descriptionHTML || '' }}
-        />
+        {
+          descriptionHTML && (
+            <BodyText
+              sx={{ maxWidth: mediumWidth }}
+              dangerouslySetInnerHTML={{ __html: descriptionHTML || '' }}
+            />
+          )
+        }
+        {props.children}
         {
           button && (
             button.link ? (

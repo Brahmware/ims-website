@@ -1,11 +1,7 @@
 import React from 'react';
 import { styled } from '@mui/material';
-import { ContentTitleDivider } from '@components/Dividers';
-import TitleText from '@components/Texts/TitleText';
-import SloganText from '@components/Texts/SloganText';
 import Packages from './Packages';
-
-type updown = 'up' | 'down';
+import Malkoha, { MalkohaProps } from '@containers/Malkoha';
 
 export type Package = {
   id: string;
@@ -15,48 +11,18 @@ export type Package = {
   features: string[];
 };
 
-type Heading = {
-  title?: string;
-  sloganHTML?: string;
-};
-
-interface WoodpeckerProps {
-  updown?: updown;
-  heading: Heading;
+interface WoodpeckerProps extends MalkohaProps {
   packages?: Package[];
 };
 
-interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-  updown?: updown;
-};
-
-
-const Section = styled('section')<SectionProps>(({ theme, updown }) => ({
-  height: 'max-content',
-  width: '100%',
-  paddingBottom: theme.Spaces.md,
-  backgroundColor: updown === 'up' ? theme.palette.background.default : theme.palette.background.paper,
-}));
-
 const Woodpecker: React.FC<WoodpeckerProps> = ({
-  updown = 'up',
-  heading: {
-    title,
-    sloganHTML,
-  },
   packages,
   ...props
 }) => {
   return (
-    <Section updown={updown}>
-      <div {...props} >
-        <SloganText> {title} </SloganText>
-        <TitleText dangerouslySetInnerHTML={{ __html: sloganHTML || '' }} />
-        <ContentTitleDivider sx={{ my: 3 }} />
-        <Packages packages={packages} />
-      </div>
-    </Section>
+    <Malkoha {...props}>
+      <Packages packages={packages} />
+    </Malkoha>
   )
 };
 
