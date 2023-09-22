@@ -219,7 +219,20 @@ const Home: NextPage = () => {
             link: "/business/subscription"
           }}
         />
-        <Parakeet />
+        <Parakeet 
+          image={{
+            src: '/images/home/container-8/background.jpg',
+            alt: 'Production Ready IMS Resources'
+          }}
+          advertisement={{
+            headline: 'Production Ready IMS Resources',
+            slogan: 'Get your<br /> Free IMS Resources',
+            button: {
+              buttonText: 'Get Started',
+              link: '/signup'
+            }
+          }}
+        />
       </MainLayout>
     </React.Fragment>
   );

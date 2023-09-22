@@ -72,8 +72,8 @@ const Malkoha: React.FC<MalkohaProps> = ({
             button.link ? (
               <ContainedButton
                 color="secondary"
-                aria-label='view more about us'
-                vocab='view more about us'
+                aria-label={button.buttonText}
+                vocab={button.buttonText}
                 sx={{ my: 3 }}
                 component={Link}
                 href={button.link}
@@ -83,8 +83,8 @@ const Malkoha: React.FC<MalkohaProps> = ({
             ) : (
               <ContainedButton
                 color="secondary"
-                aria-label='view more about us'
-                vocab='view more about us'
+                aria-label={button.buttonText}
+                vocab={button.buttonText}
                 sx={{ my: 3 }}
                 onClick={button.onClick}
               >
