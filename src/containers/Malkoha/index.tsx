@@ -61,8 +61,7 @@ const Malkoha: React.FC<MalkohaProps> = ({
         {
           descriptionHTML && (
             <BodyText
-              sx={{ maxWidth: mediumWidth }}
-              pb={2}
+              sx={{ maxWidth: mediumWidth, pb: 2 }}
               dangerouslySetInnerHTML={{ __html: descriptionHTML || '' }}
             />
           )
