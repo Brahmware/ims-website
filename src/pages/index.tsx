@@ -8,6 +8,7 @@ import Malkoha from "@containers/Malkoha";
 import Myna from "@containers/Myna";
 import Honeyguide from "@containers/Honeyguide";
 import Woodpaker from "@containers/Woodpecker";
+import Parakeet from "@containers/Parakeet";
 
 const MetaData: React.FC = () => {
   return (
@@ -23,9 +24,7 @@ const Home: NextPage = () => {
     <React.Fragment>
       <MetaData />
       <MainLayout>
-
         <Carousel />
-
         <Koel
           updown="up"
           images={{
@@ -48,7 +47,6 @@ const Home: NextPage = () => {
             }
           }}
         />
-
         <Malkoha
           updown="down"
           heading={{
@@ -57,7 +55,6 @@ const Home: NextPage = () => {
             description: 'By making every Information, every Discovery, every Invention, every Human Challenge accessible to every person starting with the Indian pacific Region. We\'ll Disrupt conventional Indian Media System, consumption and value by providing open platform to millions of minds with their theories about existence.',
           }}
         />
-
         <Myna
           updown="up"
           content={[
@@ -90,7 +87,6 @@ const Home: NextPage = () => {
             },
           ]}
         />
-
         <Malkoha
           updown="down"
           heading={{
@@ -99,7 +95,6 @@ const Home: NextPage = () => {
             description: 'By achieving real-time universal connection in a decentralized multi-linguistic Human society with technology at our disposal.',
           }}
         />
-
         <Koel
           updown="up"
           direction="rtl"
@@ -222,6 +217,20 @@ const Home: NextPage = () => {
           button={{
             buttonText: "GET STARTED",
             link: "/business/subscription"
+          }}
+        />
+        <Parakeet 
+          image={{
+            src: '/images/home/container-8/background.jpg',
+            alt: 'Production Ready IMS Resources'
+          }}
+          advertisement={{
+            headline: 'Production Ready IMS Resources',
+            slogan: 'Get your<br /> Free IMS Resources',
+            button: {
+              buttonText: 'Get Started',
+              link: '/signup'
+            }
           }}
         />
       </MainLayout>
