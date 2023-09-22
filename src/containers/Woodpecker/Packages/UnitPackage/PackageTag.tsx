@@ -40,6 +40,7 @@ export default styled(PackageTag) (({ theme }) => ({
   letterSpacing: '0.1rem',
   borderRadius: '1.618rem',
   fontWeight: theme.typography.fontWeightRegular,
+  userSelect: 'none',
 
   transition: theme.Transitions.createTransition({
     property: 'background-color',

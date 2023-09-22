@@ -44,10 +44,12 @@ export default styled(PackageTitle)(({ theme }) => ({
   justifySelf: 'center',
   padding: '0 ' + theme.spacing(5),
   backgroundColor: theme.palette.secondary.main,
+  borderRadius: '1.25rem',
+  
   textTransform: 'uppercase',
   whiteSpace: 'nowrap',
-  borderRadius: '1.25rem',
-
+  userSelect: 'none',
+  
   boxShadow: theme.shadows[2],
   transition: theme.Transitions.createTransition({
     property: 'background-color',
