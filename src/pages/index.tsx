@@ -51,10 +51,10 @@ const Home: NextPage = () => {
 
         <Malkoha
           updown="down"
-          content={{
+          heading={{
             title: 'OUR MISSION',
-            sloganHTML: `Lead the Indian Infotainment Media Revolution`,
-            descriptionHTML: `By making every Information, every Discovery, every Invention, every Human Challenge accessible to every person starting with the Indian pacific Region. We'll Disrupt conventional Indian Media System, consumption and value by providing open platform to millions of minds with their theories about existence.`,
+            slogan: 'Lead the Indian Infotainment Media Revolution',
+            description: 'By making every Information, every Discovery, every Invention, every Human Challenge accessible to every person starting with the Indian pacific Region. We\'ll Disrupt conventional Indian Media System, consumption and value by providing open platform to millions of minds with their theories about existence.',
           }}
         />
 
@@ -93,10 +93,10 @@ const Home: NextPage = () => {
 
         <Malkoha
           updown="down"
-          content={{
-            title: 'CORE VISION',
-            sloganHTML: `Break all Communication Barriers in Broadcast`,
-            descriptionHTML: `By achieving real-time universal connection in a decentralized multi-linguistic Human society with technology at our disposal.`,
+          heading={{
+            title: 'OUR VISION',
+            slogan: 'Break all Communication Barriers in Broadcast',
+            description: 'By achieving real-time universal connection in a decentralized multi-linguistic Human society with technology at our disposal.',
           }}
         />
 
@@ -177,7 +177,7 @@ const Home: NextPage = () => {
           updown="down"
           heading={{
             title: 'OUR SYMBOL',
-            sloganHTML: `Never Seen Before Pricing`,
+            slogan: `Never Seen Before Pricing`,
           }}
           packages={[
             {
@@ -219,6 +219,10 @@ const Home: NextPage = () => {
               ],
             },
           ]}
+          button={{
+            buttonText: "GET STARTED",
+            link: "/business/subscription"
+          }}
         />
       </MainLayout>
     </React.Fragment>

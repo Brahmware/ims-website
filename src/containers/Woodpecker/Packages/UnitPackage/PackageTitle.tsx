@@ -38,13 +38,16 @@ const PackageTitle: React.FC<PackageTitleProps> = ({
 }
 
 export default styled(PackageTitle)(({ theme }) => ({
-  width: '100%',
-  height: '100%',
+  width: '94%',
+  height: '80%',
+  transform: 'translateY(5%)',
+  justifySelf: 'center',
   padding: '0 ' + theme.spacing(5),
   backgroundColor: theme.palette.secondary.main,
   textTransform: 'uppercase',
   whiteSpace: 'nowrap',
-  borderRadius: '1.618rem',
+  borderRadius: '1.25rem',
+
   boxShadow: theme.shadows[2],
   transition: theme.Transitions.createTransition({
     property: 'background-color',
