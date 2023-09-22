@@ -37,7 +37,6 @@ interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
 const Section = styled('section')<SectionProps>(({ theme, updown }) => ({
   height: 'max-content',
   width: '100%',
-  paddingBottom: theme.Spaces.md,
   backgroundColor: updown === 'up' ? theme.palette.background.default : theme.palette.background.paper,
 }));
 
@@ -63,6 +62,7 @@ const Malkoha: React.FC<MalkohaProps> = ({
           descriptionHTML && (
             <BodyText
               sx={{ maxWidth: mediumWidth }}
+              pb={2}
               dangerouslySetInnerHTML={{ __html: descriptionHTML || '' }}
             />
           )
