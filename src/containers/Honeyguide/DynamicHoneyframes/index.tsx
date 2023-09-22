@@ -39,11 +39,6 @@ const StyledSplidetrack = styled(SplideTrack)(({ theme }) => ({
     justifyContent: 'center',
     alignItems: 'center',
     padding: '0 ' + theme.Spaces.hecto,
-    transition: theme.Transitions.createTransition({
-      property: 'filter',
-      duration: 'medium',
-      easing: 'easeIn',
-    }),
 
     [theme.Breakpoints.down('sm')]: {
       padding: '0 ' + theme.Spaces.xxl,
@@ -64,7 +59,6 @@ const options: Options = {
   autoWidth: true,
   pagination: false,
   direction: 'ltr',
-  preloadPages: 10,
   autoScroll: {
     pauseOnFocus: false,
     rewind: false,
