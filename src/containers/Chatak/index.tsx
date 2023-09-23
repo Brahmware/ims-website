@@ -10,18 +10,18 @@ const Chatak: React.FC<ChatakProps> = ({
   countDown = 1000,
   transitionTime = 1000,
 }) => {
-  const [data, setData] = React.useState<Darshan[]>();
-  
-  React.useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('/api/website/bharat-darshan');
-      const data = await response.json();
-      setData(data);
-    };
-    fetchData();
+  const [data, setData] = React.useState<Darshan[]>({} as Darshan[]);
+
+  const fetchData = React.useCallback(async () => {
+    const response = await fetch('/api/website/bharat-darshan');
+    const data = await response.json();
+    setData(data);
   }, []);
 
-  console.log(data);
+  React.useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
   return (
     <div>Chatak</div>
   )

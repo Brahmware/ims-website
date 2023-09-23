@@ -5,6 +5,7 @@ import Navbar from '@components/navigation/NavBar';
 import NavMenu from '@components/navigation/NavMenu';
 import { styled } from '@mui/material';
 import Footer from '@containers/Footer';
+import { NavMapProvider } from '@helpers/NavMapProvider';
 
 const StyledMain = styled('main')<MainLayoutProps>(({ theme }) => ({
   width: '100%',
@@ -13,14 +14,16 @@ const StyledMain = styled('main')<MainLayoutProps>(({ theme }) => ({
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children, ...props }) => {
   return (
-    <NavigationMenuStateProvider>
-      <Navbar />
-      <NavMenu />
-      <StyledMain {...props}>
-        {children}
-      </StyledMain>
-      <Footer />
-    </NavigationMenuStateProvider>
+    <NavMapProvider>
+      <NavigationMenuStateProvider>
+        <Navbar />
+        <NavMenu />
+        <StyledMain {...props}>
+          {children}
+        </StyledMain>
+        <Footer />
+      </NavigationMenuStateProvider>
+    </NavMapProvider>
   )
 };
 

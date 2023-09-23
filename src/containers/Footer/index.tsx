@@ -7,7 +7,7 @@ const BlankTop = styled(Box)(({ theme }) => ({
   height: theme.Heights.header.default,
   width: '50%',
   marginTop: theme.Spaces.xs,
-  borderBottom: '1.5px solid ' + theme.palette.secondary.dark,
+  borderBottom: '3px solid ' + theme.palette.secondary.dark,
 }));
 
 const FooterBox = styled(Box)(({ theme }) => ({

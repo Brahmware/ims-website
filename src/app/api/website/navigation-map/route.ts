@@ -1,12 +1,11 @@
+import { NavMap } from "@datatypes/NavMap";
 import { NextRequest, NextResponse } from "next/server";
 
-// I want to use this path to store the navmap of the website and in a get request, return the navmap
-
 export async function GET(req: NextRequest) {
-  const navmap = [
+  const navMap: NavMap[] = [
     {
       title: 'Business',
-      videoUrl:   '/media/videos/navMenu/business.webm',
+      videoUrl: '/videos/navmenu/business.webm',
       items: [
         {
           title: 'About Us',
@@ -28,7 +27,7 @@ export async function GET(req: NextRequest) {
     },
     {
       title: 'Media Network',
-      videoUrl:   '/media/videos/navMenu/media-network.webm',
+      videoUrl: '/videos/navmenu/media-network.webm',
       items: [
         {
           title: 'Business and Brands',
@@ -50,7 +49,7 @@ export async function GET(req: NextRequest) {
     },
     {
       title: 'Education & Teaching',
-      videoUrl:   '/media/videos/navMenu/education-and-teaching.webm',
+      videoUrl: '/videos/navmenu/education-and-teaching.webm',
       items: [
         {
           title: 'Resources',
@@ -68,7 +67,7 @@ export async function GET(req: NextRequest) {
     },
     {
       title: 'Collaborators',
-      videoUrl:   '/media/videos/navMenu/collaborators.webm',
+      videoUrl: '/videos/navmenu/collaborators.webm',
       items: [
         {
           title: 'Explorers',
@@ -82,7 +81,7 @@ export async function GET(req: NextRequest) {
     },
     {
       title: 'Partners',
-      videoUrl:   '/media/videos/navMenu/partners.webm',
+      videoUrl: '/videos/navmenu/partners.webm',
       items: [
         {
           title: 'Corporate & Foundations',
@@ -96,7 +95,7 @@ export async function GET(req: NextRequest) {
     },
     {
       title: 'Commercial',
-      videoUrl:   '/media/videos/navMenu/commercial.webm',
+      videoUrl: '/videos/navmenu/commercial.webm',
       items: [
         {
           title: 'Advertise with Us',
@@ -113,6 +112,6 @@ export async function GET(req: NextRequest) {
       ],
     },
   ];
-  
-  return NextResponse.json(navmap);
+
+  return NextResponse.json(navMap);
 };
