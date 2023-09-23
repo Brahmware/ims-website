@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react';
-import menuItems from './menuItems';
 import { styled } from '@mui/material';
 import NavGropus from './NavGroups';
 import { MegamenuStateProvider } from '@helpers/MegamenuStateProvider';
+import { NavMap } from '@datatypes/NavMap';
+import { useNavMapContext } from '@helpers/NavMapProvider';
 
 interface MegamenuSectionProps extends React.HTMLAttributes<HTMLSelectElement> {
-  children: React.ReactNode;
-  numberOfItems?: number;
+  children?: React.ReactNode;
 };
 
-const MegamenuSection = styled('section')<MegamenuSectionProps>(({ theme, numberOfItems }) => ({
+const MegamenuSection = styled('section')<MegamenuSectionProps>(({ theme }) => ({
   gridColumn: '1 / 25',
   gridRow: '3 / 19',
   zIndex: theme.Shadows.high.zIndex,
@@ -47,10 +47,11 @@ const MegamenuSection = styled('section')<MegamenuSectionProps>(({ theme, number
 }));
 
 const Megamenu = () => {
+  const { data } = useNavMapContext();
   return (
     <MegamenuSection>
       <MegamenuStateProvider>
-        {menuItems.map((item, index) => (
+        {data?.map((item, index) => (
           <Fragment key={index}>
             <NavGropus
               index={index}
