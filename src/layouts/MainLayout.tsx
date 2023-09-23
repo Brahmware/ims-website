@@ -4,6 +4,7 @@ import { NavigationMenuStateProvider } from '@helpers/NavigationMenuStateProvide
 import Navbar from '@components/navigation/NavBar';
 import NavMenu from '@components/navigation/NavMenu';
 import { styled } from '@mui/material';
+import Footer from '@containers/Footer';
 
 const StyledMain = styled('main')<MainLayoutProps>(({ theme }) => ({
   width: '100%',
@@ -18,6 +19,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, ...props }) => {
       <StyledMain {...props}>
         {children}
       </StyledMain>
+      <Footer />
     </NavigationMenuStateProvider>
   )
 };
