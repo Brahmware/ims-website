@@ -6,6 +6,7 @@ import { useNavigationMenuState } from '@helpers/NavigationMenuStateProvider';
 import { BarProps } from '@interfaces/CardProps';
 import ShowLive from './ShowLive';
 import LinkHome from './LinkHome';
+import useTouchSwipe from '@utils/hooks/useTouchSwipe';
 
 const Bar = styled(Card)<BarProps>(({ theme, open }) => ({
   width: '100%',
@@ -59,11 +60,22 @@ const BarContent = styled('nav')(({ theme }) => ({
 }));
 
 const Navbar: FC = () => {
+
+  const { isOpen, setIsOpen } = useNavigationMenuState();
+
+  /* Handeling swipe down to open navigation menu */
+  const navBarRef = React.useRef<HTMLDivElement>(null);
+  useTouchSwipe({
+    onSwipeDown: () => setIsOpen(true),
+    threshold: 100
+  }, navBarRef)
+
   return (
     <Bar
       component='header'
+      ref={navBarRef}
       elevation={navbar.elevationHigh}
-      open={useNavigationMenuState().isOpen}
+      open={isOpen}
     >
       <BarContent className='bar-content'>
         <LinkHome />

@@ -10,6 +10,7 @@ import Settings from './Settings';
 import Legal from './Legal';
 import Megamenu from './Megamenu';
 import { NavHoverProvider } from '@helpers/NavHoverContext';
+import useTouchSwipe from '@utils/hooks/useTouchSwipe';
 
 const NavigationWrapper = styled(Card)<NavigationCardProps>(({ theme, open }) => ({
   ...theme.PageWrapperProps as any,
@@ -50,14 +51,22 @@ const NavigationContent = styled(Box)(({ theme }) => ({
 
 const NavMenu = () => {
 
-  const { isOpen } = useNavigationMenuState();
+  const { isOpen, setIsOpen } = useNavigationMenuState();
   useEffect(() => disableScroll[isOpen ? 'on' : 'off'](), [isOpen]);
+
+  /* Handeling swipe up to close navigation menu */
+  const navigationRef = React.useRef<HTMLDivElement>(null);
+  useTouchSwipe({
+    onSwipeUp: () => setIsOpen(false),
+    threshold: 100
+  }, navigationRef)
 
   return (
     <NavigationWrapper
       component='menu'
       open={isOpen}
       elevation={5}
+      ref={navigationRef}
     >
       <NavHoverProvider>
         <NavigationContent>
