@@ -1,7 +1,11 @@
 import React from 'react';
 import { Box, BoxProps, styled } from '@mui/material';
-import Divider from '@components/Dividers';
 import Display from './Display';
+import WebMap from './WebMap';
+import Subscribe from './Subscribe';
+import Contact from './Contact';
+import Privacy from './Privacy';
+import Copyright from './Copyright';
 
 const BlankTop = styled(Box)(({ theme }) => ({
   height: theme.Heights.header.default,
@@ -18,7 +22,7 @@ const FooterBox = styled(Box)(({ theme }) => ({
   margin: '0 auto',
   display: 'grid',
   gridTemplateColumns: 'repeat(20, 1fr)',
-  gridTemplateRows: 'repeat(11, 1fr)',
+  gridTemplateRows: 'repeat(20, 1fr)',
 }));
 
 interface FooterProps extends BoxProps {
@@ -30,6 +34,11 @@ const Footer: React.FC<FooterProps> = (props) => {
       <BlankTop />
       <FooterBox>
         <Display />
+        <WebMap />
+        <Subscribe />
+        <Contact />
+        <Copyright />
+        <Privacy />
       </FooterBox>
     </Box>
   )

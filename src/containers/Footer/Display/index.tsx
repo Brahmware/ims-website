@@ -16,9 +16,9 @@ const Display: React.FC<DisplayProps> = (props) => {
 export default styled(Display) (({ theme }) => ({
   height: '100%',
   width: '100%',
-  backgroundColor: 'green',
   gridColumn: '1 / 10',
-  gridRow: '1 / 8',
+  gridRow: '1 / 15',
+  border: '1px solid green',
 
   display: 'flex',
   justifyContent: 'center',

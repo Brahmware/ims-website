@@ -1,8 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import type { NextPage } from "next";
-import MainLayout from "@layouts/MainLayout";
-import Carousel from "@components/Carousel";
+import Rajhans from "@containers/Rajhans";
 import Koel from "@containers/Koel";
 import Malkoha from "@containers/Malkoha";
 import Myna from "@containers/Myna";
@@ -23,7 +22,7 @@ const Home: NextPage = () => {
   return (
     <React.Fragment>
       <MetaData />
-      <Carousel />
+      <Rajhans />
       <Koel
         updown="up"
         images={{

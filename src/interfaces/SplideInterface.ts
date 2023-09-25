@@ -1,4 +1,4 @@
-import { CarouselData } from "@components/Carousel/carouselData";
+import { CarouselData } from "@containers/Rajhans/carouselData";
 
 export interface SplideInstance {
   index: number;
@@ -23,4 +23,6 @@ export interface SplideInstance {
 
 export interface UnitSlideProps extends CarouselData {
   splide: SplideInstance | null;
+  active?: boolean;
+  carouselVisible?: boolean;
 };
