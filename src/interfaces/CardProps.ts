@@ -1,6 +1,6 @@
-import { CarouselData } from '@components/Carousel/carouselData';
 import { CardProps as MuiCardProps } from '@mui/material';
 import { SplideInstance } from './SplideInterface';
+import { CarouselData } from '@containers/Rajhans/carouselData';
 
 export interface CardProps extends MuiCardProps {
   component?: React.ElementType;
