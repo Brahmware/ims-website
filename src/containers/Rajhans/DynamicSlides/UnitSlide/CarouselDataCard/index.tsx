@@ -3,6 +3,9 @@ import { Card, Typography, alpha, styled } from "@mui/material";
 import React from "react";
 import ProgressBar from "./ProgressBar";
 import { TypographyProps } from "@interfaces/TypographyProps";
+import SloganText from "@components/Texts/SloganText";
+import TitleText from "@components/Texts/TitleText";
+import BodyText from "@components/Texts/BodyText";
 
 
 const Tagline = styled(Typography)<TypographyProps>(({ theme }) => ({
@@ -35,19 +38,14 @@ const CarouselDataCard: React.FC<CarouselDataCardProps> = ({
       elevation={0}
       className={props.className + ' carousel-data-card'}
       data-splide-interval={pauseTime}
-      onMouseEnter={() => {splide?.Components.Autoplay.pause()}}
+      onMouseEnter={() => { splide?.Components.Autoplay.pause() }}
       onMouseLeave={() => splide?.Components.Autoplay.play()}
       component={link ? 'a' : 'div'}
       href={link}
     >
-      <Tagline
-        variant="body2"
-        component="h3"
-      >
-        {tagline}
-      </Tagline>
-      <Title variant="h2">{title}</Title>
-      <Description variant="body1">{description}</Description>
+      <SloganText>{tagline}</SloganText>
+      <TitleText>{title}</TitleText>
+      <BodyText sx={{ my: 3 }} >{description}</BodyText>
       <ProgressBar />
     </Card>
   )
@@ -60,7 +58,6 @@ export default styled(CarouselDataCard)<CarouselDataCardProps>(({ theme }) => ({
   right: 0,
   height: 'max-content',
   width: 'max-content',
-  minWidth: '25rem',
   maxWidth: '30rem',
   padding: theme.Spaces.md,
   backgroundColor: alpha(theme.palette.background.default, 0.75),
@@ -90,5 +87,10 @@ export default styled(CarouselDataCard)<CarouselDataCardProps>(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     left: '50%',
     transform: 'translate(-50%, 200%)',
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    width: `calc(100% - 2 * ${theme.Spaces.md})`,
+    margin: '0 auto',
   },
 }));

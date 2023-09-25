@@ -20,7 +20,7 @@ const options: Options = {
   drag: 'free',
   snap: true,
   pagination: true,
-  autoplay: true,
+  autoplay: false,
   resetProgress: false,
   pauseOnHover: false,
   pauseOnFocus: false,
