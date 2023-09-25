@@ -1,7 +1,8 @@
 import { useNavigationMenuState } from '@helpers/NavigationMenuStateProvider';
 import { NavigationCardProps } from '@interfaces/CardProps';
 import { Box, Card, styled } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
+import disableScroll from 'disable-scroll';
 import Display from './Display';
 import Contact from './Contact';
 import Copyright from './Copyright';
@@ -48,10 +49,14 @@ const NavigationContent = styled(Box)(({ theme }) => ({
 }));
 
 const NavMenu = () => {
+
+  const { isOpen } = useNavigationMenuState();
+  useEffect(() => disableScroll[isOpen ? 'on' : 'off'](), [isOpen]);
+
   return (
     <NavigationWrapper
       component='menu'
-      open={useNavigationMenuState().isOpen}
+      open={isOpen}
       elevation={5}
     >
       <NavHoverProvider>
