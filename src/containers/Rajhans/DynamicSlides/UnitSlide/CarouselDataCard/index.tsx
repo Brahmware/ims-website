@@ -1,26 +1,10 @@
 import { CarouselDataCardProps } from "@interfaces/CardProps";
-import { Card, Typography, alpha, styled } from "@mui/material";
+import { Card, alpha, styled } from "@mui/material";
 import React from "react";
 import ProgressBar from "./ProgressBar";
-import { TypographyProps } from "@interfaces/TypographyProps";
 import SloganText from "@components/Texts/SloganText";
 import TitleText from "@components/Texts/TitleText";
 import BodyText from "@components/Texts/BodyText";
-
-
-const Tagline = styled(Typography)<TypographyProps>(({ theme }) => ({
-  marginBottom: theme.Spaces.xs,
-  paddingLeft: theme.Spaces.xxs,
-}));
-
-const Title = styled(Typography)(({ theme }) => ({
-  marginBottom: theme.Spaces.xs,
-}));
-
-const Description = styled(Typography)(({ theme }) => ({
-  marginBottom: theme.Spaces.xs,
-  paddingLeft: theme.Spaces.xxs,
-}));
 
 const CarouselDataCard: React.FC<CarouselDataCardProps> = ({
   link,
@@ -62,7 +46,7 @@ export default styled(CarouselDataCard)<CarouselDataCardProps>(({ theme }) => ({
   padding: theme.Spaces.md,
   backgroundColor: alpha(theme.palette.background.default, 0.75),
   boxShadow: theme.shadows[4],
-  backdropFilter: 'blur(0.125rem)',
+  backdropFilter: 'blur(0.5rem)',
   overflow: 'hidden',
   zIndex: theme.Shadows.higher.zIndex,
   transition: theme.Transitions.createTransition([
