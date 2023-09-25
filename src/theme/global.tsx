@@ -28,7 +28,14 @@ const GlobalStyles = () => {
           },
           'h1, h2, h4, h5, h6': {
             color: text.secondary
-          }
+          },
+          
+          '@media(max-width: 510px)': {
+            'h1': {
+              fontSize: '2em !important',
+              lineHeight: '1.25em !important',
+            },
+          },
         }}
       />
     </React.Fragment>

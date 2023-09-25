@@ -5,7 +5,7 @@ import CarouselDataCard from './CarouselDataCard';
 import { UnitSlideProps } from '@interfaces/SplideInterface';
 
 const StyledVideo = styled('video')(({ theme }) => ({
-  height: `calc(100vh - ${theme.Heights.header.default})`,
+  height: `calc(100dvh - ${theme.Heights.header.default})`,
   width: '100%',
   objectFit: 'cover',
 }));
@@ -34,10 +34,8 @@ const UnitSlide: React.FC<UnitSlideProps> = ({
     slideId = 0;
   };
 
-  const [videoLoaded, setVideoLoaded] = React.useState(false);
-
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  
+
   useEffect(() => {
     if (videoRef.current) {
       if (active && carouselVisible) {
@@ -47,8 +45,7 @@ const UnitSlide: React.FC<UnitSlideProps> = ({
       }
     }
   }, [active, carouselVisible]);
-  
-  console.log('videoLoaded', videoLoaded);
+
   return (
     <SplideSlide {...props} data-splide-interval={pauseTime}>
       <StyledVideo
@@ -59,7 +56,6 @@ const UnitSlide: React.FC<UnitSlideProps> = ({
         playsInline
         width="1280"
         height="720"
-        onLoadedData={() => setVideoLoaded(true)}
       />
       <CarouselDataCard
         title={slideTitle}
