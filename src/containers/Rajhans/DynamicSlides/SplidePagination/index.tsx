@@ -21,21 +21,22 @@ export default styled(SplidePagination)(({ theme }) => ({
   paddingBottom: '5.3333px !important',
   marginBottom: '4.5px !important',
   borderRadius: '2rem',
-  backgroundColor: alpha(theme.palette.background.default, 0.85),
-  boxShadow: theme.shadows[4],
-  opacity: 0.5,
+  backgroundColor: theme.palette.background.default,
+  boxShadow: theme.shadows[4] + ' !important',
+  opacity: 0.75,
   transition: theme.Transitions.createTransition({
     property: 'opacity',
     duration: 'short',
     easing: 'easeIn'
   }),
+  border: '1px solid ' + theme.palette.primary.main,
 
   '&:hover': {
     opacity: 1
   },
   
   '& .splide__pagination__page': {
-    backgroundColor: alpha(theme.palette.text.secondary, 0.75),
+    backgroundColor: alpha(theme.palette.text.secondary, 0.5),
     boxShadow: theme.shadows[6],
 
     '&.is-active': {
