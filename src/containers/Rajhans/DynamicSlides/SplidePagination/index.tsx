@@ -29,7 +29,6 @@ export default styled(SplidePagination)(({ theme }) => ({
     duration: 'short',
     easing: 'easeIn'
   }),
-  border: '1px solid ' + theme.palette.primary.main,
 
   '&:hover': {
     opacity: 1
