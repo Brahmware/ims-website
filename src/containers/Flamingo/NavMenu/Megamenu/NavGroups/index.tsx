@@ -6,7 +6,6 @@ import { useNavHoverContext } from '@helpers/NavHoverContext';
 import GroupCard from './GroupCard';
 import NavList from './NavList';
 import { useMegamenuStateContext } from '@helpers/MegamenuStateProvider';
-import { MediaWhiteNoiseSrc } from '@utils/const';
 
 
 interface NavgroupProps extends React.HTMLAttributes<HTMLUListElement> {
@@ -75,17 +74,13 @@ const Navgroup = styled('ul')<NavgroupProps>(({ theme, active, show }) => ({
 
 const NavGroups = ({ title, videoUrl, items }: NavGroupsProps) => {
 
-  const { setCurrentUrl } = useNavHoverContext();
+  const { setCurrentUrl, resetCurrentUrl } = useNavHoverContext();
   const matchesTablet = useMediaQuery((theme: any) => theme.Breakpoints.down('tall'));
   const { activeMenu, setActiveMenu } = useMegamenuStateContext();
   const [show, setShow] = React.useState(false);
 
   const handleMouseEnter = () => {
     setCurrentUrl(videoUrl);
-  };
-
-  const handleMouseLeave = () => {
-    setCurrentUrl(MediaWhiteNoiseSrc);
   };
 
   const handleMouseClick = (event: React.MouseEvent<HTMLUListElement>) => {
@@ -110,7 +105,7 @@ const NavGroups = ({ title, videoUrl, items }: NavGroupsProps) => {
       ref={navgroupRef}
       onClick={handleMouseClick}
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseLeave={resetCurrentUrl}
       active={!matchesTablet}
       show={show}
     >

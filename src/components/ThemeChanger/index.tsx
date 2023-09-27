@@ -7,7 +7,7 @@ import SystemIcon from '@icons/utility/SystemIcon';
 import { navbar } from '@theme/constants';
 import { useTheme } from "next-themes";
 import { useNavHoverContext } from '@helpers/NavHoverContext';
-import { MediaThemeChangeSrc, MediaWhiteNoiseSrc } from '@utils/const';
+import { MediaThemeChangeSrc } from '@utils/const';
 
 
 const ThemeChangerWrapper = styled(Card)<ThemeChangerWrapperProps>(({ theme }) => ({
@@ -86,7 +86,7 @@ const ThemeChanger = () => {
 
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const { setCurrentUrl } = useNavHoverContext();
+  const { setCurrentUrl, resetCurrentUrl } = useNavHoverContext();
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), []);
@@ -104,7 +104,7 @@ const ThemeChanger = () => {
       aria-label='change theme'
       role='radiogroup'
       onMouseEnter={() => setCurrentUrl(MediaThemeChangeSrc)}
-      onMouseLeave={() => setCurrentUrl(MediaWhiteNoiseSrc)}
+      onMouseLeave={resetCurrentUrl}
     >
       <MoonIcon
         active={(theme === 'dark')}

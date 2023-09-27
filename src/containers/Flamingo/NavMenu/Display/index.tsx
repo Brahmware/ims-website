@@ -1,8 +1,8 @@
 import { useNavHoverContext } from '@helpers/NavHoverContext';
 import { styled } from '@mui/material';
-import { MediaWhiteNoiseSrc } from '@utils/const';
 import Image from 'next/image';
 import React from 'react'
+import NoSignal from './NoSignal';
 
 const DisplayWrapper = styled('div')(({ theme }) => ({
   gridColumn: '19/25',
@@ -15,7 +15,7 @@ const DisplayWrapper = styled('div')(({ theme }) => ({
   justifyContent: 'center',
   alignItems: 'center',
   alignContent: 'start',
-  
+
   zIndex: theme.Shadows.lower.zIndex,
   transition: theme.Transitions.createTransition({
     property: 'transform',
@@ -62,10 +62,9 @@ const StyledVideo = styled('video')(({ theme }) => ({
   transform: 'scale(0.6) translateX(-7rem) translateY(-2.5rem)',
 }));
 
-
 const Display = () => {
 
-  const { currentUrl, setCurrentUrl } = useNavHoverContext();
+  const { currentUrl } = useNavHoverContext();
 
   return (
     <DisplayWrapper>
@@ -75,17 +74,15 @@ const Display = () => {
         alt='tv'
         height={620 * 2}
         width={430 * 2}
-        onLoad={(e) => {
-          e.currentTarget.classList.add('loaded')
-        }}
+        onLoad={(e) => { e.currentTarget.classList.add('loaded') }}
       />
       <StyledVideo
         src={currentUrl}
         autoPlay
         muted
         loop
-        onError={() => setCurrentUrl(MediaWhiteNoiseSrc)}
       />
+      <NoSignal />
     </DisplayWrapper>
   )
 };
