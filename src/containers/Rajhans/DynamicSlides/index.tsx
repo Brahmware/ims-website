@@ -42,14 +42,6 @@ const DynamicSlides: React.FC = () => {
   const [splide, setSplide] = useState<SplideInstance | null>(null);
   const [visible, setVisible] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const splideRef = React.useRef<any>(null);
-
-  React.useEffect(() => {
-    if (splideRef.current) {
-      setSplide(splideRef.current.splide);
-      setActiveIndex(splideRef.current.splide.Components.Controller.getIndex());
-    }
-  }, [splideRef]);
 
   const handleOnIntersect = () => {
     splide?.Components.Autoplay.play();
@@ -61,9 +53,12 @@ const DynamicSlides: React.FC = () => {
     setVisible(false);
   };
 
-  const handleOnSplideMove = (slide: any) => {
-    setActiveIndex(slide.Components.Controller.getIndex());
+  const handleOnActive = (splide: SplideInstance) => {
+    setSplide(splide);
+    setActiveIndex(splide.index);
   };
+
+  const isSlideActive = (index: number): boolean => activeIndex === index;
 
   return (
     <Observer
@@ -72,9 +67,8 @@ const DynamicSlides: React.FC = () => {
     >
       <Splide
         options={options}
-        ref={splideRef}
         hasTrack={false}
-        onMove={handleOnSplideMove}
+        onActive={(splide) => (handleOnActive)(splide as SplideInstance)}
       >
         <SplideTrack>
           {carouselData.map((slideData, index) => (
@@ -83,7 +77,7 @@ const DynamicSlides: React.FC = () => {
                 {...slideData}
                 carouselVisible={visible}
                 splide={splide}
-                active={activeIndex === index}
+                active={(isSlideActive)(index)}
               />
             </React.Fragment>
           ))}

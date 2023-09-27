@@ -3,7 +3,6 @@ import { Snackbar, Typography, alpha, styled } from '@mui/material'
 import React, { useState } from 'react'
 import SocialSection from './SocialSection';
 import { useNavHoverContext } from '@helpers/NavHoverContext';
-import { MediaWhiteNoiseSrc } from '@utils/const';
 
 const ContactSection = styled('section')(({ theme }) => ({
   gridColumn: '1/6',
@@ -71,7 +70,7 @@ const Contact = () => {
 
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
 
-  const { setCurrentUrl } = useNavHoverContext();
+  const { setCurrentUrl, resetCurrentUrl } = useNavHoverContext();
 
   const handleCopyToClipboard = () => {
     try {
@@ -94,7 +93,7 @@ const Contact = () => {
   return (
     <ContactSection
       onMouseEnter={() => setCurrentUrl('/videos/navmenu/contact-us.webm')}
-      onMouseLeave={() => setCurrentUrl(MediaWhiteNoiseSrc)}
+      onMouseLeave={resetCurrentUrl}
     >
       <ContactTitle component='h4' variant='h4'>CONTACT US</ContactTitle>
       <EmailString

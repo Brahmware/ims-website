@@ -51,4 +51,8 @@ const Honeyguide: React.FC<HoneyguideProps> = ({
   )
 };
 
-export default Honeyguide;
+export default styled(Honeyguide)(({ theme }) => ({
+  '& .logenjuice': {
+    fill: theme.palette.text.primary,
+  },
+}));

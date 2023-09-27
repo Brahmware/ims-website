@@ -4,17 +4,21 @@ import React from 'react';
 const DataCard = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
   position: 'absolute',
-  height: '12rem',
-  width: '25rem',
+  height: '18rem',
+  width: '30rem',
   bottom: '7.5rem',
   left: '12rem',
-  borderRadius: '1.5rem',
+  borderRadius: '0.25rem',
   boxShadow: theme.shadows[2],
-  padding: theme.Spaces.md + ' ' + theme.Spaces.lg,
+  padding: theme.Spaces.lg + ' ' + theme.Spaces.md,
 
   [theme.breakpoints.down('md')]: {
     left: '50%',
     transform: 'translateX(-50%)',
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    width: `calc(100% - ${theme.Spaces.md} - ${theme.Spaces.md})`,
   },
 }));
 
@@ -28,7 +32,7 @@ const CarouselLoading: React.FC<BoxProps> = ({ ...props }) => {
         width="10rem"
         sx={{
           animationDelay: '1.5s',
-          marginRight: '1rem'
+          mr: '1rem'
         }}
       />
       <Skeleton
@@ -47,15 +51,15 @@ const CarouselLoading: React.FC<BoxProps> = ({ ...props }) => {
         }}
       />
       <DataCard>
-        <Typography variant="body2" >
+        <Typography variant="h2" >
           <Skeleton
             variant="text"
             animation="wave"
             height="100%"
-            width="8rem"
+            width="10rem"
           />
         </Typography>
-        <Typography variant="h2" mb='0.5rem'>
+        <Typography variant="h1" mb='0.75rem'>
           <Skeleton
             variant="text"
             animation="wave"
@@ -66,9 +70,15 @@ const CarouselLoading: React.FC<BoxProps> = ({ ...props }) => {
         <Skeleton
           variant="rectangular"
           animation="wave"
-          height="4rem"
-          width="100%"
-          sx={{ borderRadius: '0.5rem' }}
+          sx={{ 
+            borderRadius: '0.5rem',
+            height: '7rem',
+            width: '100%',
+
+            '@media (max-width: 511px)': {
+              height: '8rem',
+            },
+          }}
         />
       </DataCard>
     </Box>

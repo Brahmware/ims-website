@@ -1,9 +1,9 @@
-import { MediaWhiteNoiseSrc } from "@utils/const";
 import React, { createContext, useContext } from "react";
 
 export type NavHoverContextType = {
   currentUrl: string;
   setCurrentUrl: React.Dispatch<React.SetStateAction<string>>;
+  resetCurrentUrl: () => void;
 };
 
 const NavHoverContext = createContext<NavHoverContextType>(
@@ -19,10 +19,12 @@ export const NavHoverProvider = (
     children: React.ReactNode
   }
 ) => {
-  const [currentUrl, setCurrentUrl] = React.useState(MediaWhiteNoiseSrc);
+  const [currentUrl, setCurrentUrl] = React.useState('');
+  const resetCurrentUrl = () => setCurrentUrl('');
+
   return (
     <NavHoverContext.Provider
-      value={{ currentUrl, setCurrentUrl }}
+      value={{ currentUrl, setCurrentUrl, resetCurrentUrl }}
     >
       {children}
     </NavHoverContext.Provider>

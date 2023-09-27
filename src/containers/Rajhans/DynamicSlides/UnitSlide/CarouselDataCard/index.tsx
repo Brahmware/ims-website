@@ -68,6 +68,13 @@ export default styled(CarouselDataCard)<CarouselDataCardProps>(({ theme }) => ({
     },
   },
 
+  '@media (max-width: 1024px)': {
+    width: '100%',
+    left: 0,
+    margin: '0 auto',
+    transform: 'translate(0%, 200%)',
+  },
+
   [theme.breakpoints.down('md')]: {
     left: '50%',
     transform: 'translate(-50%, 200%)',

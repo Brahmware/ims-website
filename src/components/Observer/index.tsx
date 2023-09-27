@@ -1,3 +1,4 @@
+import { useNavigationMenuState } from '@helpers/NavigationMenuStateProvider';
 import { styled } from '@mui/material';
 import useIntersectionObserver from '@utils/hooks/useInterSectionObserver';
 import React from 'react';
@@ -14,12 +15,14 @@ const Observer: React.FC<ObserverProps> = ({
   ...props
 }) => {
 
+  const { isOpen } = useNavigationMenuState();
+
   const observerRef = React.useRef<HTMLDivElement>(null);
   useIntersectionObserver({
     target: observerRef,
-    onIntersect,
+    onIntersect: isOpen ? onNoIntersect : onIntersect,
     onNoIntersect,
-  })
+  });
 
   return (
     <div
