@@ -3,6 +3,7 @@ import { BoxProps, Box, styled } from '@mui/material';
 import Link from '@components/Link';
 
 interface PrivacyProps extends BoxProps {
+  children?: React.ReactNode;
 };
 
 const Privacy: React.FC<PrivacyProps> = (props) => {
