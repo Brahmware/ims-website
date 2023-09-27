@@ -1,8 +1,10 @@
 import React from 'react';
 import { Box, BoxProps, styled } from '@mui/material';
 import { useNavMapContext } from '@helpers/NavMapProvider';
+import UnitPagegroup from './UnitPagegroup';
 
 interface WebMapProps extends BoxProps {
+  children?: React.ReactNode;
 };
 
 const WebMap: React.FC<WebMapProps> = (props) => {
@@ -14,19 +16,30 @@ const WebMap: React.FC<WebMapProps> = (props) => {
       {...props}
     >
       {data?.map((item, index) => (
-        <Box
-          component='ul'
-          key={index}
-        >
-          {item.title}
-        </Box>
+        <React.Fragment key={index}>
+          <UnitPagegroup pageGroup={item} />
+        </React.Fragment>
       ))}
     </Box>
   )
 };
 
 export default styled(WebMap)(({ theme }) => ({
+
   gridColumn: '11 / 21',
-  gridRow: '3 / 13',
-  border: '1px solid blue'
+  gridRow: '1 / 15',
+  alignSelf: 'end',
+  alignItems: 'start',
+  
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gridTemplateRows: 'repeat(2, 8rem)',
+  
+  '@media screen and (max-height: 1080px)': {
+    alignSelf: 'center',
+  },
+
+  '@media screen and (max-height: 720px)': {
+    gridRow: '1 / 16',
+  },
 }));

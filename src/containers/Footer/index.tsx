@@ -21,7 +21,7 @@ const FooterBox = styled(Box)(({ theme }) => ({
   padding: theme.Spaces.md,
   margin: '0 auto',
   display: 'grid',
-  gridTemplateColumns: 'repeat(20, 1fr)',
+  gridTemplateColumns: 'repeat(20, minmax(2rem, 1fr))',
   gridTemplateRows: 'repeat(20, 1fr)',
 }));
 

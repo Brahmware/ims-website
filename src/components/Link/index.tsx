@@ -48,15 +48,16 @@ const StyledArrowIcon = styled(ArrowIcon)(({ theme }) => ({
 
   '& path': {
     fill: theme.palette.primary.main,
-  } 
+  }
 }));
 
-const Link = ({ href, target, rel, children }: LinkProps) => {
+const Link = ({ href, target, rel, children, ...props }: LinkProps) => {
 
   if (target === '_blank') {
     return (
       <StyledExternalLink
         passHref
+        className={props.className}
         href={href}
       >
         {children}
@@ -68,6 +69,7 @@ const Link = ({ href, target, rel, children }: LinkProps) => {
   return (
     <StyledLink
       passHref
+      className={props.className}
       href={href}
       target={target}
       rel={rel}

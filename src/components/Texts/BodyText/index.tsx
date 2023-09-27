@@ -1,11 +1,16 @@
 import React from 'react';
 import { Typography, TypographyProps, styled } from '@mui/material';
 
-const StyledTypography = styled(Typography)<TypographyProps>(({ theme }) => ({
+interface BodyTextProps extends TypographyProps {
+  children?: React.ReactNode;
+  href?: string;
+};
+
+const StyledTypography = styled(Typography)<BodyTextProps>(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const BodyText: React.FC<TypographyProps> = ({ ...props }) => {
+const BodyText: React.FC<BodyTextProps> = ({ ...props }) => {
   return (
     <StyledTypography
       {...props}
