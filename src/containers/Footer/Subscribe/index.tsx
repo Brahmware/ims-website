@@ -13,6 +13,7 @@ const SubscribeWrapper = styled(Box)<BoxProps>(({ theme }) => ({
 }));
 
 interface SubscribeProps extends BoxProps {
+  children?: React.ReactNode;
 };
 
 const Subscribe: React.FC<SubscribeProps> = (props) => {
@@ -28,17 +29,14 @@ const Subscribe: React.FC<SubscribeProps> = (props) => {
 
 export default styled(Subscribe)(({ theme }) => ({
   gridColumn: '11 / 21',
-  gridRow: '16 / 19',
+  gridRow: '16 / 17',
   display: 'flex',
-  alignItems: 'center',
+  alignItems: 'start',
   justifyContent: 'start',
-
-  '@media screen and (max-height: 1080px)': {
-    gridRow: '10 / 19',
-  },
   
-  '@media screen and (max-height: 720px)': {
-    gridRow: '13 / 18',
+  '@media screen and (max-height: 1080px)': {
+    alignItems: 'end',
+    gridRow: '13 / 15',
   },
 
 }));

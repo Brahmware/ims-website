@@ -6,6 +6,7 @@ import Subscribe from './Subscribe';
 import Contact from './Contact';
 import Privacy from './Privacy';
 import Copyright from './Copyright';
+import TechProvider from './TechProvider';
 
 const BlankTop = styled(Box)(({ theme }) => ({
   height: theme.Heights.header.default,
@@ -37,6 +38,7 @@ const Footer: React.FC<FooterProps> = (props) => {
         <WebMap />
         <Subscribe />
         <Contact />
+        <TechProvider />
         <Copyright />
         <Privacy />
       </FooterBox>
