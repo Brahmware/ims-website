@@ -55,9 +55,9 @@ export default styled(NavList)(({ theme }) => ({
         '& svg circle': {
           fill: theme.palette.text.secondary,
           transformOrigin: 'center',
-          animation: `pulse 3000ms infinite`,
+          animation: `pulsating-bullet 3000ms infinite`,
 
-          '@keyframes pulse': {
+          '@keyframes pulsating-bullet': {
             '0%': {
               fill: theme.palette.text.secondary,
             },

@@ -1,19 +1,21 @@
 import React from 'react';
 import { TitleProps } from '@interfaces/TypographyProps';
-import { Typography, styled } from '@mui/material';
+import { styled } from '@mui/material';
+import TitleText from '@components/Texts/TitleText';
 
 const Title = styled(({ children, ...props }: TitleProps) => {
   return (
-    <Typography variant="h5" component="h3" {...props}>
+    <TitleText {...props}>
       {children}
-    </Typography>
+    </TitleText>
   );
 })(({ theme }) => ({
   padding: theme.Spaces.sm,
   fontWeight: theme.FontWeights.fontWeightUltra,
+  fontSize: '1.25rem',
+  lineHeight: '1.75rem',
   backgroundColor: theme.palette.secondary.main,
   color: theme.palette.secondary.contrastText,
-  textTransform: 'uppercase',
   whiteSpace: 'nowrap',
   cursor: 'default',
   width: '100%',

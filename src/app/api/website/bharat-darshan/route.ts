@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
       title: 'The Third World’s Modern Origins',
       artist: 'Dadabhai Naoroji',
       imageUrl: '/images/bharat-darshan/the-third-worlds-modern-origins.jpg',
-      description: 'How strange it is that the British rulers do not see that after they themselves are the main cause of all destruction that ensues from droughts; that it is the drain of India’s wealth by them that lays at their own door the dreadful results of misery, starvation, and the death of millions.',
+      description: 'How strange it is that the British looters do not see that after they themselves are the main cause of all destruction that ensues from droughts; that it is the drain of India’s wealth by them that lays at their own door the dreadful results of misery, starvation, and the death of millions.',
       link: "https://nickledanddimed.com/2021/10/18/the-third-worlds-modern-origins",
     },
   ];

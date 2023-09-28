@@ -1,19 +1,15 @@
-import { Box, BoxProps, styled } from '@mui/material';
 import React from 'react';
+import { styled } from '@mui/material';
+import ContactUs, { ContactUsProps } from '@components/ContactUs';
 
-interface ContactProps extends BoxProps {
-};
 
-const Contact: React.FC<ContactProps> = (props) => {
+const Contact: React.FC<ContactUsProps> = (props) => {
   return (
-    <Box {...props}>
-      Contact
-    </Box>
+    <ContactUs {...props} />
   )
 };
 
 export default styled(Contact)(({ theme }) => ({
   gridColumn: '1 / 10',
   gridRow: '16 / 19',
-  border: '1px solid pink'
 }));
