@@ -11,5 +11,11 @@ const Contact: React.FC<ContactUsProps> = (props) => {
 
 export default styled(Contact)(({ theme }) => ({
   gridColumn: '1 / 10',
-  gridRow: '16 / 19',
+  gridRow: '16 / 20',
+  height: 'max-content',
+
+  '@media screen and (max-width: 1236px)': {
+    gridRow: '17 / 20',
+    alignSelf: 'center',
+  },
 }));

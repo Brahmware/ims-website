@@ -60,14 +60,25 @@ const TechProvider: React.FC<TechProviderProps> = (props) => {
 
 export default styled(TechProvider)(({ theme }) => ({
   gridColumn: '11 / 21',
-  gridRow: '17 / 19',
+  gridRow: '17 / 20',
   width: 'max-content',
+  height: 'max-content',
+  alignSelf: 'end',
 
   display: 'flex',
-  justifyContent: 'start',
+  justifySelf: 'start',
   alignItems: 'center',
 
   '@media screen and (max-height: 1080px)': {
-    gridRow: '16 / 19',
+    gridRow: '16 / 20',
+  },
+
+  '@media screen and (max-width: 1360px)': {
+    gridColumn: '13 / 21',
+  },
+
+  '@media screen and (max-width: 1236px)': {
+    gridRow: '17 / 20',
+    alignSelf: 'center',
   },
 }));

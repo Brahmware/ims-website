@@ -31,12 +31,17 @@ export default styled(Subscribe)(({ theme }) => ({
   gridColumn: '11 / 21',
   gridRow: '16 / 17',
   display: 'flex',
+  width: 'max-content',
   alignItems: 'start',
-  justifyContent: 'start',
-  
+  justifySelf: 'start',
+
   '@media screen and (max-height: 1080px)': {
     alignItems: 'end',
     gridRow: '13 / 15',
+  },
+
+  '@media screen and (max-width: 1360px)': {
+    gridColumn: '13 / 21',
   },
 
 }));

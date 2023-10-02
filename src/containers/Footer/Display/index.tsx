@@ -14,13 +14,17 @@ const Display: React.FC<DisplayProps> = (props) => {
 };
 
 export default styled(Display) (({ theme }) => ({
-  height: '100%',
-  width: '100%',
+  position: 'relative',
   gridColumn: '1 / 10',
   gridRow: '1 / 15',
-  border: '1px solid green',
+  height: '100%',
+  width: '100%',
 
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+
+  '@media screen and (max-width: 1360px)': {
+    gridColumn: '1 / 11',
+  },
 }));

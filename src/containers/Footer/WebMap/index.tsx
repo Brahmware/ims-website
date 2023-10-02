@@ -42,4 +42,11 @@ export default styled(WebMap)(({ theme }) => ({
   '@media screen and (max-height: 720px)': {
     gridRow: '1 / 16',
   },
+
+  '@media screen and (max-width: 1360px)': {
+    gridColumn: '13 / 21',
+    gridRow: '1 / 15',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    gridTemplateRows: 'repeat(3, 8rem)',
+  },
 }));

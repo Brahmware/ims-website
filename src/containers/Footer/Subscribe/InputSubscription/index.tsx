@@ -34,4 +34,8 @@ export default styled(InputSubscription)(({ theme }) => ({
   fontWeight: theme.typography.fontWeightRegular,
   letterSpacing: '0.025rem',
   width: '32rem',
+
+  '@media screen and (max-width: 1360px)': {
+    width: '28rem',
+  },
 }));

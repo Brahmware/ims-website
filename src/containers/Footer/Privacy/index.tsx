@@ -2,6 +2,11 @@ import React from 'react';
 import { BoxProps, Box, styled } from '@mui/material';
 import Link from '@components/Link';
 
+const StyledLink = styled(Link)(({ theme }) => ({
+  margin: theme.Spaces.xxs + ' ' + theme.Spaces.md,
+  marginRight: 0,
+}));
+
 interface PrivacyProps extends BoxProps {
   children?: React.ReactNode;
 };
@@ -9,21 +14,21 @@ interface PrivacyProps extends BoxProps {
 const Privacy: React.FC<PrivacyProps> = (props) => {
   return (
     <Box {...props}>
-      <Link href='legal/visitor-agreement'>
+      <StyledLink href='legal/visitor-agreement'>
         Visitor Agreement
-      </Link>
-      <Link href="legal/privacy-notice">
+      </StyledLink>
+      <StyledLink href="legal/privacy-notice">
         Privacy Notice
-      </Link>
-      <Link href="legal/website-accessibility-statement">
+      </StyledLink>
+      <StyledLink href="legal/website-accessibility-statement">
         Website Accessibility Statement
-      </Link>
-      <Link href="legal/code-of-ethics">
+      </StyledLink>
+      <StyledLink href="legal/code-of-ethics">
         Code of Ethics
-      </Link>
-      <Link href="legal/faqs">
+      </StyledLink>
+      <StyledLink href="legal/faqs">
         FAQs
-      </Link>
+      </StyledLink>
     </Box>
   )
 };
@@ -34,4 +39,22 @@ export default styled(Privacy)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  alignSelf: 'end',
+
+  '@media screen and (max-width: 1460px)': {
+    gridColumn: '10 / 21',
+  },
+
+  '@media screen and (max-width: 1320px)': {
+    gridColumn: '9 / 21',
+  },
+
+  '@media screen and (max-width: 1236px)': {
+    gridRow: '19 / 21',
+    gridColumn: '11 / 21',
+
+    flexWrap: 'wrap',
+    justifyContent: 'end',
+    height: 'max-content',
+  },
 }));

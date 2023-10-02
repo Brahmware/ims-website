@@ -12,6 +12,8 @@ export default styled(Copyright)(({ theme }) => ({
   gridColumn: '1 / 10',
   gridRow: '20 / 21',
 
-  height: '100%',
+  height: 'max-content',
   width: '100%',
+  alignSelf: 'end',
+  margin: theme.Spaces.xxs + ' 0',
 }));
