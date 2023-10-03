@@ -40,8 +40,8 @@ const PhotoFrame: React.FC<PhotoFrameProps> = ({
 export default styled(PhotoFrame)(({ theme }) => ({
   position: 'relative',
   borderRadius: '1rem',
-  gridColumn: '1 / 21',
-  gridRow: '1 / 21',
+  gridColumn: '2 / 21',
+  gridRow: '2 / 21',
   height: '100%',
   width: '100%',
   zIndex: 2,
@@ -61,13 +61,8 @@ export default styled(PhotoFrame)(({ theme }) => ({
   '&:hover': {
     boxShadow: theme.shadows[4],
   },
-  
-  '@media screen and (max-height: 1200px)': {
-    gridColumn: '2 / 21',
-    gridRow: '1 / 21',
-  },
 
-  '@media screen and (max-height: 1080px)': {
+  '@media screen and (max-height: 1230px)': {
     gridColumn: '1 / 13',
     gridRow: '3 / 19',
   },

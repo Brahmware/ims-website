@@ -47,11 +47,19 @@ const Footer: React.FC<FooterProps> = (props) => {
 };
 
 export default styled(Footer)(({ theme }) => ({
-  height: '100dvh',
+  height: '100vh',
+  '@supports (height: 100dvh)': {
+    height: '100dvh',
+  },
   width: '100%',
   backgroundColor: theme.palette.background.default,
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'flex-end',
+
+  '@media screen and (max-height: 780px)': {
+    height: 'auto',
+    maxHeight: '100vh',
+  },
 }));

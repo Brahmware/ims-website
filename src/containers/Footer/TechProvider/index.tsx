@@ -78,7 +78,10 @@ export default styled(TechProvider)(({ theme }) => ({
   },
 
   '@media screen and (max-width: 1236px)': {
-    gridRow: '17 / 20',
-    alignSelf: 'center',
+    gridRow: '16 / 20',
+    
+    '@media screen and (max-height: 1080px)': {
+      alignSelf: 'start',
+    },
   },
 }));

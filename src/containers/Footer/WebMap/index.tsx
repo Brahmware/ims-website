@@ -27,7 +27,7 @@ const WebMap: React.FC<WebMapProps> = (props) => {
 export default styled(WebMap)(({ theme }) => ({
 
   gridColumn: '11 / 21',
-  gridRow: '1 / 15',
+  gridRow: '1 / 14',
   alignSelf: 'end',
   alignItems: 'start',
   
@@ -35,7 +35,8 @@ export default styled(WebMap)(({ theme }) => ({
   gridTemplateColumns: 'repeat(3, 1fr)',
   gridTemplateRows: 'repeat(2, 8rem)',
   
-  '@media screen and (max-height: 1080px)': {
+  '@media screen and (max-height: 1230px)': {
+    gridRow: '1 / 16',
     alignSelf: 'center',
   },
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, TypographyProps, styled } from '@mui/material';
 
-interface BodyTextProps extends TypographyProps {
+export interface BodyTextProps extends TypographyProps {
   children?: React.ReactNode;
   href?: string;
 };
