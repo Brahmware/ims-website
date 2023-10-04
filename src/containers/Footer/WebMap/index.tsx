@@ -50,4 +50,21 @@ export default styled(WebMap)(({ theme }) => ({
     gridTemplateColumns: 'repeat(2, 1fr)',
     gridTemplateRows: 'repeat(3, 8rem)',
   },
+
+  '@media screen and (max-width: 1180px)': {
+    gridColumn: '16 / 21',
+    gridRow: '2 / 18',
+    gridTemplateColumns: '1fr',
+    gridTemplateRows: 'unset',
+    paddingLeft: theme.Spaces.lg,
+    transform: 'translateY(0.33rem)',
+
+    '& > ul': {
+      marginBottom: '0.48rem',
+
+      '&:last-of-type': {
+        marginBottom: 0,
+      },
+    },
+  },
 }));

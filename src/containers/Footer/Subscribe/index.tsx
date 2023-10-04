@@ -44,4 +44,11 @@ export default styled(Subscribe)(({ theme }) => ({
     gridColumn: '13 / 21',
   },
 
+  '@media screen and (max-width: 1180px)': {
+    gridColumn: '10 / 16',
+    gridRow: '17 / 20',
+    justifySelf: 'end',
+    alignItems: 'start',
+  },
+
 }));

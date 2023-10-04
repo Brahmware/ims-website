@@ -27,4 +27,9 @@ export default styled(Display) (({ theme }) => ({
   '@media screen and (max-width: 1360px)': {
     gridColumn: '1 / 12',
   },
+
+  '@media screen and (max-width: 1180px)': {
+    gridRow: '1 / 14',
+    gridColumn: '1 / 16',
+  },
 }));

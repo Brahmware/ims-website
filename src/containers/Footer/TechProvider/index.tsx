@@ -28,6 +28,16 @@ const StyledVishwabrahmand = styled(Vishwabrahmand)(({ theme }) => ({
   height: '4rem',
 }));
 
+const StyledDivider = styled(Divider)(({ theme }) => ({
+  height: '2.5rem',
+  alignSelf: 'center',
+  margin: '0 2rem',
+
+  '@media screen and (max-width: 1180px)': {
+    display: 'none',
+  },
+}));
+
 interface TechProviderProps extends BoxProps {
   children?: React.ReactNode;
 };
@@ -44,7 +54,10 @@ const TechProvider: React.FC<TechProviderProps> = (props) => {
           <StyledVishwabrahmand />
         </Link>
       </StyledWrapper>
-      <Divider orientation='vertical' flexItem sx={{ mx: '2rem' }} />
+      <StyledDivider
+        flexItem
+        orientation='vertical'
+      />
       <StyledWrapper>
         <StyledTitleText>Technology Partner</StyledTitleText>
         <Link
@@ -79,9 +92,18 @@ export default styled(TechProvider)(({ theme }) => ({
 
   '@media screen and (max-width: 1236px)': {
     gridRow: '16 / 20',
-    
+
     '@media screen and (max-height: 1080px)': {
       alignSelf: 'start',
     },
+  },
+
+  '@media screen and (max-width: 1180px)': {
+    gridColumn: '1 / 11',
+    gridRow: '14 / 20',
+    justifySelf: 'start',
+    alignSelf: 'end',
+    flexDirection: 'column',
+    gap: theme.Spaces.xxs,
   },
 }));

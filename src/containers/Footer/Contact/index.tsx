@@ -18,4 +18,10 @@ export default styled(Contact)(({ theme }) => ({
     gridRow: '17 / 20',
     alignSelf: 'center',
   },
+
+  '@media screen and (max-width: 1180px)': {
+    gridColumn: '10 / 16',
+    gridRow: '13 / 18',
+    alignItems: 'end',
+  },
 }));

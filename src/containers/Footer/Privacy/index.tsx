@@ -5,6 +5,10 @@ import Link from '@components/Link';
 const StyledLink = styled(Link)(({ theme }) => ({
   margin: theme.Spaces.xxs + ' ' + theme.Spaces.md,
   marginRight: 0,
+
+  '&:first-of-type': {
+    marginLeft: 0,
+  },
 }));
 
 interface PrivacyProps extends BoxProps {
@@ -56,5 +60,10 @@ export default styled(Privacy)(({ theme }) => ({
     flexWrap: 'wrap',
     justifyContent: 'end',
     height: 'max-content',
+    
+    '@media screen and (max-height: 820px)': {
+      marginTop: theme.Spaces.sm,
+    },
   },
+
 }));
