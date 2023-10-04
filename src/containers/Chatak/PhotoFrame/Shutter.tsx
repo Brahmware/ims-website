@@ -8,9 +8,9 @@ const HalfShutter = styled('div')(({ theme }) => ({
   left: 0,
   height: '50%',
   width: '100%',
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: theme.Colors.bhasma,
   transition: theme.Transitions.createTransition({
-    duration: 'shorter',
+    duration: 'short',
     easing: 'easeIn',
     property: 'transform',
   }),
@@ -49,8 +49,8 @@ const LowerHalf = styled(HalfShutter)({
 });
 
 const StyledBaghIcon = styled(BaaghIcon)(({ theme }) => ({
-  height: '60%',
-  width: '60%',
+  height: '80%',
+  width: '80%',
   color: theme.palette.primary.main,
 }));
 

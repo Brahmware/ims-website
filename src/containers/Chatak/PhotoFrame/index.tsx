@@ -30,6 +30,7 @@ const PhotoFrame: React.FC<PhotoFrameProps> = ({
             layout={'fill'}
             objectFit={'cover'}
             quality={100}
+            style={{ borderRadius: 'inherit' }}
           />
         ) : (
           <StyledNoImageIcon />
