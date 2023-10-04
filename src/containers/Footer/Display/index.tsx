@@ -19,6 +19,7 @@ export default styled(Display) (({ theme }) => ({
   gridRow: '1 / 16',
   height: '100%',
   width: '100%',
+  maxHeight: '750px',
 
   display: 'flex',
   justifyContent: 'center',

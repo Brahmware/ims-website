@@ -6,11 +6,11 @@ const HalfShutter = styled('div')(({ theme }) => ({
   position: 'absolute',
   top: 0,
   left: 0,
-  height: '50%',
+  height: '50.25%',
   width: '100%',
   backgroundColor: theme.Colors.bhasma,
   transition: theme.Transitions.createTransition({
-    duration: 'short',
+    duration: 'medium',
     easing: 'easeIn',
     property: 'transform',
   }),
@@ -49,9 +49,8 @@ const LowerHalf = styled(HalfShutter)({
 });
 
 const StyledBaghIcon = styled(BaaghIcon)(({ theme }) => ({
-  height: '80%',
-  width: '80%',
-  color: theme.palette.primary.main,
+  height: '50%',
+  width: '50%',
 }));
 
 interface ShutterProps {

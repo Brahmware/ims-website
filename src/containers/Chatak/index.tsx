@@ -27,13 +27,15 @@ const Chatak: React.FC<ChatakProps> = ({
     fetchData();
   }, [fetchData]);
 
+  const [active, setActive] = React.useState<boolean>(true);
+
   return (
     <Box {...props}>
       <PhotoFrame 
         src='/images/bharat-darshan/hungry-bengal.jpg'
         alt='Hungry Bengal'
       />
-      <BillBoard />
+      <BillBoard active={active}/>
     </Box>
   )
 };

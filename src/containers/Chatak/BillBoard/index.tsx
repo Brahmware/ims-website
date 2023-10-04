@@ -34,7 +34,8 @@ const BillBoard: React.FC<BillBoardProps> = ({
   return (
     <Box
       {...props}
-      sx={{ transition: active ? `transform ${transitionTime}ms ease-in-out` : 'none' }}
+      sx={{ transition: `transform ${transitionTime}ms ease-in-out` }}
+      className={props.className + ' billboard' + (active ? ' active' : '')}
     >
       <BillBoardTitle>Description</BillBoardTitle>
       <Description>{description}</Description>
@@ -48,7 +49,7 @@ export default styled(BillBoard)(({ theme, active = true }) => ({
   borderRadius: '0 0.75rem 0.75rem 0',
   height: '100%',
   width: '100%',
-  gridColumn: '1 / 21',
+  gridColumn: '2 / 21',
   gridRow: '3 / 9',
   zIndex: 1,
   boxShadow: theme.shadows[1],
@@ -64,26 +65,38 @@ export default styled(BillBoard)(({ theme, active = true }) => ({
   },
 
   '@media screen and (max-height: 1230px)': {
-    gridColumn: '13 / 21',
+    gridColumn: '3 / 12',
     gridRow: '5 / 17',
-    padding: theme.Spaces.xxl + ' ' + theme.Spaces.lg,
-    transform: active ? 'translateY(0)' : 'translateY(-91%)',
+    zIndex: 1,
+    paddingLeft: theme.Spaces.xl,
+    transform: active ? 'translateX(100%)' : `translateX(${theme.Spaces.xl})`,
 
+    '@media screen and (min-width: 1180px)': {
+      gridColumn: '5 / 13',
+    },
   },
 
   '@media screen and (max-height: 1010px)': {
-    gridColumn: '13 / 21',
+    gridColumn: '4 / 13',
     gridRow: '4 / 18',
+    padding: theme.Spaces.xxl + ' ' + theme.Spaces.xl,
+    transform: active ? 'translateX(100%)' : `translateX(${theme.Spaces.xl})`,
   },
 
   '@media screen and (max-height: 960px)': {
-    gridColumn: '13 / 21',
+    gridColumn: '4 / 13',
     gridRow: '5 / 19',
   },
 
   '@media screen and (max-height: 860px)': {
-    gridColumn: '13 / 21',
+    gridColumn: '4 / 13',
     gridRow: '3 / 19',
+  },
+
+
+  '@media screen and (max-width: 1180px)': {
+    gridColumn: '5 / 13',
+    gridRow: '5 / 18',
   },
 
 }));

@@ -9,6 +9,10 @@ const StyledNoImageIcon = styled(NoImageIcon)(({ theme }) => ({
   width: '100%',
 }));
 
+const StyledImage = styled(Image)(({ theme }) => ({
+  borderRadius: '1rem',
+}));
+
 interface PhotoFrameProps extends React.HTMLAttributes<HTMLDivElement> {
   src?: string;
   alt?: string;
@@ -19,18 +23,20 @@ const PhotoFrame: React.FC<PhotoFrameProps> = ({
   alt,
   ...props
 }) => {
+
+  const [shutterOpen, setShutterOpen] = React.useState<boolean>(false);
+
   return (
     <div {...props}>
-      <Shutter open={false} />
+      <Shutter open={shutterOpen} />
       {
         src ? (
-          <Image
+          <StyledImage
             src={src}
             alt={alt || 'Photo Frame'}
             layout={'fill'}
             objectFit={'cover'}
             quality={100}
-            style={{ borderRadius: 'inherit' }}
           />
         ) : (
           <StyledNoImageIcon />
@@ -55,14 +61,10 @@ export default styled(PhotoFrame)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   boxShadow: theme.shadows[2],
-  transition: theme.Transitions.createTransition({
-    duration: 'shorter',
-    easing: 'easeIn',
-    property: 'box-shadow',
-  }),
 
-  '&:hover': {
-    boxShadow: theme.shadows[4],
+  '@media screen and (max-width: 1180px)': {
+    gridColumn: '1 / 13',
+    gridRow: '2 / 21',
   },
 
   '@media screen and (max-height: 1230px)': {

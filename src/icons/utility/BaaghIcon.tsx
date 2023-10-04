@@ -1,7 +1,7 @@
+import React from 'react';
 import { UtilityIconProps } from '@interfaces/SVGProps';
-import { styled } from '@mui/material';
+import { alpha, styled } from '@mui/material';
 import svgCommonProps from '@utils/svgCommonProps';
-import React from 'react'
 
 const BaaghIcon = ({ hovered, active, ...props }: UtilityIconProps) => {
   return (
@@ -56,6 +56,6 @@ const BaaghIcon = ({ hovered, active, ...props }: UtilityIconProps) => {
 
 export default styled(BaaghIcon)(({ theme }) => ({
   '& .bagh__body': {
-    fill: theme.Colors.slogan,
+    fill: alpha(theme.Colors.slogan, 0.33),
   },
 }));
