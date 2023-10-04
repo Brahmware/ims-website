@@ -1,19 +1,33 @@
-import { Box, BoxProps, styled } from '@mui/material';
 import React from 'react';
+import { styled } from '@mui/material';
+import ContactUs, { ContactUsProps } from '@components/ContactUs';
 
-interface ContactProps extends BoxProps {
-};
 
-const Contact: React.FC<ContactProps> = (props) => {
+const Contact: React.FC<ContactUsProps> = (props) => {
   return (
-    <Box {...props}>
-      Contact
-    </Box>
+    <ContactUs {...props} />
   )
 };
 
 export default styled(Contact)(({ theme }) => ({
   gridColumn: '1 / 10',
-  gridRow: '16 / 19',
-  border: '1px solid pink'
+  gridRow: '16 / 20',
+  height: 'max-content',
+
+  '@media screen and (max-width: 1236px)': {
+    gridRow: '17 / 20',
+    alignSelf: 'center',
+  },
+
+  '@media screen and (max-width: 1180px)': {
+    gridColumn: '10 / 16',
+    gridRow: '13 / 18',
+    alignItems: 'end',
+  },
+
+  '@media screen and (max-width: 960px)': {
+    gridColumn: '2 / 10',
+    gridRow: '8 / 9',
+    alignItems: 'start',
+  },
 }));

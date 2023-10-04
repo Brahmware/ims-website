@@ -6,23 +6,42 @@ import Subscribe from './Subscribe';
 import Contact from './Contact';
 import Privacy from './Privacy';
 import Copyright from './Copyright';
+import TechProvider from './TechProvider';
 
 const BlankTop = styled(Box)(({ theme }) => ({
   height: theme.Heights.header.default,
   width: '50%',
   marginTop: theme.Spaces.xs,
   borderBottom: '3px solid ' + theme.palette.secondary.dark,
+  marginBottom: '-3px',
+
+  '@media screen and (max-width: 1360px)': {
+    width: '43%',
+  },
+
+  '@media screen and (max-width: 960px)': {
+    display: 'none',
+  },
 }));
 
 const FooterBox = styled(Box)(({ theme }) => ({
+  minHeight: `calc(100vh - ${theme.Heights.header.default})`,
+  '@supports (height: 100dvh)': {
+    minHeight: `calc(100dvh - ${theme.Heights.header.default})`,
+  },
   height: '100%',
   width: '100%',
   maxWidth: theme.breakpoints.values.xl,
   padding: theme.Spaces.md,
   margin: '0 auto',
   display: 'grid',
-  gridTemplateColumns: 'repeat(20, 1fr)',
+  gridTemplateColumns: 'repeat(20, minmax(2rem, 1fr))',
   gridTemplateRows: 'repeat(20, 1fr)',
+
+  '@media screen and (max-width: 960px)': {
+    paddingTop: theme.Spaces.xxl,
+    gridTemplateRows: 'repeat(11, minmax(2rem, auto))',
+  },
 }));
 
 interface FooterProps extends BoxProps {
@@ -37,6 +56,7 @@ const Footer: React.FC<FooterProps> = (props) => {
         <WebMap />
         <Subscribe />
         <Contact />
+        <TechProvider />
         <Copyright />
         <Privacy />
       </FooterBox>
@@ -45,7 +65,6 @@ const Footer: React.FC<FooterProps> = (props) => {
 };
 
 export default styled(Footer)(({ theme }) => ({
-  height: '100dvh',
   width: '100%',
   backgroundColor: theme.palette.background.default,
   display: 'flex',

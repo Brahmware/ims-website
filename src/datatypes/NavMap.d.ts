@@ -6,5 +6,6 @@ export type NavItem = {
 export type NavMap = {
   title: string;
   videoUrl: string;
+  link: string;
   items: NavItem[];
 };

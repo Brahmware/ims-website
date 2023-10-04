@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { styled } from '@mui/material';
 import NavGropus from './NavGroups';
 import { MegamenuStateProvider } from '@helpers/MegamenuStateProvider';
-import { NavMap } from '@datatypes/NavMap';
 import { useNavMapContext } from '@helpers/NavMapProvider';
 
 interface MegamenuSectionProps extends React.HTMLAttributes<HTMLSelectElement> {
@@ -52,14 +51,14 @@ const Megamenu = () => {
     <MegamenuSection>
       <MegamenuStateProvider>
         {data?.map((item, index) => (
-          <Fragment key={index}>
+          <React.Fragment key={index}>
             <NavGropus
               index={index}
               title={item.title}
               videoUrl={item.videoUrl}
               items={item.items}
             />
-          </Fragment>
+          </React.Fragment>
         ))}
       </MegamenuStateProvider>
     </MegamenuSection>

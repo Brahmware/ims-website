@@ -79,7 +79,7 @@ export default styled(AdsContent)(({ theme }) => ({
   maxWidth: theme.breakpoints.values.xl,
   width: '100%',
   height: '100%',
-  padding: '0 ' + theme.Spaces.md,
+  padding: '0 ' + theme.Spaces.hecto,
 
   position: 'absolute',
   zIndex: 2,
@@ -91,6 +91,7 @@ export default styled(AdsContent)(({ theme }) => ({
 
   '@media (max-width: 1400px)': {
     alignItems: 'center',
+    padding: 0,
 
     '& > *': {
       textAlign: 'center',

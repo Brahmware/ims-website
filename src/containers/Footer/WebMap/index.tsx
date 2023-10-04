@@ -1,8 +1,10 @@
 import React from 'react';
 import { Box, BoxProps, styled } from '@mui/material';
 import { useNavMapContext } from '@helpers/NavMapProvider';
+import UnitPagegroup from './UnitPagegroup';
 
 interface WebMapProps extends BoxProps {
+  children?: React.ReactNode;
 };
 
 const WebMap: React.FC<WebMapProps> = (props) => {
@@ -14,19 +16,73 @@ const WebMap: React.FC<WebMapProps> = (props) => {
       {...props}
     >
       {data?.map((item, index) => (
-        <Box
-          component='ul'
-          key={index}
-        >
-          {item.title}
-        </Box>
+        <React.Fragment key={index}>
+          <UnitPagegroup pageGroup={item} />
+        </React.Fragment>
       ))}
     </Box>
   )
 };
 
 export default styled(WebMap)(({ theme }) => ({
+
   gridColumn: '11 / 21',
-  gridRow: '3 / 13',
-  border: '1px solid blue'
+  gridRow: '1 / 14',
+  alignSelf: 'end',
+  alignItems: 'start',
+
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gridTemplateRows: 'repeat(2, 8rem)',
+
+  '@media screen and (max-height: 1230px)': {
+    gridRow: '1 / 16',
+    alignSelf: 'center',
+  },
+
+  '@media screen and (max-height: 720px)': {
+    gridRow: '1 / 16',
+  },
+
+  '@media screen and (max-width: 1360px)': {
+    gridColumn: '13 / 21',
+    gridRow: '1 / 15',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    gridTemplateRows: 'repeat(3, 8rem)',
+  },
+
+  '@media screen and (max-width: 1180px)': {
+    gridColumn: '16 / 21',
+    gridRow: '2 / 18',
+    gridTemplateColumns: '1fr',
+    gridTemplateRows: 'unset',
+    paddingLeft: theme.Spaces.lg,
+    transform: 'translateY(0.33rem)',
+
+    '& > ul': {
+      marginBottom: '0.48rem',
+
+      '&:last-of-type': {
+        marginBottom: 0,
+      },
+    },
+  },
+
+  '@media screen and (max-width: 960px)': {
+    paddingLeft: 0,
+    transform: 'translateY(0)',
+    
+    gridColumn: '2 / 20',
+    gridRow: '4 / 5',
+
+    gridTemplateColumns: 'repeat(3, 1fr)',
+
+    border: '0.01px solid ' + theme.palette.divider,
+    '& > ul': {
+      height: '100%',
+      border: '0.01px solid ' + theme.palette.divider,
+      padding: theme.Spaces.sm,
+      backgroundColor: theme.palette.background.paper,
+    }
+  },
 }));

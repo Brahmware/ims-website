@@ -5,6 +5,7 @@ export async function GET(req: NextRequest) {
   const navMap: NavMap[] = [
     {
       title: 'Business',
+      link: '/business',
       videoUrl: '/videos/navmenu/business.webm',
       items: [
         {
@@ -27,6 +28,7 @@ export async function GET(req: NextRequest) {
     },
     {
       title: 'Media Network',
+      link: '/media-network',
       videoUrl: '/videos/navmenu/media-network.webm',
       items: [
         {
@@ -49,6 +51,7 @@ export async function GET(req: NextRequest) {
     },
     {
       title: 'Education & Teaching',
+      link: '/education-and-teaching',
       videoUrl: '/videos/navmenu/education-and-teaching.webm',
       items: [
         {
@@ -67,6 +70,7 @@ export async function GET(req: NextRequest) {
     },
     {
       title: 'Collaborators',
+      link: '/collaborators',
       videoUrl: '/videos/navmenu/collaborators.webm',
       items: [
         {
@@ -81,6 +85,7 @@ export async function GET(req: NextRequest) {
     },
     {
       title: 'Partners',
+      link: '/partners',
       videoUrl: '/videos/navmenu/partners.webm',
       items: [
         {
@@ -95,6 +100,7 @@ export async function GET(req: NextRequest) {
     },
     {
       title: 'Commercial',
+      link: '/commercial',
       videoUrl: '/videos/navmenu/commercial.webm',
       items: [
         {

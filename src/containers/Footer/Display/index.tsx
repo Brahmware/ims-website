@@ -14,13 +14,28 @@ const Display: React.FC<DisplayProps> = (props) => {
 };
 
 export default styled(Display) (({ theme }) => ({
+  position: 'relative',
+  gridColumn: '1 / 10',
+  gridRow: '1 / 16',
   height: '100%',
   width: '100%',
-  gridColumn: '1 / 10',
-  gridRow: '1 / 15',
-  border: '1px solid green',
+  maxHeight: '750px',
 
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+
+  '@media screen and (max-width: 1360px)': {
+    gridColumn: '1 / 12',
+  },
+
+  '@media screen and (max-width: 1180px)': {
+    gridRow: '1 / 14',
+    gridColumn: '1 / 16',
+  },
+
+  '@media screen and (max-width: 960px)': {
+    gridRow: '2 / 3',
+    gridColumn: '2 / 20',
+  },
 }));

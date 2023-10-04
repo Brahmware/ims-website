@@ -20,7 +20,7 @@ const Join = () => {
 
   if (isSmall) {
     return (
-      <IconButton sx={{ mx: theme.Spaces.xs }} >
+      <IconButton sx={{ mx: theme => theme.Spaces.xs }} >
         <JoinIcon sx={{ ...theme.Sizes.icon.small }} />
       </IconButton>
     )

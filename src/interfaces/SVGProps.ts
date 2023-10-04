@@ -1,17 +1,27 @@
 export default interface SVGProps extends React.SVGProps<SVGSVGElement> {
-  width?: string
-  height?: string
+  width?: string;
+  height?: string;
 };
 
 export interface IMSLogoProps extends SVGProps {
-  color?: string
-  size?: "small" | "medium" | "large"
+  color?: string;
+  size?: "small" | "medium" | "large";
+};
+
+export interface WeblabLogoProps extends SVGProps {
+  color?: string;
+  size?: "small" | "medium" | "large";
+};
+
+export interface VishwabrahmandLogoProps extends SVGProps {
+  color?: string;
+  size?: "small" | "medium" | "large";
 };
 
 export interface SocialMediaIconProps extends SVGProps {
-  color?: string
-  hovered?: boolean
-  size?: "small" | "medium" | "large"
+  color?: string;
+  hovered?: boolean;
+  size?: "small" | "medium" | "large";
 };
 
 export interface UtilityIconProps extends SVGProps {

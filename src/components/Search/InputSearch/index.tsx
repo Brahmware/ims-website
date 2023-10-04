@@ -1,5 +1,5 @@
+import React from 'react';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
-import React from 'react'
 
 const StyledInput = styled('input')(({ theme }) => ({
   padding: `${theme.Spaces.sm} ${theme.Spaces.md}`,
@@ -55,6 +55,6 @@ const InputSearch = () => {
       placeholder={`Search in ${showContractedText ? 'IMS' : 'Indian Media Syndicate'} `}
     />
   )
-}
+};
 
-export default InputSearch
+export default InputSearch;
