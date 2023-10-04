@@ -18,6 +18,10 @@ const BlankTop = styled(Box)(({ theme }) => ({
   '@media screen and (max-width: 1360px)': {
     width: '43%',
   },
+
+  '@media screen and (max-width: 960px)': {
+    display: 'none',
+  },
 }));
 
 const FooterBox = styled(Box)(({ theme }) => ({
@@ -33,6 +37,11 @@ const FooterBox = styled(Box)(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: 'repeat(20, minmax(2rem, 1fr))',
   gridTemplateRows: 'repeat(20, 1fr)',
+
+  '@media screen and (max-width: 960px)': {
+    paddingTop: theme.Spaces.xxl,
+    gridTemplateRows: 'repeat(11, minmax(2rem, auto))',
+  },
 }));
 
 interface FooterProps extends BoxProps {

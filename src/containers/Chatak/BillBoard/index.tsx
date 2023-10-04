@@ -93,10 +93,14 @@ export default styled(BillBoard)(({ theme, active = true }) => ({
     gridRow: '3 / 19',
   },
 
-
   '@media screen and (max-width: 1180px)': {
     gridColumn: '5 / 13',
     gridRow: '5 / 18',
+  },
+
+  '@media screen and (max-width: 960px)': {
+    gridRow: '3 / 19',
+    minHeight: '30rem',
   },
 
 }));

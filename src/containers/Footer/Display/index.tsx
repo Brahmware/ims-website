@@ -33,4 +33,9 @@ export default styled(Display) (({ theme }) => ({
     gridRow: '1 / 14',
     gridColumn: '1 / 16',
   },
+
+  '@media screen and (max-width: 960px)': {
+    gridRow: '2 / 3',
+    gridColumn: '2 / 20',
+  },
 }));

@@ -36,6 +36,10 @@ const StyledDivider = styled(Divider)(({ theme }) => ({
   '@media screen and (max-width: 1180px)': {
     display: 'none',
   },
+
+  '@media screen and (max-width: 960px)': {
+    display: 'flex',
+  },
 }));
 
 interface TechProviderProps extends BoxProps {
@@ -104,6 +108,15 @@ export default styled(TechProvider)(({ theme }) => ({
     justifySelf: 'start',
     alignSelf: 'end',
     flexDirection: 'column',
+    gap: theme.Spaces.xxs,
+  },
+
+  '@media screen and (max-width: 960px)': {
+    gridColumn: '2 / 20',
+    gridRow: '8 / 9',
+    justifySelf: 'end',
+    alignSelf: 'center',
+    flexDirection: 'row',
     gap: theme.Spaces.xxs,
   },
 }));

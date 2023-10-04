@@ -51,4 +51,11 @@ export default styled(Subscribe)(({ theme }) => ({
     alignItems: 'start',
   },
 
+  '@media screen and (max-width: 960px)': {
+    gridColumn: '2 / 20',
+    gridRow: '6 / 7',
+    alignItems: 'center',
+    justifySelf: 'center',
+  },
+
 }));

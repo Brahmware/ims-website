@@ -66,4 +66,11 @@ export default styled(Privacy)(({ theme }) => ({
     },
   },
 
+  '@media screen and (max-width: 960px)': {
+    gridColumn: '2 / 20',
+    gridRow: '11 / 12',
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
+
 }));

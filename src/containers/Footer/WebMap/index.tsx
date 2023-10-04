@@ -30,11 +30,11 @@ export default styled(WebMap)(({ theme }) => ({
   gridRow: '1 / 14',
   alignSelf: 'end',
   alignItems: 'start',
-  
+
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
   gridTemplateRows: 'repeat(2, 8rem)',
-  
+
   '@media screen and (max-height: 1230px)': {
     gridRow: '1 / 16',
     alignSelf: 'center',
@@ -66,5 +66,23 @@ export default styled(WebMap)(({ theme }) => ({
         marginBottom: 0,
       },
     },
+  },
+
+  '@media screen and (max-width: 960px)': {
+    paddingLeft: 0,
+    transform: 'translateY(0)',
+    
+    gridColumn: '2 / 20',
+    gridRow: '4 / 5',
+
+    gridTemplateColumns: 'repeat(3, 1fr)',
+
+    border: '0.01px solid ' + theme.palette.divider,
+    '& > ul': {
+      height: '100%',
+      border: '0.01px solid ' + theme.palette.divider,
+      padding: theme.Spaces.sm,
+      backgroundColor: theme.palette.background.paper,
+    }
   },
 }));

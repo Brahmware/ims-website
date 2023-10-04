@@ -81,4 +81,9 @@ export default styled(PhotoFrame)(({ theme }) => ({
     gridColumn: '1 / 13',
     gridRow: '1 / 21',
   },
+
+  '@media screen and (max-width: 960px)': {
+    gridColumn: '1 / 13',
+    gridRow: '1 / 21',
+  },
 }));

@@ -24,4 +24,10 @@ export default styled(Contact)(({ theme }) => ({
     gridRow: '13 / 18',
     alignItems: 'end',
   },
+
+  '@media screen and (max-width: 960px)': {
+    gridColumn: '2 / 10',
+    gridRow: '8 / 9',
+    alignItems: 'start',
+  },
 }));

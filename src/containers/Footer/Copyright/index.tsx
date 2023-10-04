@@ -16,4 +16,11 @@ export default styled(Copyright)(({ theme }) => ({
   width: '100%',
   alignSelf: 'end',
   margin: theme.Spaces.xxs + ' 0',
+
+  '@media screen and (max-width: 960px)': {
+    gridColumn: '2 / 20',
+    gridRow: '10 / 11',
+    alignSelf: 'end',
+    justifyContent: 'center',
+  },
 }));
