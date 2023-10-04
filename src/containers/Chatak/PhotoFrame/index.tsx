@@ -2,6 +2,7 @@ import NoImageIcon from '@icons/utility/NoImageIcon';
 import { styled } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
+import Shutter from './Shutter';
 
 const StyledNoImageIcon = styled(NoImageIcon)(({ theme }) => ({
   height: '20%',
@@ -20,6 +21,7 @@ const PhotoFrame: React.FC<PhotoFrameProps> = ({
 }) => {
   return (
     <div {...props}>
+      <Shutter open={false} />
       {
         src ? (
           <Image
@@ -66,12 +68,12 @@ export default styled(PhotoFrame)(({ theme }) => ({
     gridColumn: '1 / 13',
     gridRow: '3 / 19',
   },
-  
+
   '@media screen and (max-height: 960px)': {
     gridColumn: '1 / 13',
     gridRow: '3 / 21',
   },
-  
+
   '@media screen and (max-height: 860px)': {
     gridColumn: '1 / 13',
     gridRow: '1 / 21',
