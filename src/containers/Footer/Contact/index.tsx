@@ -26,8 +26,15 @@ export default styled(Contact)(({ theme }) => ({
   },
 
   '@media screen and (max-width: 960px)': {
-    gridColumn: '2 / 10',
-    gridRow: '8 / 9',
+    gridColumn: '1 / 10',
+    gridRow: '7 / 8',
     alignItems: 'start',
+  },
+
+  '@media screen and (max-width: 840px)': {
+    gridColumn: '1 / 21',
+    gridRow: '9 / 10',
+    justifySelf: 'center',
+    alignItems: 'center',
   },
 }));

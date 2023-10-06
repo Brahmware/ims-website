@@ -35,7 +35,11 @@ export default styled(Display) (({ theme }) => ({
   },
 
   '@media screen and (max-width: 960px)': {
-    gridRow: '2 / 3',
-    gridColumn: '2 / 20',
+    gridRow: '1 / 2',
+    gridColumn: '1 / 21',
+  },
+
+  '@media screen and (max-width: 740px)': {
+    gridColumn: '1 / 21',
   },
 }));

@@ -112,11 +112,17 @@ export default styled(TechProvider)(({ theme }) => ({
   },
 
   '@media screen and (max-width: 960px)': {
-    gridColumn: '2 / 20',
-    gridRow: '8 / 9',
+    gridColumn: '11 / 21',
+    gridRow: '7 / 8',
     justifySelf: 'end',
     alignSelf: 'center',
     flexDirection: 'row',
     gap: theme.Spaces.xxs,
+  },
+
+  '@media screen and (max-width: 840px)': {
+    gridColumn: '1 / 21',
+    gridRow: '7 / 8',
+    justifySelf: 'center',
   },
 }));

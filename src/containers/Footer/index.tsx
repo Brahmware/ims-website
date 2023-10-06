@@ -39,8 +39,13 @@ const FooterBox = styled(Box)(({ theme }) => ({
   gridTemplateRows: 'repeat(20, 1fr)',
 
   '@media screen and (max-width: 960px)': {
+    marginTop: theme.Spaces.xxl,
     paddingTop: theme.Spaces.xxl,
-    gridTemplateRows: 'repeat(11, minmax(2rem, auto))',
+    gridTemplateRows: 'repeat(10, minmax(2rem, auto))',
+  },
+
+  '@media screen and (max-width: 840px)': {
+    gridTemplateRows: 'repeat(12, minmax(2rem, auto))',
   },
 }));
 
@@ -55,10 +60,10 @@ const Footer: React.FC<FooterProps> = (props) => {
         <Display />
         <WebMap />
         <Subscribe />
-        <Contact />
         <TechProvider />
-        <Copyright />
+        <Contact />
         <Privacy />
+        <Copyright />
       </FooterBox>
     </Box>
   )

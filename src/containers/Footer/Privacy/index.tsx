@@ -67,7 +67,14 @@ export default styled(Privacy)(({ theme }) => ({
   },
 
   '@media screen and (max-width: 960px)': {
-    gridColumn: '2 / 20',
+    gridColumn: '1 / 21',
+    gridRow: '9 / 10',
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
+
+  '@media screen and (max-width: 840px)': {
+    gridColumn: '1 / 21',
     gridRow: '11 / 12',
     justifyContent: 'center',
     alignSelf: 'center',
