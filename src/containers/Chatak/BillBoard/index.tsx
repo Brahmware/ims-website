@@ -103,4 +103,27 @@ export default styled(BillBoard)(({ theme, active = true }) => ({
     minHeight: '30rem',
   },
 
+  '@media screen and (max-width: 760px)': {
+    borderRadius: '0 0 0.75rem 0.75rem',
+    gridColumn: '2 / 20',
+    gridRow: '15 / 21',
+    transform: active ? 'translate(0, 0)' : `translate(0, -90%)`,
+    minHeight: 'unset',
+  },
+
+  '@media screen and (max-width: 510px)': {
+    gridRow: '14 / 21',
+  },
+
+  '@media screen and (max-width: 470px)': {
+    gridRow: '13 / 21',
+  },
+
+  '@media screen and (max-width: 420px)': {
+    gridRow: '12 / 21',
+  },
+
+  '@media screen and (max-width: 400px)': {
+    gridRow: '11 / 21',
+  },
 }));

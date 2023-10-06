@@ -10,6 +10,11 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   alignItems: 'start',
   justifyContent: 'end',
+
+  '@media screen and (max-width: 510px)': {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 }));
 
 const StyledTitleText = styled(TitleText)(({ theme }) => ({
@@ -39,6 +44,10 @@ const StyledDivider = styled(Divider)(({ theme }) => ({
 
   '@media screen and (max-width: 960px)': {
     display: 'flex',
+  },
+
+  '@media screen and (max-width: 510px)': {
+    display: 'none',
   },
 }));
 
@@ -112,11 +121,25 @@ export default styled(TechProvider)(({ theme }) => ({
   },
 
   '@media screen and (max-width: 960px)': {
-    gridColumn: '2 / 20',
-    gridRow: '8 / 9',
+    gridColumn: '11 / 21',
+    gridRow: '7 / 8',
     justifySelf: 'end',
     alignSelf: 'center',
     flexDirection: 'row',
+    gap: theme.Spaces.xxs,
+  },
+
+  '@media screen and (max-width: 840px)': {
+    gridColumn: '1 / 21',
+    gridRow: '7 / 8',
+    justifySelf: 'center',
+  },
+
+  '@media screen and (max-width: 510px)': {
+    justifySelf: 'center',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
     gap: theme.Spaces.xxs,
   },
 }));

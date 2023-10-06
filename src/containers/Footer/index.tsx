@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, BoxProps, styled } from '@mui/material';
+import { Box, BoxProps, Divider, styled } from '@mui/material';
 import Display from './Display';
 import WebMap from './WebMap';
 import Subscribe from './Subscribe';
@@ -39,8 +39,34 @@ const FooterBox = styled(Box)(({ theme }) => ({
   gridTemplateRows: 'repeat(20, 1fr)',
 
   '@media screen and (max-width: 960px)': {
+    marginTop: theme.Spaces.xxl,
     paddingTop: theme.Spaces.xxl,
     gridTemplateRows: 'repeat(11, minmax(2rem, auto))',
+  },
+
+  '@media screen and (max-width: 840px)': {
+    gridTemplateColumns: 'repeat(20, minmax(0.5rem, 1fr))',
+    gridTemplateRows: 'repeat(13, minmax(2rem, auto))',
+  },
+}));
+
+const StyledDivider = styled(Divider)(({ theme }) => ({
+  display: 'none',
+  width: '100%',
+  height: '0.01px',
+  backgroundColor: theme.palette.divider,
+  margin: '0 auto',
+  alignSelf: 'center',
+
+  '@media screen and (max-width: 960px)': {
+    display: 'flex',
+    gridColumn: '10 / 12',
+    gridRow: '10 / 11',
+  },
+
+  '@media screen and (max-width: 840px)': {
+    gridColumn: '9 / 13',
+    gridRow: '12 / 13',
   },
 }));
 
@@ -55,10 +81,11 @@ const Footer: React.FC<FooterProps> = (props) => {
         <Display />
         <WebMap />
         <Subscribe />
-        <Contact />
         <TechProvider />
-        <Copyright />
+        <Contact />
         <Privacy />
+        <StyledDivider />
+        <Copyright />
       </FooterBox>
     </Box>
   )

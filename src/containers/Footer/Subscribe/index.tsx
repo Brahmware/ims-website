@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, BoxProps, styled } from '@mui/material';
+import { Box, BoxProps, Divider, styled } from '@mui/material';
 import InputSubscription from './InputSubscription';
 import ButtonSubscription from './ButtonSubscription';
 
@@ -10,6 +10,28 @@ const SubscribeWrapper = styled(Box)<BoxProps>(({ theme }) => ({
   position: 'relative',
   margin: 0,
   padding: 0,
+
+  '@media screen and (max-width: 510px)': {
+    width: '100%'
+  },
+}));
+
+const StyledDivider = styled(Divider)(({ theme }) => ({
+  display: 'none',
+  width: '100%',
+  height: '0.01px',
+  backgroundColor: theme.palette.divider,
+  margin: '0 auto',
+  marginTop: theme.Spaces.lg,
+  marginBottom: theme.Spaces.lg,
+
+  '@media screen and (max-width: 960px)': {
+    display: 'flex',
+    gridColumn: '1 / 21',
+    gridRow: '5 / 6',
+    marginTop: theme.Spaces.xl,
+    marginBottom: theme.Spaces.xl,
+  },
 }));
 
 interface SubscribeProps extends BoxProps {
@@ -18,12 +40,15 @@ interface SubscribeProps extends BoxProps {
 
 const Subscribe: React.FC<SubscribeProps> = (props) => {
   return (
-    <Box {...props}>
-      <SubscribeWrapper>
-        <InputSubscription />
-        <ButtonSubscription />
-      </SubscribeWrapper>
-    </Box>
+    <React.Fragment>
+      <Box {...props}>
+        <SubscribeWrapper>
+          <InputSubscription />
+          <ButtonSubscription />
+        </SubscribeWrapper>
+      </Box>
+      <StyledDivider />
+    </React.Fragment>
   )
 };
 
@@ -52,10 +77,15 @@ export default styled(Subscribe)(({ theme }) => ({
   },
 
   '@media screen and (max-width: 960px)': {
-    gridColumn: '2 / 20',
-    gridRow: '6 / 7',
+    gridColumn: '1 / 21',
+    gridRow: '5 / 6',
     alignItems: 'center',
     justifySelf: 'center',
+  },
+
+  '@media screen and (max-width: 510px)': {
+    width: '100%',
+    justifyContent: 'center',
   },
 
 }));

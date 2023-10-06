@@ -18,8 +18,15 @@ export default styled(Copyright)(({ theme }) => ({
   margin: theme.Spaces.xxs + ' 0',
 
   '@media screen and (max-width: 960px)': {
-    gridColumn: '2 / 20',
-    gridRow: '10 / 11',
+    gridColumn: '1 / 21',
+    gridRow: '11 / 12',
+    alignSelf: 'end',
+    justifyContent: 'center',
+  },
+
+  '@media screen and (max-width: 840px)': {
+    gridColumn: '1 / 21',
+    gridRow: '13 / 14',
     alignSelf: 'end',
     justifyContent: 'center',
   },

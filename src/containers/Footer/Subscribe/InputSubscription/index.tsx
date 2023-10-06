@@ -38,4 +38,8 @@ export default styled(InputSubscription)(({ theme }) => ({
   '@media screen and (max-width: 1360px)': {
     width: '28rem',
   },
+
+  '@media screen and (max-width: 510px)': {
+    width: '100%',
+  },
 }));

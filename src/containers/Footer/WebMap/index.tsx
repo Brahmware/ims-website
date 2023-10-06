@@ -72,8 +72,8 @@ export default styled(WebMap)(({ theme }) => ({
     paddingLeft: 0,
     transform: 'translateY(0)',
     
-    gridColumn: '2 / 20',
-    gridRow: '4 / 5',
+    gridColumn: '1 / 21',
+    gridRow: '3 / 4',
 
     gridTemplateColumns: 'repeat(3, 1fr)',
 
@@ -83,6 +83,30 @@ export default styled(WebMap)(({ theme }) => ({
       border: '0.01px solid ' + theme.palette.divider,
       padding: theme.Spaces.sm,
       backgroundColor: theme.palette.background.paper,
+    }
+  },
+
+  '@media screen and (max-width: 700px)': {
+    gridTemplateColumns: 'repeat(2, 1fr)',
+  },
+
+  '@media screen and (max-width: 510px)': {
+    gridTemplateColumns: '1fr',
+  },
+
+  '@media screen and (max-width: 426px)': {
+    border: 0,
+    justifyContent: 'center',
+    '& > ul': {
+      border: 0,
+      padding: 0,
+      backgroundColor: 'transparent',
+      textAlign: 'center',
+      paddingBottom: theme.Spaces.sm,
+
+      '&:last-of-type': {
+        paddingBottom: 0,
+      },
     }
   },
 }));

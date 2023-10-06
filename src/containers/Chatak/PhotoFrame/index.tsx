@@ -86,4 +86,29 @@ export default styled(PhotoFrame)(({ theme }) => ({
     gridColumn: '1 / 13',
     gridRow: '1 / 21',
   },
+
+  '@media screen and (max-width: 760px)': {
+    gridColumn: '1 / 21',
+    gridRow: '1 / 15',
+  },
+
+  '@media screen and (max-width: 510px)': {
+    gridColumn: '1 / 21',
+    gridRow: '1 / 14',
+  },
+
+  '@media screen and (max-width: 470px)': {
+    gridColumn: '1 / 21',
+    gridRow: '1 / 13',
+  },
+
+  '@media screen and (max-width: 420px)': {
+    gridColumn: '1 / 21',
+    gridRow: '1 / 12',
+  },
+
+  '@media screen and (max-width: 400px)': {
+    gridColumn: '1 / 21',
+    gridRow: '1 / 11',
+  },
 }));

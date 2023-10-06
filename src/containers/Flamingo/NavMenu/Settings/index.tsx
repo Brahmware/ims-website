@@ -28,7 +28,7 @@ const SettingsSection = styled('section')(({ theme }) => ({
   '@media (max-width: 440px)': {
     gridColumn: '1 / 25',
     gridRow: '22 / 23',
-    justifyContent: 'start',
+    justifyContent: 'center',
   }
 }));
 
