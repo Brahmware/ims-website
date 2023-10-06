@@ -19,14 +19,14 @@ export default styled(Copyright)(({ theme }) => ({
 
   '@media screen and (max-width: 960px)': {
     gridColumn: '1 / 21',
-    gridRow: '10 / 11',
+    gridRow: '11 / 12',
     alignSelf: 'end',
     justifyContent: 'center',
   },
 
   '@media screen and (max-width: 840px)': {
     gridColumn: '1 / 21',
-    gridRow: '12 / 13',
+    gridRow: '13 / 14',
     alignSelf: 'end',
     justifyContent: 'center',
   },

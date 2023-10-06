@@ -40,5 +40,6 @@ export default styled(Contact)(({ theme }) => ({
     gridColumn: '1 / 25',
     gridRow: ' 19 / 21',
     justifyContent: 'start',
+    alignItems: 'center',
   }
 }));

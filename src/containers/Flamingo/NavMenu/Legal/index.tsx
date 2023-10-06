@@ -35,6 +35,10 @@ const LegalSection = styled('section')(({ theme }) => ({
     gridRow: '24 / 25',
     justifyContent: 'start',
   },
+
+  '@media (max-width: 440px)': {
+    justifyContent: 'center',
+  }
 }));
 
 const Legal = () => {

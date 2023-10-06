@@ -39,7 +39,17 @@ export default styled(Display) (({ theme }) => ({
     gridColumn: '1 / 21',
   },
 
-  '@media screen and (max-width: 740px)': {
+  '@media screen and (max-width: 760px)': {
+    gridColumn: '3 / 19',
+    maxHeight: 'none',
+  },
+
+  '@media screen and (max-width: 700px)': {
+    gridColumn: '2 / 20',
+  },
+
+  '@media screen and (max-width: 600px)': {
     gridColumn: '1 / 21',
   },
+  
 }));

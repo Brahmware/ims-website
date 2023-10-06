@@ -89,4 +89,24 @@ export default styled(WebMap)(({ theme }) => ({
   '@media screen and (max-width: 700px)': {
     gridTemplateColumns: 'repeat(2, 1fr)',
   },
+
+  '@media screen and (max-width: 510px)': {
+    gridTemplateColumns: '1fr',
+  },
+
+  '@media screen and (max-width: 426px)': {
+    border: 0,
+    justifyContent: 'center',
+    '& > ul': {
+      border: 0,
+      padding: 0,
+      backgroundColor: 'transparent',
+      textAlign: 'center',
+      paddingBottom: theme.Spaces.sm,
+
+      '&:last-of-type': {
+        paddingBottom: 0,
+      },
+    }
+  },
 }));

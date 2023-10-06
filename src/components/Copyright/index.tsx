@@ -10,6 +10,10 @@ const CopyRightText = styled(Typography)<CopyrightTextProps>(({ theme }) => ({
   '@media (max-width: 580px)': {
     whiteSpace: 'unset',
   },
+
+  '@media screen and (max-width: 510px)': {
+    textAlign: 'center',
+  },
 }));
 
 const CopyrightYear = styled('span')(({ theme }) => ({

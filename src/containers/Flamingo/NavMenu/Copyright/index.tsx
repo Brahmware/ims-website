@@ -19,4 +19,9 @@ export default styled(Copyright) (({ theme }) => ({
   '& *': {
     textShadow: `${alpha(theme.Colors.black, 0.25)} 1px 0 10px`,
   },
+
+  '@media screen and (max-width: 440px)': {
+    gridColumn: '1 / 25',
+    justifySelf: 'center',
+  },
 }));

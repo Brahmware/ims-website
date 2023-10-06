@@ -71,6 +71,7 @@ export default styled(Privacy)(({ theme }) => ({
     gridRow: '9 / 10',
     justifyContent: 'center',
     alignSelf: 'center',
+    marginTop: 0,
   },
 
   '@media screen and (max-width: 840px)': {

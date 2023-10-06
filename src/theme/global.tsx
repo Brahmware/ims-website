@@ -32,7 +32,7 @@ const GlobalStyles = () => {
           
           '@media(max-width: 510px)': {
             'h1': {
-              fontSize: '2em !important',
+              fontSize: '1.5em !important',
               lineHeight: '1.25em !important',
             },
           },
