@@ -13,7 +13,7 @@ const NavList = ({ items, ...props }: NavListProps) => {
       {...props}
       className={props.className + ' nav__item'}
     >
-      {items.map(({ title, link }, index) => (
+      {items?.map(({ title, link }, index) => (
         <GroupItem
           key={index}
           title={title}
