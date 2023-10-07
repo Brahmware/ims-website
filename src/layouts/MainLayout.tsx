@@ -6,6 +6,7 @@ import NavMenu from '@containers/Flamingo/NavMenu';
 import { styled } from '@mui/material';
 import Footer from '@containers/Footer';
 import { NavMapProvider } from '@helpers/NavMapProvider';
+import Paankouri from '@containers/Paankouri';
 
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children, ...props }) => {
@@ -15,7 +16,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, ...props }) => {
         <Navbar />
         <NavMenu />
         <main {...props}>
-          {children}
+          <Paankouri>
+            {children}
+          </Paankouri>
         </main>
         <Footer />
       </NavigationMenuStateProvider>

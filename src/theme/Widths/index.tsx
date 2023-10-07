@@ -5,7 +5,9 @@ export interface Widths {
     linkHomeSmall: string;
     hamburger: string;
   };
-
+  donationPanel: {
+    width: string;
+  };
 };
 
 export const widths: Widths = {
@@ -14,5 +16,8 @@ export const widths: Widths = {
     linkHomeMedium: '10em',
     linkHomeSmall: '3.5em',
     hamburger: '1.5rem',
+  },
+  donationPanel: {
+    width: '25rem',
   },
 };
