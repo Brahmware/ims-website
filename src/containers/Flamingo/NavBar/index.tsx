@@ -78,7 +78,7 @@ const Navbar: FC = () => {
       open={isOpen}
     >
       <BarContent className='bar-content'>
-        <LinkHome />
+        <LinkHome onClick={() => setIsOpen(false)} />
         <ShowLive />
         <Toolbar />
       </BarContent>

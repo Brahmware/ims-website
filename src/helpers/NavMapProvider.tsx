@@ -15,7 +15,7 @@ interface NavMapProviderProps {
 }
 
 export const NavMapProvider: React.FC<NavMapProviderProps> = ({ children }) => {
-  const [data, setData] = React.useState<NavMap[]>();
+  const [data, setData] = React.useState<NavMap[]>([]);
 
   const fetchData = React.useCallback(async () => {
     const response = await fetch('/api/website/navigation-map');

@@ -9,6 +9,10 @@ const StyledLink = styled(Link)(({ theme }) => ({
   '&:first-of-type': {
     marginLeft: 0,
   },
+
+  '@media screen and (max-width: 960px)': {
+    margin: theme.Spaces.xxs + ' ' + theme.Spaces.xs,
+  },
 }));
 
 interface PrivacyProps extends BoxProps {
@@ -80,5 +84,4 @@ export default styled(Privacy)(({ theme }) => ({
     justifyContent: 'center',
     alignSelf: 'center',
   },
-
 }));

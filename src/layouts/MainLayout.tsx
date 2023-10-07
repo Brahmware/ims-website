@@ -7,10 +7,6 @@ import { styled } from '@mui/material';
 import Footer from '@containers/Footer';
 import { NavMapProvider } from '@helpers/NavMapProvider';
 
-const StyledMain = styled('main')<MainLayoutProps>(({ theme }) => ({
-  width: '100%',
-  height: '100%',
-}));
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children, ...props }) => {
   return (
@@ -18,13 +14,16 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, ...props }) => {
       <NavigationMenuStateProvider>
         <Navbar />
         <NavMenu />
-        <StyledMain {...props}>
+        <main {...props}>
           {children}
-        </StyledMain>
+        </main>
         <Footer />
       </NavigationMenuStateProvider>
     </NavMapProvider>
   )
 };
 
-export default MainLayout;
+export default styled(MainLayout)(({ theme }) => ({
+  width: '100%',
+  height: '100%',
+}));

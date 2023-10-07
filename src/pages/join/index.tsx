@@ -9,9 +9,7 @@ const Join: NextPage = () => {
       <Head>
         <title>Join IMS : Indian Media Syndicate</title>
       </Head>
-      <MainLayout>
-        <h1>Join</h1>
-      </MainLayout>
+      <h1>Join</h1>
     </React.Fragment>
   );
 };

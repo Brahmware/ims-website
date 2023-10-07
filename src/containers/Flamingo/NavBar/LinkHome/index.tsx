@@ -1,11 +1,30 @@
 import { styled, useMediaQuery, useTheme } from '@mui/material';
-import Link from 'next/link';
+import Link, { LinkProps } from 'next/link';
 import React from 'react';
 import IMSLogoFull from '@icons/logo/IMSLogoFull';
 import IMSLogoMedium from '@icons/logo/IMSLogoMedium';
 import IMSLogoSmall from '@icons/logo/IMSLogoSmall';
 
-const Logo = styled(Link)(({ theme }) => ({
+interface LinkHomeProps extends Omit<LinkProps, 'href'> {
+  children?: React.ReactNode;
+};
+
+const LinkHome: React.FC<LinkHomeProps> = (props) => {
+
+  return (
+    <Link
+      {...props}
+      href="/"
+      scroll
+    >
+      <IMSLogoFull />
+      <IMSLogoMedium />
+      <IMSLogoSmall />
+    </Link>
+  )
+}
+
+export default styled(LinkHome)(({ theme }) => ({
   width: theme.Widths.navbar.linkHome,
   height: '100%',
   display: 'flex',
@@ -19,21 +38,5 @@ const Logo = styled(Link)(({ theme }) => ({
 
   '@media (max-width: 765px)': {
     width: theme.Widths.navbar.linkHomeSmall,
-  }
+  },
 }));
-
-const LinkHome = () => {
-
-  return (
-    <Logo
-      href="/"
-      scroll
-    >
-      <IMSLogoFull />
-      <IMSLogoMedium />
-      <IMSLogoSmall />
-    </Logo>
-  )
-}
-
-export default LinkHome

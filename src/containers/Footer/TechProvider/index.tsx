@@ -47,7 +47,10 @@ const StyledDivider = styled(Divider)(({ theme }) => ({
   },
 
   '@media screen and (max-width: 510px)': {
-    display: 'none',
+    height: '1px',
+    width: '1rem',
+    backgroundColor: theme.palette.divider,
+    margin: theme.Spaces.xxs + ' 0'
   },
 }));
 
