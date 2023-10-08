@@ -1,6 +1,8 @@
 import React from 'react';
 import WorldButton from './WorldButton';
 import DonationtPanel from './DonationPanel';
+import BackgroundVeil from './BackgroundVeil';
+
 
 interface PaankouriProps {
   children: React.ReactNode;
@@ -17,6 +19,10 @@ const Paankouri: React.FC<PaankouriProps> = ({ children }) => {
         onClick={() => setIsDonationtPanelOpen(!isDonationtPanelOpen)}
       />
       <DonationtPanel isDonationPanelOpen={isDonationtPanelOpen} />
+      <BackgroundVeil
+        isDonationPanelOpen={isDonationtPanelOpen}
+        onClick={() => setIsDonationtPanelOpen(false)}
+      />
     </React.Fragment>
   )
 };

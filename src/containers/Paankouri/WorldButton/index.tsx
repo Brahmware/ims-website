@@ -3,12 +3,13 @@ import IconButton from '@components/Button/IconButton';
 import { IconButtonProps } from '@interfaces/ButtonProps';
 import { styled } from '@mui/material';
 import FistIcon from '@icons/utility/FistIcon';
-import CloseIcon from '@icons/utility/CloseIcon';
+import ArrowheadRightIcon from '@icons/utility/ArrowheadRightIcon';
 
-const StyledCloseIcon = styled(CloseIcon)(({ theme }) => ({
+const StyledArrowheadRightIcon = styled(ArrowheadRightIcon)(({ theme }) => ({
   width: '100%',
   height: '100%',
-  margin: theme.Spaces.lg,
+  transform: 'translateX(0.125rem)',
+  margin: theme.Spaces.md,
 }));
 
 const StyledVideo = styled('video')(({ theme }) => ({
@@ -36,7 +37,7 @@ const WorldButton: React.FC<WorldButtonProps> = ({ isDonationPanelOpen, ...props
       {
         isDonationPanelOpen ?
           (
-            <StyledCloseIcon />
+            <StyledArrowheadRightIcon />
           ) : (
             <React.Fragment>
               <StyledFistIcon />
@@ -98,17 +99,17 @@ export default styled(WorldButton)(({ theme, isDonationPanelOpen = false }) => (
   borderRadius: '50%',
   overflow: 'hidden',
   padding: 0,
-  backgroundColor: isDonationPanelOpen ? 
-    (theme.palette.error.main + ' !important') : 
+  backgroundColor: isDonationPanelOpen ?
+    (theme.palette.error.main + ' !important') :
     (theme.palette.background.paper + ' !important')
   ,
-  
+
   '&:hover': {
     boxShadow: theme.shadows[3],
   },
 
   transform: !isDonationPanelOpen ?
     'scale(1)' :
-    'scale(0.6)'
+    'scale(0.65)'
   ,
 }));

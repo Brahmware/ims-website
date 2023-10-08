@@ -18,6 +18,6 @@ export const widths: Widths = {
     hamburger: '1.5rem',
   },
   donationPanel: {
-    width: '25rem',
+    width: '32rem',
   },
 };
