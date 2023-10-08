@@ -3,6 +3,13 @@ import IconButton from '@components/Button/IconButton';
 import { IconButtonProps } from '@interfaces/ButtonProps';
 import { styled } from '@mui/material';
 import FistIcon from '@icons/utility/FistIcon';
+import CloseIcon from '@icons/utility/CloseIcon';
+
+const StyledCloseIcon = styled(CloseIcon)(({ theme }) => ({
+  width: '100%',
+  height: '100%',
+  margin: theme.Spaces.lg,
+}));
 
 const StyledVideo = styled('video')(({ theme }) => ({
   width: '103%',
@@ -24,15 +31,25 @@ const WorldButton: React.FC<WorldButtonProps> = ({ isDonationPanelOpen, ...props
   return (
     <IconButton
       {...props}
+      flippedTheme
     >
-      <StyledFistIcon />
-      <StyledVideo
-        autoPlay
-        muted
-        loop
-      >
-        <source src={'/videos/paankouri/world.webm'} type="video/webm" />
-      </StyledVideo>
+      {
+        isDonationPanelOpen ?
+          (
+            <StyledCloseIcon />
+          ) : (
+            <React.Fragment>
+              <StyledFistIcon />
+              <StyledVideo
+                autoPlay
+                muted
+                loop
+              >
+                <source src={'/videos/paankouri/world.webm'} type="video/webm" />
+              </StyledVideo>
+            </React.Fragment>
+          )
+      }
     </IconButton>
   )
 };
@@ -40,12 +57,11 @@ const WorldButton: React.FC<WorldButtonProps> = ({ isDonationPanelOpen, ...props
 export default styled(WorldButton)(({ theme, isDonationPanelOpen = false }) => ({
   position: 'fixed',
   bottom: theme.Spaces.hecto,
-  right:
-    !isDonationPanelOpen ?
-      `calc(${theme.Spaces.xl} - ${theme.Spaces.xxs})` :
-      `calc(${theme.Spaces.xl} + ${theme.Widths.donationPanel.width} - ${theme.Spaces.xxs})`
+  right: !isDonationPanelOpen ?
+    `calc(${theme.Spaces.xl} - ${theme.Spaces.xxs})` :
+    `calc(${theme.Widths.donationPanel.width} - ${theme.Spaces.xxl})`
   ,
-  zIndex: theme.Shadows.low.zIndex - 2,
+  zIndex: theme.Shadows.low.zIndex - 1,
   boxShadow: theme.shadows[5],
   transition: theme.Transitions.createTransition(
     [
@@ -55,20 +71,44 @@ export default styled(WorldButton)(({ theme, isDonationPanelOpen = false }) => (
         easing: 'easeIn'
       },
       {
+        property: 'bottom',
+        duration: 'short',
+        easing: 'easeIn'
+      },
+      {
         property: 'right',
+        duration: 'short',
+        easing: 'easeIn'
+      },
+      {
+        property: 'transform',
+        duration: 'short',
+        easing: 'easeIn'
+      },
+      {
+        property: 'background-color',
         duration: 'short',
         easing: 'easeIn'
       }
     ]
   ),
 
-  '&:hover': {
-    boxShadow: theme.shadows[3],
-  },
-
   height: '5rem',
   width: '5rem',
   borderRadius: '50%',
   overflow: 'hidden',
   padding: 0,
+  backgroundColor: isDonationPanelOpen ? 
+    (theme.palette.error.main + ' !important') : 
+    (theme.palette.background.paper + ' !important')
+  ,
+  
+  '&:hover': {
+    boxShadow: theme.shadows[3],
+  },
+
+  transform: !isDonationPanelOpen ?
+    'scale(1)' :
+    'scale(0.6)'
+  ,
 }));
