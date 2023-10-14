@@ -9,7 +9,8 @@ const ContainedButton: React.FC<ContainedButtonProps> = ({ children, color, flip
       {children}
     </Button>
   )
-}
+};
+
 export default styled(ContainedButton)(({ theme, color = 'primary', flipped = false }) => ({
   padding: `${theme.Spaces.sm} ${theme.Spaces.lg}`,
   textTransform: 'uppercase',
